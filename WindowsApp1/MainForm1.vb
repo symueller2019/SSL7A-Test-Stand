@@ -15,6 +15,7 @@ Public Class MainForm1
         lblTime.Text = TimeOfDay
         lblSerialNum.Text = DateTime.Now.ToFileTime
 
+        'test for github
     End Sub
 
     Private Sub btnFullTestSuite_Click(sender As Object, e As EventArgs) Handles btnFullTestSuite.Click
