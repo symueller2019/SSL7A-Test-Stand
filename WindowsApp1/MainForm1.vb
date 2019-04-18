@@ -2,20 +2,100 @@
 
 Public Class MainForm1
     Private Sub btnPress_Click(sender As Object, e As EventArgs) Handles btnPress.Click
-        lblDisplay.Text = "Hello World"
-        'frmStability.Show()
-        MessageBox.Show("Hello")
-        If MsgBox("Are You Sure?", MsgBoxStyle.YesNo, "Delete") = MsgBoxResult.Yes Then
-            lblDisplay.Text = "YES"
 
-        Else lblDisplay.Text = "NO"
-        End If
+        'DialogResult = MessageBox.Show("New Test?", "Run Test", MessageBoxButtons.YesNoCancel)
+        'If DialogResult = DialogResult.Yes Then
+        '    MessageBox.Show("Yes pressed")
+        'ElseIf DialogResult = DialogResult.No Then
+        '    MessageBox.Show("No pressed")
+        'ElseIf DialogResult = DialogResult.Cancel Then
+        '    MessageBox.Show("Cancel pressed", "MessageBox Title", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        'End If
+
+        frmFileRead.Show()
+        While Index = 0
+            'My.Application.DoEvents()
+            System.Windows.Forms.Application.DoEvents()
+        End While
 
         lblDate.Text = DateTime.Now.Date      'DateTime.Today.ToLongTimeString
         lblTime.Text = TimeOfDay
         lblSerialNum.Text = DateTime.Now.ToFileTime
 
-        'test for github
+        tbxConfigFile.Text = FileLoc_Config
+
+        'display test info - Rated Load
+        tbxWattage.Text = WattageSelection(Index)
+        tbxLPF_Res.Text = LPF_Res(Index)
+        tbxLPF_Cap.Text = LPF_Cap(Index)
+        tbxHPF_Res.Text = HPF_Res(Index)
+
+        'display test info - Min Load
+        tbxMinWattage.Text = MinWattageSelection(MinIndex)
+        tbxMinLPF_Res.Text = MinLPF_Res(MinIndex)
+        tbxMinLPF_Cap.Text = MinLPF_Cap(MinIndex)
+        tbxMinHPF_Res.Text = MinHPF_Res(MinIndex)
+
+        'Init textboxs
+        tbxLPF_ResRelays.Text = ""
+        tbxLPF_CapRelays.Text = ""
+        tbxHPF_ResRelays.Text = ""
+        '***** Min Loads *****
+        tbxMinLPF_ResRelays.Text = ""
+        tbxMinLPF_CapRelays.Text = ""
+        tbxMinHPF_ResRelays.Text = ""
+
+        'display Relay connections
+        '******************* Rated Load ****************
+        For x = 1 To LPF_ResRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxLPF_ResRelays.Text = "" Then
+                tbxLPF_ResRelays.Text = tbxLPF_ResRelays.Text & LPF_ResRelays(x)
+            Else
+                tbxLPF_ResRelays.Text = tbxLPF_ResRelays.Text & "," & LPF_ResRelays(x)
+            End If
+        Next
+
+        For x = 1 To LPF_CapRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxLPF_CapRelays.Text = "" Then
+                tbxLPF_CapRelays.Text = tbxLPF_CapRelays.Text & LPF_CapRelays(x)
+            Else
+                tbxLPF_CapRelays.Text = tbxLPF_CapRelays.Text & "," & LPF_CapRelays(x)
+            End If
+        Next
+
+        For x = 1 To HPF_ResRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxHPF_ResRelays.Text = "" Then
+                tbxHPF_ResRelays.Text = tbxHPF_ResRelays.Text & HPF_ResRelays(x)
+            Else
+                tbxHPF_ResRelays.Text = tbxHPF_ResRelays.Text & "," & HPF_ResRelays(x)
+            End If
+        Next
+
+        '******************* Minimum Load ****************
+        For x = 1 To MinLPF_ResRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxMinLPF_ResRelays.Text = "" Then
+                tbxMinLPF_ResRelays.Text = tbxMinLPF_ResRelays.Text & MinLPF_ResRelays(x)
+            Else
+                tbxMinLPF_ResRelays.Text = tbxMinLPF_ResRelays.Text & "," & MinLPF_ResRelays(x)
+            End If
+        Next
+
+        For x = 1 To MinLPF_CapRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxMinLPF_CapRelays.Text = "" Then
+                tbxMinLPF_CapRelays.Text = tbxMinLPF_CapRelays.Text & MinLPF_CapRelays(x)
+            Else
+                tbxMinLPF_CapRelays.Text = tbxMinLPF_CapRelays.Text & "," & MinLPF_CapRelays(x)
+            End If
+        Next
+
+        For x = 1 To MinHPF_ResRelays.Length - 1    'start with "1" to skip Identifier
+            If tbxMinHPF_ResRelays.Text = "" Then
+                tbxMinHPF_ResRelays.Text = tbxMinHPF_ResRelays.Text & MinHPF_ResRelays(x)
+            Else
+                tbxMinHPF_ResRelays.Text = tbxMinHPF_ResRelays.Text & "," & MinHPF_ResRelays(x)
+            End If
+        Next
+
     End Sub
 
     Private Sub btnFullTestSuite_Click(sender As Object, e As EventArgs) Handles btnFullTestSuite.Click
@@ -73,19 +153,8 @@ Public Class MainForm1
         'FileWrite(WriteData)
     End Sub
 
-    Private Sub btnHigh_Click(sender As Object, e As EventArgs) Handles btnHigh.Click
-        Dim DataValue As UInt16
-        DataValue = 1
-        PortATest(DataValue)
-    End Sub
-
-    Private Sub btnLow_Click(sender As Object, e As EventArgs) Handles btnLow.Click
-        Dim DataValue As UInt16
-        DataValue = 0
-        PortATest(DataValue)
-    End Sub
-
     Private Sub btnReadFile_Click(sender As Object, e As EventArgs) Handles btnReadFile.Click
         frmFileRead.Show()
     End Sub
+
 End Class

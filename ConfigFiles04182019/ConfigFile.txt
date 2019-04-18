@@ -1,0 +1,9 @@
+C:\temp\ConfigFile.txt
+C:\Temp\WattageSelection.txt
+C:\Temp\WattsToRelays_LPF_Res.txt
+C:\Temp\WattsToRelays_LPF_Cap.txt
+C:\Temp\WattsToRelays_HPF_Res.txt
+C:\Temp\MinWattageSelection.txt
+C:\Temp\MinWattsToRelays_LPF_Res.txt
+C:\Temp\MinWattsToRelays_LPF_Cap.txt
+C:\Temp\MinWattsToRelays_HPF_Res.txt

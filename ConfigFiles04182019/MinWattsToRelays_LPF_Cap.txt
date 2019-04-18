@@ -1,0 +1,5 @@
+WattsToRelays_MinLPF_Cap:
+1uF,223,223
+2uF,224,224
+3uF,225,225
+4uF,226,226
