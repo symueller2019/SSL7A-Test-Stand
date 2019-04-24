@@ -26,6 +26,8 @@ Public Class frmInRush
             lblTestDescription.Text = "LPF Rated Load - Max Conductive Angle Current"
             lblResultDsply.Text = ""
 
+            DisplayLoad()           'display Res & Cap load with Relay info
+
         Else
             'disconnect loads & power
             DataValue = 0
@@ -46,6 +48,9 @@ Public Class frmInRush
             'display title of test
             lblTestDescription.Text = "LPF Rated Load - 90 Deg. Conductive Angle Current"
             lblResultDsply.Text = ""
+
+            DisplayLoad()           'display Res & Cap load with Relay info
+
         Else
             'disconnect loads & power
             DataValue = 0
@@ -74,5 +79,27 @@ Public Class frmInRush
         'FileWrite(LPF_Value)
 
         'LPF_Value = tbxComment.Text
+    End Sub
+
+    Private Sub DisplayLoad()
+        'update labels & textboxes with load & relay info
+        'assign titles to labels
+        lblWatt.Text = "Rated Watts"
+        lblRes.Text = "Rated LPF Res"
+        lblCap.Text = "Rated LPF Cap"
+        'update textbox values
+        tbxWatt.Text = WattageSelection(Index)
+        tbxRes.Text = LPF_Res(Index)
+        tbxCap.Text = LPF_Cap(Index)
+        'display titles to relays
+        lblResRly.Text = "Res Rly"
+        lblCapRly.Text = "Cap Rly"
+        'display relays
+        Dim textline As String = ""
+        Display_Relays(LPF_ResRelays, textline)
+        tbxResRly.Text = textline
+
+        Display_Relays(LPF_CapRelays, textline)
+        tbxCapRly.Text = textline
     End Sub
 End Class

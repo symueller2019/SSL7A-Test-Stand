@@ -39,6 +39,16 @@ Partial Class MainForm1
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnReadFile = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.tbxOVLDLPF_CapRelays = New System.Windows.Forms.TextBox()
+        Me.tbxOVLDLPF_ResRelays = New System.Windows.Forms.TextBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.Label12 = New System.Windows.Forms.Label()
+        Me.tbxOVLDLPF_Cap = New System.Windows.Forms.TextBox()
+        Me.tbxOVLDLPF_Res = New System.Windows.Forms.TextBox()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.tbxOVLDWattage = New System.Windows.Forms.TextBox()
+        Me.lblOVLDWattage = New System.Windows.Forms.Label()
         Me.tbxMinHPF_ResRelays = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.tbxMinLPF_CapRelays = New System.Windows.Forms.TextBox()
@@ -76,7 +86,7 @@ Partial Class MainForm1
         '
         'btnPress
         '
-        Me.btnPress.Location = New System.Drawing.Point(641, 29)
+        Me.btnPress.Location = New System.Drawing.Point(915, 29)
         Me.btnPress.Name = "btnPress"
         Me.btnPress.Size = New System.Drawing.Size(113, 21)
         Me.btnPress.TabIndex = 2
@@ -218,7 +228,7 @@ Partial Class MainForm1
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.Controls.Add(Me.lblSerialNum)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(367, 118)
+        Me.GroupBox2.Location = New System.Drawing.Point(565, 12)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(209, 84)
         Me.GroupBox2.TabIndex = 7
@@ -236,6 +246,16 @@ Partial Class MainForm1
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.tbxOVLDLPF_CapRelays)
+        Me.GroupBox3.Controls.Add(Me.tbxOVLDLPF_ResRelays)
+        Me.GroupBox3.Controls.Add(Me.Label11)
+        Me.GroupBox3.Controls.Add(Me.Label12)
+        Me.GroupBox3.Controls.Add(Me.tbxOVLDLPF_Cap)
+        Me.GroupBox3.Controls.Add(Me.tbxOVLDLPF_Res)
+        Me.GroupBox3.Controls.Add(Me.Label9)
+        Me.GroupBox3.Controls.Add(Me.Label10)
+        Me.GroupBox3.Controls.Add(Me.tbxOVLDWattage)
+        Me.GroupBox3.Controls.Add(Me.lblOVLDWattage)
         Me.GroupBox3.Controls.Add(Me.tbxMinHPF_ResRelays)
         Me.GroupBox3.Controls.Add(Me.Label1)
         Me.GroupBox3.Controls.Add(Me.tbxMinLPF_CapRelays)
@@ -267,17 +287,107 @@ Partial Class MainForm1
         Me.GroupBox3.Controls.Add(Me.lblWattage)
         Me.GroupBox3.Controls.Add(Me.tbxWattage)
         Me.GroupBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(243, 232)
+        Me.GroupBox3.Location = New System.Drawing.Point(243, 155)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(674, 391)
+        Me.GroupBox3.Size = New System.Drawing.Size(674, 545)
         Me.GroupBox3.TabIndex = 2
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Test Parameters"
         '
+        'tbxOVLDLPF_CapRelays
+        '
+        Me.tbxOVLDLPF_CapRelays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxOVLDLPF_CapRelays.Location = New System.Drawing.Point(325, 479)
+        Me.tbxOVLDLPF_CapRelays.Name = "tbxOVLDLPF_CapRelays"
+        Me.tbxOVLDLPF_CapRelays.Size = New System.Drawing.Size(302, 22)
+        Me.tbxOVLDLPF_CapRelays.TabIndex = 110
+        '
+        'tbxOVLDLPF_ResRelays
+        '
+        Me.tbxOVLDLPF_ResRelays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxOVLDLPF_ResRelays.Location = New System.Drawing.Point(326, 440)
+        Me.tbxOVLDLPF_ResRelays.Name = "tbxOVLDLPF_ResRelays"
+        Me.tbxOVLDLPF_ResRelays.Size = New System.Drawing.Size(301, 22)
+        Me.tbxOVLDLPF_ResRelays.TabIndex = 109
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(209, 482)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(106, 16)
+        Me.Label11.TabIndex = 108
+        Me.Label11.Text = "LPF Cap Relays"
+        '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Location = New System.Drawing.Point(208, 443)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(106, 16)
+        Me.Label12.TabIndex = 107
+        Me.Label12.Text = "LPF Res Relays"
+        '
+        'tbxOVLDLPF_Cap
+        '
+        Me.tbxOVLDLPF_Cap.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxOVLDLPF_Cap.Location = New System.Drawing.Point(129, 482)
+        Me.tbxOVLDLPF_Cap.Name = "tbxOVLDLPF_Cap"
+        Me.tbxOVLDLPF_Cap.Size = New System.Drawing.Size(67, 22)
+        Me.tbxOVLDLPF_Cap.TabIndex = 106
+        '
+        'tbxOVLDLPF_Res
+        '
+        Me.tbxOVLDLPF_Res.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxOVLDLPF_Res.Location = New System.Drawing.Point(129, 443)
+        Me.tbxOVLDLPF_Res.Name = "tbxOVLDLPF_Res"
+        Me.tbxOVLDLPF_Res.Size = New System.Drawing.Size(67, 22)
+        Me.tbxOVLDLPF_Res.TabIndex = 105
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(15, 482)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(111, 16)
+        Me.Label9.TabIndex = 104
+        Me.Label9.Text = "LPF Capacitance"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(11, 443)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(103, 16)
+        Me.Label10.TabIndex = 103
+        Me.Label10.Text = "LPF Resistance"
+        '
+        'tbxOVLDWattage
+        '
+        Me.tbxOVLDWattage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxOVLDWattage.Location = New System.Drawing.Point(197, 402)
+        Me.tbxOVLDWattage.Name = "tbxOVLDWattage"
+        Me.tbxOVLDWattage.Size = New System.Drawing.Size(79, 26)
+        Me.tbxOVLDWattage.TabIndex = 102
+        '
+        'lblOVLDWattage
+        '
+        Me.lblOVLDWattage.AutoSize = True
+        Me.lblOVLDWattage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblOVLDWattage.Location = New System.Drawing.Point(13, 408)
+        Me.lblOVLDWattage.Name = "lblOVLDWattage"
+        Me.lblOVLDWattage.Size = New System.Drawing.Size(158, 20)
+        Me.lblOVLDWattage.TabIndex = 101
+        Me.lblOVLDWattage.Text = "Dimmer O/L Wattage"
+        '
         'tbxMinHPF_ResRelays
         '
         Me.tbxMinHPF_ResRelays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxMinHPF_ResRelays.Location = New System.Drawing.Point(326, 353)
+        Me.tbxMinHPF_ResRelays.Location = New System.Drawing.Point(325, 350)
         Me.tbxMinHPF_ResRelays.Name = "tbxMinHPF_ResRelays"
         Me.tbxMinHPF_ResRelays.Size = New System.Drawing.Size(305, 22)
         Me.tbxMinHPF_ResRelays.TabIndex = 100
@@ -295,7 +405,7 @@ Partial Class MainForm1
         'tbxMinLPF_CapRelays
         '
         Me.tbxMinLPF_CapRelays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxMinLPF_CapRelays.Location = New System.Drawing.Point(326, 321)
+        Me.tbxMinLPF_CapRelays.Location = New System.Drawing.Point(325, 315)
         Me.tbxMinLPF_CapRelays.Name = "tbxMinLPF_CapRelays"
         Me.tbxMinLPF_CapRelays.Size = New System.Drawing.Size(305, 22)
         Me.tbxMinLPF_CapRelays.TabIndex = 98
@@ -313,7 +423,7 @@ Partial Class MainForm1
         'tbxMinLPF_ResRelays
         '
         Me.tbxMinLPF_ResRelays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxMinLPF_ResRelays.Location = New System.Drawing.Point(325, 285)
+        Me.tbxMinLPF_ResRelays.Location = New System.Drawing.Point(325, 282)
         Me.tbxMinLPF_ResRelays.Name = "tbxMinLPF_ResRelays"
         Me.tbxMinLPF_ResRelays.Size = New System.Drawing.Size(306, 22)
         Me.tbxMinLPF_ResRelays.TabIndex = 96
@@ -397,7 +507,7 @@ Partial Class MainForm1
         Me.tbxMinWattage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbxMinWattage.Location = New System.Drawing.Point(195, 253)
         Me.tbxMinWattage.Name = "tbxMinWattage"
-        Me.tbxMinWattage.Size = New System.Drawing.Size(115, 26)
+        Me.tbxMinWattage.Size = New System.Drawing.Size(80, 26)
         Me.tbxMinWattage.TabIndex = 87
         '
         'Label8
@@ -540,7 +650,7 @@ Partial Class MainForm1
         'tbxWattage
         '
         Me.tbxWattage.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxWattage.Location = New System.Drawing.Point(196, 86)
+        Me.tbxWattage.Location = New System.Drawing.Point(197, 86)
         Me.tbxWattage.Name = "tbxWattage"
         Me.tbxWattage.Size = New System.Drawing.Size(79, 26)
         Me.tbxWattage.TabIndex = 58
@@ -549,7 +659,7 @@ Partial Class MainForm1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(942, 635)
+        Me.ClientSize = New System.Drawing.Size(1074, 712)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.btnReadFile)
         Me.Controls.Add(Me.GroupBox2)
@@ -624,4 +734,14 @@ Partial Class MainForm1
     Friend WithEvents Label6 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents tbxMinWattage As TextBox
+    Friend WithEvents tbxOVLDWattage As TextBox
+    Friend WithEvents lblOVLDWattage As Label
+    Friend WithEvents tbxOVLDLPF_Cap As TextBox
+    Friend WithEvents tbxOVLDLPF_Res As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents Label10 As Label
+    Friend WithEvents tbxOVLDLPF_CapRelays As TextBox
+    Friend WithEvents tbxOVLDLPF_ResRelays As TextBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents Label12 As Label
 End Class

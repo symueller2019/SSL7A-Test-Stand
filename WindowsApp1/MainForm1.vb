@@ -35,15 +35,23 @@ Public Class MainForm1
         tbxMinLPF_Res.Text = MinLPF_Res(MinIndex)
         tbxMinLPF_Cap.Text = MinLPF_Cap(MinIndex)
         tbxMinHPF_Res.Text = MinHPF_Res(MinIndex)
+        'display test info - O/L Load
+        tbxOVLDWattage.Text = Val(1.2 * Val(WattageSelection(Index)))
+        tbxOVLDLPF_Res.Text = OVLDLPF_Res(Index)
+        tbxOVLDLPF_Cap.Text = OVLDLPF_Cap(Index)
 
         'Init textboxs
+        '****** Rated Load Relays ******
         tbxLPF_ResRelays.Text = ""
         tbxLPF_CapRelays.Text = ""
         tbxHPF_ResRelays.Text = ""
-        '***** Min Loads *****
+        '***** Min Load Relays *****
         tbxMinLPF_ResRelays.Text = ""
         tbxMinLPF_CapRelays.Text = ""
         tbxMinHPF_ResRelays.Text = ""
+        '****** O/L Load Relays ******
+        tbxOVLDLPF_ResRelays.Text = ""
+        tbxOVLDLPF_CapRelays.Text = ""
 
         'display Relay connections
         '******************* Rated Load ****************
@@ -95,6 +103,24 @@ Public Class MainForm1
                 tbxMinHPF_ResRelays.Text = tbxMinHPF_ResRelays.Text & "," & MinHPF_ResRelays(x)
             End If
         Next
+
+        '******************* O/L Load **********************
+        For x = 1 To OVLDLPF_ResRelays.Length - 1
+            If tbxOVLDLPF_ResRelays.Text = "" Then
+                tbxOVLDLPF_ResRelays.Text = tbxOVLDLPF_ResRelays.Text & OVLDLPF_ResRelays(x)
+            Else
+                tbxOVLDLPF_ResRelays.Text = tbxOVLDLPF_ResRelays.Text & "," & OVLDLPF_ResRelays(x)
+            End If
+        Next
+
+        For x = 1 To OVLDLPF_CapRelays.Length - 1
+            If tbxOVLDLPF_CapRelays.Text = "" Then
+                tbxOVLDLPF_CapRelays.Text = tbxOVLDLPF_CapRelays.Text & OVLDLPF_CapRelays(x)
+            Else
+                tbxOVLDLPF_CapRelays.Text = tbxOVLDLPF_CapRelays.Text & "," & OVLDLPF_CapRelays(x)
+            End If
+        Next
+
 
     End Sub
 

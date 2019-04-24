@@ -42,15 +42,27 @@ Partial Class frmInRush
         Me.tbxMeasurementEntry = New System.Windows.Forms.TextBox()
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tbxCapRly = New System.Windows.Forms.TextBox()
+        Me.tbxResRly = New System.Windows.Forms.TextBox()
+        Me.lblCapRly = New System.Windows.Forms.Label()
+        Me.lblResRly = New System.Windows.Forms.Label()
+        Me.lblCap = New System.Windows.Forms.Label()
+        Me.lblRes = New System.Windows.Forms.Label()
+        Me.lblWatt = New System.Windows.Forms.Label()
+        Me.tbxCap = New System.Windows.Forms.TextBox()
+        Me.tbxRes = New System.Windows.Forms.TextBox()
+        Me.tbxWatt = New System.Windows.Forms.TextBox()
         CType(Me.pbxInRushCurrentText2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxInRushCurrentText1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbxInRushCurrentText2
         '
         Me.pbxInRushCurrentText2.Image = Global.WindowsApp1.My.Resources.Resources.InRushCurrent2_03142019
-        Me.pbxInRushCurrentText2.Location = New System.Drawing.Point(62, 515)
+        Me.pbxInRushCurrentText2.Location = New System.Drawing.Point(62, 662)
         Me.pbxInRushCurrentText2.Name = "pbxInRushCurrentText2"
         Me.pbxInRushCurrentText2.Size = New System.Drawing.Size(715, 88)
         Me.pbxInRushCurrentText2.TabIndex = 1
@@ -59,7 +71,7 @@ Partial Class frmInRush
         'pbxInRushCurrentText1
         '
         Me.pbxInRushCurrentText1.Image = Global.WindowsApp1.My.Resources.Resources.InRushCurrent_03142019
-        Me.pbxInRushCurrentText1.Location = New System.Drawing.Point(63, 261)
+        Me.pbxInRushCurrentText1.Location = New System.Drawing.Point(63, 408)
         Me.pbxInRushCurrentText1.Name = "pbxInRushCurrentText1"
         Me.pbxInRushCurrentText1.Size = New System.Drawing.Size(714, 260)
         Me.pbxInRushCurrentText1.TabIndex = 0
@@ -138,7 +150,7 @@ Partial Class frmInRush
         Me.GroupBox1.Controls.Add(Me.tbxMeasurementEntry)
         Me.GroupBox1.Controls.Add(Me.lblLimit)
         Me.GroupBox1.Controls.Add(Me.lblTest)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 119)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 255)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(933, 121)
         Me.GroupBox1.TabIndex = 15
@@ -258,11 +270,111 @@ Partial Class frmInRush
         Me.lblTest.TabIndex = 11
         Me.lblTest.Text = "Test Description"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.tbxCapRly)
+        Me.GroupBox2.Controls.Add(Me.tbxResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCapRly)
+        Me.GroupBox2.Controls.Add(Me.lblResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCap)
+        Me.GroupBox2.Controls.Add(Me.lblRes)
+        Me.GroupBox2.Controls.Add(Me.lblWatt)
+        Me.GroupBox2.Controls.Add(Me.tbxCap)
+        Me.GroupBox2.Controls.Add(Me.tbxRes)
+        Me.GroupBox2.Controls.Add(Me.tbxWatt)
+        Me.GroupBox2.Location = New System.Drawing.Point(17, 105)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(511, 151)
+        Me.GroupBox2.TabIndex = 18
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Load Description"
+        '
+        'tbxCapRly
+        '
+        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Name = "tbxCapRly"
+        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCapRly.TabIndex = 18
+        '
+        'tbxResRly
+        '
+        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Name = "tbxResRly"
+        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxResRly.TabIndex = 4
+        '
+        'lblCapRly
+        '
+        Me.lblCapRly.AutoSize = True
+        Me.lblCapRly.Location = New System.Drawing.Point(273, 92)
+        Me.lblCapRly.Name = "lblCapRly"
+        Me.lblCapRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblCapRly.TabIndex = 2
+        Me.lblCapRly.Text = "lblCapRly"
+        '
+        'lblResRly
+        '
+        Me.lblResRly.AutoSize = True
+        Me.lblResRly.Location = New System.Drawing.Point(273, 63)
+        Me.lblResRly.Name = "lblResRly"
+        Me.lblResRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblResRly.TabIndex = 3
+        Me.lblResRly.Text = "lblResRly"
+        '
+        'lblCap
+        '
+        Me.lblCap.AutoSize = True
+        Me.lblCap.Location = New System.Drawing.Point(32, 91)
+        Me.lblCap.Name = "lblCap"
+        Me.lblCap.Size = New System.Drawing.Size(36, 13)
+        Me.lblCap.TabIndex = 1
+        Me.lblCap.Text = "lblCap"
+        '
+        'lblRes
+        '
+        Me.lblRes.AutoSize = True
+        Me.lblRes.Location = New System.Drawing.Point(32, 62)
+        Me.lblRes.Name = "lblRes"
+        Me.lblRes.Size = New System.Drawing.Size(36, 13)
+        Me.lblRes.TabIndex = 1
+        Me.lblRes.Text = "lblRes"
+        '
+        'lblWatt
+        '
+        Me.lblWatt.AutoSize = True
+        Me.lblWatt.Location = New System.Drawing.Point(32, 35)
+        Me.lblWatt.Name = "lblWatt"
+        Me.lblWatt.Size = New System.Drawing.Size(40, 13)
+        Me.lblWatt.TabIndex = 1
+        Me.lblWatt.Text = "lblWatt"
+        '
+        'tbxCap
+        '
+        Me.tbxCap.Location = New System.Drawing.Point(114, 88)
+        Me.tbxCap.Name = "tbxCap"
+        Me.tbxCap.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCap.TabIndex = 0
+        '
+        'tbxRes
+        '
+        Me.tbxRes.Location = New System.Drawing.Point(114, 59)
+        Me.tbxRes.Name = "tbxRes"
+        Me.tbxRes.Size = New System.Drawing.Size(130, 20)
+        Me.tbxRes.TabIndex = 0
+        '
+        'tbxWatt
+        '
+        Me.tbxWatt.Location = New System.Drawing.Point(114, 32)
+        Me.tbxWatt.Name = "tbxWatt"
+        Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
+        Me.tbxWatt.TabIndex = 0
+        '
         'frmInRush
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(948, 643)
+        Me.ClientSize = New System.Drawing.Size(948, 762)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbx90DegCondAngle)
         Me.Controls.Add(Me.cbxMaxCondAngle)
@@ -278,6 +390,8 @@ Partial Class frmInRush
         CType(Me.pbxInRushCurrentText1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -303,4 +417,15 @@ Partial Class frmInRush
     Friend WithEvents tbxMeasurementEntry As TextBox
     Friend WithEvents lblLimit As Label
     Friend WithEvents lblTest As Label
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents tbxCapRly As TextBox
+    Friend WithEvents tbxResRly As TextBox
+    Friend WithEvents lblCapRly As Label
+    Friend WithEvents lblResRly As Label
+    Friend WithEvents lblCap As Label
+    Friend WithEvents lblRes As Label
+    Friend WithEvents lblWatt As Label
+    Friend WithEvents tbxCap As TextBox
+    Friend WithEvents tbxRes As TextBox
+    Friend WithEvents tbxWatt As TextBox
 End Class

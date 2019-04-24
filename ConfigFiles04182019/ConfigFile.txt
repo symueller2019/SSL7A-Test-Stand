@@ -7,3 +7,6 @@ C:\Temp\MinWattageSelection.txt
 C:\Temp\MinWattsToRelays_LPF_Res.txt
 C:\Temp\MinWattsToRelays_LPF_Cap.txt
 C:\Temp\MinWattsToRelays_HPF_Res.txt
+C:\Temp\OVLDWattageSelection.txt
+C:\Temp\OVLDWattsToRelays_LPF_Res.txt
+C:\Temp\OVLDWattsToRelays_LPF_Cap.txt

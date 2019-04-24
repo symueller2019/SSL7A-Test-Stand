@@ -27,6 +27,10 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "15mA Max"
+
+            DisplayLoad(10)
+
+
         Else
             'Restore other controls
             cbx40ohm.Enabled = True
@@ -65,6 +69,8 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "15mA Max"
+
+            DisplayLoad(40)
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -95,6 +101,9 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "10.1mA Max"
+
+            DisplayLoad(400)
+
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -125,6 +134,9 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "6mA Max"
+
+            DisplayLoad(3000)
+
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -155,6 +167,9 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "4.8mA Max"
+
+            DisplayLoad(8000)
+
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -185,6 +200,9 @@ Public Class frmOffStateOperation
             lblResultDsply.Text = ""
             'display limits in Group box
             tbxLimitDsply.Text = "4.5mA Max"
+
+            DisplayLoad(15000)
+
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -205,5 +223,27 @@ Public Class frmOffStateOperation
         Else
             lblResultDsply.Text = "FAIL"
         End If
+    End Sub
+
+    Private Sub DisplayLoad(ByVal Num As Integer)
+        'update labels & textboxes with load & relay info
+        'assign titles to labels
+        lblWatt.Text = "Watts"
+        lblRes.Text = "HPF Res"
+        lblCap.Text = ""        '"Overload LPF Cap"
+        'update textbox values
+        tbxWatt.Text = ""       'WattageSelection(Index)
+        tbxRes.Text = Num       'OVLDLPF_Res(Index)
+        tbxCap.Text = ""        'OVLDLPF_Cap(Index)
+        'display titles to relays
+        lblResRly.Text = "Res Rly"
+        lblCapRly.Text = ""     '"Cap Rly"
+        'display relays
+        Dim textline As String = ""
+        Display_Relays(HPF_ResRelays, textline)
+        tbxResRly.Text = textline
+
+        Display_Relays(OVLDLPF_CapRelays, textline)
+        tbxCapRly.Text = ""     'textline
     End Sub
 End Class

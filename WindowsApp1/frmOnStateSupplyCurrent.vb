@@ -16,6 +16,8 @@ Public Class frmOnStateSupplyCurrent
     Private Sub frmOnStateSupplyCurrent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox1.Show()
         PictureBox2.Hide()
+        'PictureBox2.Show()
+        'PictureBox1.Hide()
     End Sub
 
     Private Sub frmOnStateSupplyCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -23,7 +25,7 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub cbx100ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx100ohm.CheckedChanged
-        Dim DataValue As UInt16
+        Dim DataValue As UInt16 : Dim Relaylist() As String
         If (cbx100ohm.Checked = True) Then
             'Disable other controls
             cbx350ohm.Enabled = False
@@ -35,6 +37,12 @@ Public Class frmOnStateSupplyCurrent
             'display title of test in Group box
             TitleStr = "HPF 100 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
+
+
+            'GetRelaysFromFile(ByVal Filename As String, ByVal RelayList() As String)
+            GetRelaysFromFile("C:\temp\ON_State_Relays.txt", Relaylist, 1)
+            'DisplayLoad(100)
+
         Else
             'Restore other controls
             cbx350ohm.Enabled = True
@@ -58,6 +66,9 @@ Public Class frmOnStateSupplyCurrent
             PortATest(DataValue)
             TitleStr = "HPF 350 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
+
+            DisplayLoad(350)
+
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
@@ -81,6 +92,9 @@ Public Class frmOnStateSupplyCurrent
             PortATest(DataValue)
             TitleStr = "HPF 800 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
+
+            DisplayLoad(800)
+
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
@@ -104,6 +118,9 @@ Public Class frmOnStateSupplyCurrent
             PortATest(DataValue)
             TitleStr = "HPF 1.4k Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
+
+            DisplayLoad(1400)
+
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
@@ -147,4 +164,25 @@ Public Class frmOnStateSupplyCurrent
         tbxLimitDsply2.Text = "6.02mSec Min"
     End Sub
 
+    Private Sub DisplayLoad(ByVal Num As Integer)
+        'update labels & textboxes with load & relay info
+        'assign titles to labels
+        lblWatt.Text = "Watts"
+        lblRes.Text = "HPF Res"
+        lblCap.Text = ""        '"Overload LPF Cap"
+        'update textbox values
+        tbxWatt.Text = ""       'WattageSelection(Index)
+        tbxRes.Text = Num       'OVLDLPF_Res(Index)
+        tbxCap.Text = ""        'OVLDLPF_Cap(Index)
+        'display titles to relays
+        lblResRly.Text = "Res Rly"
+        lblCapRly.Text = ""     '"Cap Rly"
+        'display relays
+        Dim textline As String = ""
+        Display_Relays(HPF_ResRelays, textline)
+        tbxResRly.Text = textline
+
+        Display_Relays(OVLDLPF_CapRelays, textline)
+        tbxCapRly.Text = ""     'textline
+    End Sub
 End Class

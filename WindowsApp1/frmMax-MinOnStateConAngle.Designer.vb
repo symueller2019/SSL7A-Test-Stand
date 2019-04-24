@@ -29,12 +29,12 @@ Partial Class frmMax_MinOnStateConAngle
         Me.lblMaxAngle = New System.Windows.Forms.Label()
         Me.tbxRatedLoad2 = New System.Windows.Forms.TextBox()
         Me.tbxMinLoad2 = New System.Windows.Forms.TextBox()
-        Me.btnExit = New System.Windows.Forms.Button()
         Me.cbxMinLoad_MinAngle = New System.Windows.Forms.CheckBox()
         Me.cbxRatedLoad_MinAngle = New System.Windows.Forms.CheckBox()
         Me.cbxMinLoad_MaxAngle = New System.Windows.Forms.CheckBox()
         Me.cbxRatedLoad_MaxAngle = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbxLimitDsply = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.lblTestDescription = New System.Windows.Forms.Label()
         Me.lblMeasurement = New System.Windows.Forms.Label()
@@ -45,17 +45,28 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxMeasurementEntry = New System.Windows.Forms.TextBox()
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
-        Me.tbxLimitDsply = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tbxCapRly = New System.Windows.Forms.TextBox()
+        Me.tbxResRly = New System.Windows.Forms.TextBox()
+        Me.lblCapRly = New System.Windows.Forms.Label()
+        Me.lblResRly = New System.Windows.Forms.Label()
+        Me.lblCap = New System.Windows.Forms.Label()
+        Me.lblRes = New System.Windows.Forms.Label()
+        Me.lblWatt = New System.Windows.Forms.Label()
+        Me.tbxCap = New System.Windows.Forms.TextBox()
+        Me.tbxRes = New System.Windows.Forms.TextBox()
+        Me.tbxWatt = New System.Windows.Forms.TextBox()
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbxMaxMinOnStateConductionAngle
         '
         Me.pbxMaxMinOnStateConductionAngle.InitialImage = Global.WindowsApp1.My.Resources.Resources.Max_MinOnStateConductionAngle_03142019
-        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(104, 287)
+        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(126, 364)
         Me.pbxMaxMinOnStateConductionAngle.Name = "pbxMaxMinOnStateConductionAngle"
-        Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(722, 464)
+        Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(700, 421)
         Me.pbxMaxMinOnStateConductionAngle.TabIndex = 0
         Me.pbxMaxMinOnStateConductionAngle.TabStop = False
         '
@@ -106,15 +117,6 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxMinLoad2.Name = "tbxMinLoad2"
         Me.tbxMinLoad2.Size = New System.Drawing.Size(75, 20)
         Me.tbxMinLoad2.TabIndex = 6
-        '
-        'btnExit
-        '
-        Me.btnExit.Location = New System.Drawing.Point(677, 36)
-        Me.btnExit.Name = "btnExit"
-        Me.btnExit.Size = New System.Drawing.Size(86, 19)
-        Me.btnExit.TabIndex = 11
-        Me.btnExit.Text = "Exit"
-        Me.btnExit.UseVisualStyleBackColor = True
         '
         'cbxMinLoad_MinAngle
         '
@@ -178,12 +180,23 @@ Partial Class frmMax_MinOnStateConAngle
         Me.GroupBox1.Controls.Add(Me.tbxMeasurementEntry)
         Me.GroupBox1.Controls.Add(Me.lblLimit)
         Me.GroupBox1.Controls.Add(Me.lblTest)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 131)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 237)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(933, 121)
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'tbxLimitDsply
+        '
+        Me.tbxLimitDsply.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxLimitDsply.Location = New System.Drawing.Point(345, 50)
+        Me.tbxLimitDsply.MaximumSize = New System.Drawing.Size(76, 65)
+        Me.tbxLimitDsply.Multiline = True
+        Me.tbxLimitDsply.Name = "tbxLimitDsply"
+        Me.tbxLimitDsply.Size = New System.Drawing.Size(76, 65)
+        Me.tbxLimitDsply.TabIndex = 22
+        Me.tbxLimitDsply.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnEnter
         '
@@ -287,28 +300,116 @@ Partial Class frmMax_MinOnStateConAngle
         Me.lblTest.TabIndex = 11
         Me.lblTest.Text = "Test Description"
         '
-        'tbxLimitDsply
+        'GroupBox2
         '
-        Me.tbxLimitDsply.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxLimitDsply.Location = New System.Drawing.Point(345, 50)
-        Me.tbxLimitDsply.MaximumSize = New System.Drawing.Size(76, 65)
-        Me.tbxLimitDsply.Multiline = True
-        Me.tbxLimitDsply.Name = "tbxLimitDsply"
-        Me.tbxLimitDsply.Size = New System.Drawing.Size(76, 65)
-        Me.tbxLimitDsply.TabIndex = 22
-        Me.tbxLimitDsply.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.GroupBox2.Controls.Add(Me.tbxCapRly)
+        Me.GroupBox2.Controls.Add(Me.tbxResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCapRly)
+        Me.GroupBox2.Controls.Add(Me.lblResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCap)
+        Me.GroupBox2.Controls.Add(Me.lblRes)
+        Me.GroupBox2.Controls.Add(Me.lblWatt)
+        Me.GroupBox2.Controls.Add(Me.tbxCap)
+        Me.GroupBox2.Controls.Add(Me.tbxRes)
+        Me.GroupBox2.Controls.Add(Me.tbxWatt)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 102)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(511, 129)
+        Me.GroupBox2.TabIndex = 22
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Load Description"
+        '
+        'tbxCapRly
+        '
+        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Name = "tbxCapRly"
+        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCapRly.TabIndex = 18
+        '
+        'tbxResRly
+        '
+        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Name = "tbxResRly"
+        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxResRly.TabIndex = 4
+        '
+        'lblCapRly
+        '
+        Me.lblCapRly.AutoSize = True
+        Me.lblCapRly.Location = New System.Drawing.Point(273, 92)
+        Me.lblCapRly.Name = "lblCapRly"
+        Me.lblCapRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblCapRly.TabIndex = 2
+        Me.lblCapRly.Text = "lblCapRly"
+        '
+        'lblResRly
+        '
+        Me.lblResRly.AutoSize = True
+        Me.lblResRly.Location = New System.Drawing.Point(273, 63)
+        Me.lblResRly.Name = "lblResRly"
+        Me.lblResRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblResRly.TabIndex = 3
+        Me.lblResRly.Text = "lblResRly"
+        '
+        'lblCap
+        '
+        Me.lblCap.AutoSize = True
+        Me.lblCap.Location = New System.Drawing.Point(18, 91)
+        Me.lblCap.Name = "lblCap"
+        Me.lblCap.Size = New System.Drawing.Size(36, 13)
+        Me.lblCap.TabIndex = 1
+        Me.lblCap.Text = "lblCap"
+        '
+        'lblRes
+        '
+        Me.lblRes.AutoSize = True
+        Me.lblRes.Location = New System.Drawing.Point(18, 62)
+        Me.lblRes.Name = "lblRes"
+        Me.lblRes.Size = New System.Drawing.Size(36, 13)
+        Me.lblRes.TabIndex = 1
+        Me.lblRes.Text = "lblRes"
+        '
+        'lblWatt
+        '
+        Me.lblWatt.AutoSize = True
+        Me.lblWatt.Location = New System.Drawing.Point(18, 35)
+        Me.lblWatt.Name = "lblWatt"
+        Me.lblWatt.Size = New System.Drawing.Size(40, 13)
+        Me.lblWatt.TabIndex = 1
+        Me.lblWatt.Text = "lblWatt"
+        '
+        'tbxCap
+        '
+        Me.tbxCap.Location = New System.Drawing.Point(114, 88)
+        Me.tbxCap.Name = "tbxCap"
+        Me.tbxCap.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCap.TabIndex = 0
+        '
+        'tbxRes
+        '
+        Me.tbxRes.Location = New System.Drawing.Point(114, 59)
+        Me.tbxRes.Name = "tbxRes"
+        Me.tbxRes.Size = New System.Drawing.Size(130, 20)
+        Me.tbxRes.TabIndex = 0
+        '
+        'tbxWatt
+        '
+        Me.tbxWatt.Location = New System.Drawing.Point(114, 32)
+        Me.tbxWatt.Name = "tbxWatt"
+        Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
+        Me.tbxWatt.TabIndex = 0
         '
         'frmMax_MinOnStateConAngle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(963, 763)
+        Me.ClientSize = New System.Drawing.Size(963, 810)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbxRatedLoad_MaxAngle)
         Me.Controls.Add(Me.cbxMinLoad_MaxAngle)
         Me.Controls.Add(Me.cbxRatedLoad_MinAngle)
         Me.Controls.Add(Me.cbxMinLoad_MinAngle)
-        Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.lblMaxAngle)
         Me.Controls.Add(Me.tbxRatedLoad2)
         Me.Controls.Add(Me.tbxMinLoad2)
@@ -321,6 +422,8 @@ Partial Class frmMax_MinOnStateConAngle
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,7 +436,6 @@ Partial Class frmMax_MinOnStateConAngle
     Friend WithEvents lblMaxAngle As Label
     Friend WithEvents tbxRatedLoad2 As TextBox
     Friend WithEvents tbxMinLoad2 As TextBox
-    Friend WithEvents btnExit As Button
     Friend WithEvents cbxMinLoad_MinAngle As CheckBox
     Friend WithEvents cbxRatedLoad_MinAngle As CheckBox
     Friend WithEvents cbxMinLoad_MaxAngle As CheckBox
@@ -350,4 +452,15 @@ Partial Class frmMax_MinOnStateConAngle
     Friend WithEvents lblLimit As Label
     Friend WithEvents lblTest As Label
     Friend WithEvents tbxLimitDsply As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents tbxCapRly As TextBox
+    Friend WithEvents tbxResRly As TextBox
+    Friend WithEvents lblCapRly As Label
+    Friend WithEvents lblResRly As Label
+    Friend WithEvents lblCap As Label
+    Friend WithEvents lblRes As Label
+    Friend WithEvents lblWatt As Label
+    Friend WithEvents tbxCap As TextBox
+    Friend WithEvents tbxRes As TextBox
+    Friend WithEvents tbxWatt As TextBox
 End Class

@@ -30,6 +30,10 @@ Partial Class frmOnStateSupplyCurrent
         Me.cbx800ohm = New System.Windows.Forms.CheckBox()
         Me.cbx1400ohm = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbxLimitDsply2 = New System.Windows.Forms.TextBox()
+        Me.lblMax = New System.Windows.Forms.Label()
+        Me.lblMin = New System.Windows.Forms.Label()
+        Me.tbxMeasurementEntry2 = New System.Windows.Forms.TextBox()
         Me.tbxLimitDsply1 = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.lblTestDescription = New System.Windows.Forms.Label()
@@ -41,21 +45,29 @@ Partial Class frmOnStateSupplyCurrent
         Me.tbxMeasurementEntry1 = New System.Windows.Forms.TextBox()
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
-        Me.tbxMeasurementEntry2 = New System.Windows.Forms.TextBox()
-        Me.lblMin = New System.Windows.Forms.Label()
-        Me.lblMax = New System.Windows.Forms.Label()
-        Me.tbxLimitDsply2 = New System.Windows.Forms.TextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.tbxCapRly = New System.Windows.Forms.TextBox()
+        Me.tbxResRly = New System.Windows.Forms.TextBox()
+        Me.lblCapRly = New System.Windows.Forms.Label()
+        Me.lblResRly = New System.Windows.Forms.Label()
+        Me.lblCap = New System.Windows.Forms.Label()
+        Me.lblRes = New System.Windows.Forms.Label()
+        Me.lblWatt = New System.Windows.Forms.Label()
+        Me.tbxCap = New System.Windows.Forms.TextBox()
+        Me.tbxRes = New System.Windows.Forms.TextBox()
+        Me.tbxWatt = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox2
         '
         Me.PictureBox2.Image = Global.WindowsApp1.My.Resources.Resources.DmrOnStateSupplyCurrent_Text_031420191
-        Me.PictureBox2.Location = New System.Drawing.Point(26, 250)
+        Me.PictureBox2.Location = New System.Drawing.Point(47, 352)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(887, 611)
+        Me.PictureBox2.Size = New System.Drawing.Size(864, 616)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
@@ -63,7 +75,7 @@ Partial Class frmOnStateSupplyCurrent
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.DmrOnStateSupplyCurrent_03142019
-        Me.PictureBox1.Location = New System.Drawing.Point(148, 261)
+        Me.PictureBox1.Location = New System.Drawing.Point(172, 353)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(571, 477)
         Me.PictureBox1.TabIndex = 4
@@ -140,12 +152,50 @@ Partial Class frmOnStateSupplyCurrent
         Me.GroupBox1.Controls.Add(Me.tbxMeasurementEntry1)
         Me.GroupBox1.Controls.Add(Me.lblLimit)
         Me.GroupBox1.Controls.Add(Me.lblTest)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 70)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 195)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(933, 152)
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'tbxLimitDsply2
+        '
+        Me.tbxLimitDsply2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbxLimitDsply2.Location = New System.Drawing.Point(353, 83)
+        Me.tbxLimitDsply2.MaximumSize = New System.Drawing.Size(76, 65)
+        Me.tbxLimitDsply2.Multiline = True
+        Me.tbxLimitDsply2.Name = "tbxLimitDsply2"
+        Me.tbxLimitDsply2.Size = New System.Drawing.Size(76, 22)
+        Me.tbxLimitDsply2.TabIndex = 26
+        Me.tbxLimitDsply2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'lblMax
+        '
+        Me.lblMax.AutoSize = True
+        Me.lblMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMax.Location = New System.Drawing.Point(531, 87)
+        Me.lblMax.Name = "lblMax"
+        Me.lblMax.Size = New System.Drawing.Size(33, 16)
+        Me.lblMax.TabIndex = 25
+        Me.lblMax.Text = "Max"
+        '
+        'lblMin
+        '
+        Me.lblMin.AutoSize = True
+        Me.lblMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMin.Location = New System.Drawing.Point(531, 51)
+        Me.lblMin.Name = "lblMin"
+        Me.lblMin.Size = New System.Drawing.Size(29, 16)
+        Me.lblMin.TabIndex = 24
+        Me.lblMin.Text = "Min"
+        '
+        'tbxMeasurementEntry2
+        '
+        Me.tbxMeasurementEntry2.Location = New System.Drawing.Point(457, 83)
+        Me.tbxMeasurementEntry2.Name = "tbxMeasurementEntry2"
+        Me.tbxMeasurementEntry2.Size = New System.Drawing.Size(68, 20)
+        Me.tbxMeasurementEntry2.TabIndex = 23
         '
         'tbxLimitDsply1
         '
@@ -260,49 +310,111 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblTest.TabIndex = 11
         Me.lblTest.Text = "Test Description"
         '
-        'tbxMeasurementEntry2
+        'GroupBox2
         '
-        Me.tbxMeasurementEntry2.Location = New System.Drawing.Point(457, 83)
-        Me.tbxMeasurementEntry2.Name = "tbxMeasurementEntry2"
-        Me.tbxMeasurementEntry2.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry2.TabIndex = 23
+        Me.GroupBox2.Controls.Add(Me.tbxCapRly)
+        Me.GroupBox2.Controls.Add(Me.tbxResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCapRly)
+        Me.GroupBox2.Controls.Add(Me.lblResRly)
+        Me.GroupBox2.Controls.Add(Me.lblCap)
+        Me.GroupBox2.Controls.Add(Me.lblRes)
+        Me.GroupBox2.Controls.Add(Me.lblWatt)
+        Me.GroupBox2.Controls.Add(Me.tbxCap)
+        Me.GroupBox2.Controls.Add(Me.tbxRes)
+        Me.GroupBox2.Controls.Add(Me.tbxWatt)
+        Me.GroupBox2.Location = New System.Drawing.Point(17, 60)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(511, 129)
+        Me.GroupBox2.TabIndex = 23
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Load Description"
         '
-        'lblMin
+        'tbxCapRly
         '
-        Me.lblMin.AutoSize = True
-        Me.lblMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMin.Location = New System.Drawing.Point(531, 51)
-        Me.lblMin.Name = "lblMin"
-        Me.lblMin.Size = New System.Drawing.Size(29, 16)
-        Me.lblMin.TabIndex = 24
-        Me.lblMin.Text = "Min"
+        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Name = "tbxCapRly"
+        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCapRly.TabIndex = 18
         '
-        'lblMax
+        'tbxResRly
         '
-        Me.lblMax.AutoSize = True
-        Me.lblMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMax.Location = New System.Drawing.Point(531, 87)
-        Me.lblMax.Name = "lblMax"
-        Me.lblMax.Size = New System.Drawing.Size(33, 16)
-        Me.lblMax.TabIndex = 25
-        Me.lblMax.Text = "Max"
+        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Name = "tbxResRly"
+        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxResRly.TabIndex = 4
         '
-        'tbxLimitDsply2
+        'lblCapRly
         '
-        Me.tbxLimitDsply2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxLimitDsply2.Location = New System.Drawing.Point(353, 83)
-        Me.tbxLimitDsply2.MaximumSize = New System.Drawing.Size(76, 65)
-        Me.tbxLimitDsply2.Multiline = True
-        Me.tbxLimitDsply2.Name = "tbxLimitDsply2"
-        Me.tbxLimitDsply2.Size = New System.Drawing.Size(76, 22)
-        Me.tbxLimitDsply2.TabIndex = 26
-        Me.tbxLimitDsply2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.lblCapRly.AutoSize = True
+        Me.lblCapRly.Location = New System.Drawing.Point(273, 92)
+        Me.lblCapRly.Name = "lblCapRly"
+        Me.lblCapRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblCapRly.TabIndex = 2
+        Me.lblCapRly.Text = "lblCapRly"
+        '
+        'lblResRly
+        '
+        Me.lblResRly.AutoSize = True
+        Me.lblResRly.Location = New System.Drawing.Point(273, 63)
+        Me.lblResRly.Name = "lblResRly"
+        Me.lblResRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblResRly.TabIndex = 3
+        Me.lblResRly.Text = "lblResRly"
+        '
+        'lblCap
+        '
+        Me.lblCap.AutoSize = True
+        Me.lblCap.Location = New System.Drawing.Point(18, 91)
+        Me.lblCap.Name = "lblCap"
+        Me.lblCap.Size = New System.Drawing.Size(36, 13)
+        Me.lblCap.TabIndex = 1
+        Me.lblCap.Text = "lblCap"
+        '
+        'lblRes
+        '
+        Me.lblRes.AutoSize = True
+        Me.lblRes.Location = New System.Drawing.Point(18, 62)
+        Me.lblRes.Name = "lblRes"
+        Me.lblRes.Size = New System.Drawing.Size(36, 13)
+        Me.lblRes.TabIndex = 1
+        Me.lblRes.Text = "lblRes"
+        '
+        'lblWatt
+        '
+        Me.lblWatt.AutoSize = True
+        Me.lblWatt.Location = New System.Drawing.Point(18, 35)
+        Me.lblWatt.Name = "lblWatt"
+        Me.lblWatt.Size = New System.Drawing.Size(40, 13)
+        Me.lblWatt.TabIndex = 1
+        Me.lblWatt.Text = "lblWatt"
+        '
+        'tbxCap
+        '
+        Me.tbxCap.Location = New System.Drawing.Point(114, 88)
+        Me.tbxCap.Name = "tbxCap"
+        Me.tbxCap.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCap.TabIndex = 0
+        '
+        'tbxRes
+        '
+        Me.tbxRes.Location = New System.Drawing.Point(114, 59)
+        Me.tbxRes.Name = "tbxRes"
+        Me.tbxRes.Size = New System.Drawing.Size(130, 20)
+        Me.tbxRes.TabIndex = 0
+        '
+        'tbxWatt
+        '
+        Me.tbxWatt.Location = New System.Drawing.Point(114, 32)
+        Me.tbxWatt.Name = "tbxWatt"
+        Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
+        Me.tbxWatt.TabIndex = 0
         '
         'frmOnStateSupplyCurrent
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(962, 873)
+        Me.ClientSize = New System.Drawing.Size(964, 980)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbx1400ohm)
         Me.Controls.Add(Me.cbx800ohm)
@@ -317,6 +429,8 @@ Partial Class frmOnStateSupplyCurrent
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -344,4 +458,15 @@ Partial Class frmOnStateSupplyCurrent
     Friend WithEvents lblMax As Label
     Friend WithEvents lblMin As Label
     Friend WithEvents tbxLimitDsply2 As TextBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents tbxCapRly As TextBox
+    Friend WithEvents tbxResRly As TextBox
+    Friend WithEvents lblCapRly As Label
+    Friend WithEvents lblResRly As Label
+    Friend WithEvents lblCap As Label
+    Friend WithEvents lblRes As Label
+    Friend WithEvents lblWatt As Label
+    Friend WithEvents tbxCap As TextBox
+    Friend WithEvents tbxRes As TextBox
+    Friend WithEvents tbxWatt As TextBox
 End Class

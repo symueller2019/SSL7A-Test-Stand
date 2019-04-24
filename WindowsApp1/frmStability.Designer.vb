@@ -47,7 +47,19 @@ Partial Class frmStability
         Me.tbxMeasurementEntry = New System.Windows.Forms.TextBox()
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblCapRly = New System.Windows.Forms.Label()
+        Me.lblResRly = New System.Windows.Forms.Label()
+        Me.lblCap = New System.Windows.Forms.Label()
+        Me.lblRes = New System.Windows.Forms.Label()
+        Me.lblWatt = New System.Windows.Forms.Label()
+        Me.tbxCap = New System.Windows.Forms.TextBox()
+        Me.tbxRes = New System.Windows.Forms.TextBox()
+        Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.tbxResRly = New System.Windows.Forms.TextBox()
+        Me.tbxCapRly = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'btnLPFMinLoadMinCondAnglePosCycle
@@ -301,11 +313,111 @@ Partial Class frmStability
         Me.lblTest.TabIndex = 0
         Me.lblTest.Text = "Test Description"
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.tbxCapRly)
+        Me.GroupBox1.Controls.Add(Me.tbxResRly)
+        Me.GroupBox1.Controls.Add(Me.lblCapRly)
+        Me.GroupBox1.Controls.Add(Me.lblResRly)
+        Me.GroupBox1.Controls.Add(Me.lblCap)
+        Me.GroupBox1.Controls.Add(Me.lblRes)
+        Me.GroupBox1.Controls.Add(Me.lblWatt)
+        Me.GroupBox1.Controls.Add(Me.tbxCap)
+        Me.GroupBox1.Controls.Add(Me.tbxRes)
+        Me.GroupBox1.Controls.Add(Me.tbxWatt)
+        Me.GroupBox1.Location = New System.Drawing.Point(395, 242)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(511, 151)
+        Me.GroupBox1.TabIndex = 17
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Load Description"
+        '
+        'lblCapRly
+        '
+        Me.lblCapRly.AutoSize = True
+        Me.lblCapRly.Location = New System.Drawing.Point(273, 92)
+        Me.lblCapRly.Name = "lblCapRly"
+        Me.lblCapRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblCapRly.TabIndex = 2
+        Me.lblCapRly.Text = "lblCapRly"
+        '
+        'lblResRly
+        '
+        Me.lblResRly.AutoSize = True
+        Me.lblResRly.Location = New System.Drawing.Point(273, 63)
+        Me.lblResRly.Name = "lblResRly"
+        Me.lblResRly.Size = New System.Drawing.Size(51, 13)
+        Me.lblResRly.TabIndex = 3
+        Me.lblResRly.Text = "lblResRly"
+        '
+        'lblCap
+        '
+        Me.lblCap.AutoSize = True
+        Me.lblCap.Location = New System.Drawing.Point(32, 91)
+        Me.lblCap.Name = "lblCap"
+        Me.lblCap.Size = New System.Drawing.Size(36, 13)
+        Me.lblCap.TabIndex = 1
+        Me.lblCap.Text = "lblCap"
+        '
+        'lblRes
+        '
+        Me.lblRes.AutoSize = True
+        Me.lblRes.Location = New System.Drawing.Point(32, 62)
+        Me.lblRes.Name = "lblRes"
+        Me.lblRes.Size = New System.Drawing.Size(36, 13)
+        Me.lblRes.TabIndex = 1
+        Me.lblRes.Text = "lblRes"
+        '
+        'lblWatt
+        '
+        Me.lblWatt.AutoSize = True
+        Me.lblWatt.Location = New System.Drawing.Point(32, 35)
+        Me.lblWatt.Name = "lblWatt"
+        Me.lblWatt.Size = New System.Drawing.Size(40, 13)
+        Me.lblWatt.TabIndex = 1
+        Me.lblWatt.Text = "lblWatt"
+        '
+        'tbxCap
+        '
+        Me.tbxCap.Location = New System.Drawing.Point(114, 88)
+        Me.tbxCap.Name = "tbxCap"
+        Me.tbxCap.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCap.TabIndex = 0
+        '
+        'tbxRes
+        '
+        Me.tbxRes.Location = New System.Drawing.Point(114, 59)
+        Me.tbxRes.Name = "tbxRes"
+        Me.tbxRes.Size = New System.Drawing.Size(130, 20)
+        Me.tbxRes.TabIndex = 0
+        '
+        'tbxWatt
+        '
+        Me.tbxWatt.Location = New System.Drawing.Point(114, 32)
+        Me.tbxWatt.Name = "tbxWatt"
+        Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
+        Me.tbxWatt.TabIndex = 0
+        '
+        'tbxResRly
+        '
+        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Name = "tbxResRly"
+        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxResRly.TabIndex = 4
+        '
+        'tbxCapRly
+        '
+        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Name = "tbxCapRly"
+        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCapRly.TabIndex = 18
+        '
         'frmStability
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(918, 635)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btn_HPFRatedLoadMaxConAnglePosCycle)
         Me.Controls.Add(Me.btn_HPFRatedLoadMinConAnglePosCycle)
@@ -324,6 +436,8 @@ Partial Class frmStability
         Me.Text = "frmStability"
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -354,4 +468,15 @@ Partial Class frmStability
     Friend WithEvents lblLimitDsply As Label
     Friend WithEvents lblResultDsply As Label
     Friend WithEvents btnEnter As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents lblCap As Label
+    Friend WithEvents lblRes As Label
+    Friend WithEvents lblWatt As Label
+    Friend WithEvents tbxCap As TextBox
+    Friend WithEvents tbxRes As TextBox
+    Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents lblCapRly As Label
+    Friend WithEvents lblResRly As Label
+    Friend WithEvents tbxCapRly As TextBox
+    Friend WithEvents tbxResRly As TextBox
 End Class

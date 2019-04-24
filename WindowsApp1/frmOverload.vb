@@ -26,6 +26,7 @@ Public Class frmOverload
             lblTestDescription.Text = "LPF 120% Rated Load - Max Conductive Angle Current"
             lblResultDsply.Text = ""
 
+            DisplayLoad()           'display Res & Cap load with Relay info
         Else
             'disconnect loads & power
             DataValue = 0
@@ -48,6 +49,8 @@ Public Class frmOverload
             'display title of test
             lblTestDescription.Text = "LPF 120% Rated Load - 90 Deg. Conductive Angle Current"
             lblResultDsply.Text = ""
+
+            DisplayLoad()           'display Res & Cap load with Relay info
         Else
             'disconnect loads & power
             DataValue = 0
@@ -56,4 +59,28 @@ Public Class frmOverload
             cbxMaxCondAngle.Enabled = True
         End If
     End Sub
+
+    Private Sub DisplayLoad()
+        'update labels & textboxes with load & relay info
+        'assign titles to labels
+        lblWatt.Text = "Overload Watts"
+        lblRes.Text = "Overload LPF Res"
+        lblCap.Text = "Overload LPF Cap"
+        'update textbox values
+        'tbxWatt.Text = WattageSelection(Index)      'display Rated Wattage
+        tbxWatt.Text = OVLDWattageSelection(Index)
+        tbxRes.Text = OVLDLPF_Res(Index)
+        tbxCap.Text = OVLDLPF_Cap(Index)
+        'display titles to relays
+        lblResRly.Text = "Res Rly"
+        lblCapRly.Text = "Cap Rly"
+        'display relays
+        Dim textline As String = ""
+        Display_Relays(OVLDLPF_ResRelays, textline)
+        tbxResRly.Text = textline
+
+        Display_Relays(OVLDLPF_CapRelays, textline)
+        tbxCapRly.Text = textline
+    End Sub
+
 End Class

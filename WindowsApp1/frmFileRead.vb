@@ -27,8 +27,14 @@
             Return
         End If
 
+        'Overload Wattage is 120% of Rated
+        tbxOVLDWattage.Text = Val(1.2 * Val(tbxWattage.Text))
+
         'Prevent user from actuating until task is done
         btnStart.Enabled = False
+
+
+        '******************** Rated Wattage *******************
 
         'Find Index to User Wattage entry in Wattage Selection File
         Value = Val(tbxWattage.Text)
@@ -65,6 +71,26 @@
         tbxMinLPF_Cap.Text = MinLPF_Cap(MinIndex)
         tbxMinHPF_Res.Text = MinHPF_Res(MinIndex)
 
+
+        '******************** Overload Wattage *******************
+
+        'Find Index to User Wattage entry in Wattage Selection File
+        'Value = Val(tbxOVLDWattage.Text)
+        'Value = Val(tbxWattage.Text)        'use same index as Rated - 1 to 1 correspondance
+        'For x = 0 To OVLDWattageSelection.Length - 1
+        '    If Val(OVLDWattageSelection(x)) = Value Then
+        '        OVLDIndex = x
+        '        tbxIndexToOVLDTables.Text = OVLDIndex
+        '    End If
+        'Next x
+        'Me.tbxIndexToTables.Update()
+        'System.Windows.Forms.Application.DoEvents()     'force screen update to see change
+
+        'Read & display Indexed values from the LPF Res, LPF Cap and HPF Res arrays
+        tbxIndexToOVLDTables.Text = Index            'use same index as Rated - 1 to 1 correspondance
+        tbxOVLDLPF_Res.Text = OVLDLPF_Res(Index)
+        tbxOVLDLPF_Cap.Text = OVLDLPF_Cap(Index)
+        'tbxMinHPF_Res.Text = MinHPF_Res(MinIndex)
 
         '******************** Rate Wattage ***********************
 
@@ -163,6 +189,37 @@
             End If
         Next
         MinHPF_ResRelays = Relaystr            'holds Relays to actuate 
+
+
+        '************************ Overload Wattage **********************
+        myreader = My.Computer.FileSystem.OpenTextFileReader(FileLoc_OVLDWattsToRelayLPFRes)
+        For x = 0 To Index                  'Index to line
+            line = myreader.ReadLine()      'Read line
+        Next
+        Relaystr = line.Split(",")          'Relaystr is array of individual elements
+        For x = 1 To Relaystr.Length - 1
+            If tbxOVLDLPF_ResRelays.Text = "" Then
+                tbxOVLDLPF_ResRelays.Text = tbxOVLDLPF_ResRelays.Text & Relaystr(x)
+            Else
+                tbxOVLDLPF_ResRelays.Text = tbxOVLDLPF_ResRelays.Text & "," & Relaystr(x)
+            End If
+        Next
+        OVLDLPF_ResRelays = Relaystr            'holds Relays to actuate 
+
+
+        myreader = My.Computer.FileSystem.OpenTextFileReader(FileLoc_OVLDWattsToRelayLPFCap)
+        For x = 0 To Index                  'Index to line
+            line = myreader.ReadLine()      'Read line
+        Next
+        Relaystr = line.Split(",")          'Relaystr is array of individual elements
+        For x = 1 To Relaystr.Length - 1
+            If tbxOVLDLPF_CapRelays.Text = "" Then
+                tbxOVLDLPF_CapRelays.Text = tbxOVLDLPF_CapRelays.Text & Relaystr(x)
+            Else
+                tbxOVLDLPF_CapRelays.Text = tbxOVLDLPF_CapRelays.Text & "," & Relaystr(x)
+            End If
+        Next
+        OVLDLPF_CapRelays = Relaystr            'holds Relays to actuate 
 
 
         btnStart.Enabled = True
