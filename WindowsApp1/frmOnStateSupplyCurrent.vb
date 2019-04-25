@@ -38,6 +38,7 @@ Public Class frmOnStateSupplyCurrent
             TitleStr = "HPF 100 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
+
             'GetRelaysFromFile(ByVal Filename As String, ByVal RelayList() As String)
             GetRelaysFromFile("C:\temp\ON_State_Relays.txt", Relaylist, 1)
             'DisplayLoad(100)
