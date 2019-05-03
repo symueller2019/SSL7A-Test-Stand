@@ -166,7 +166,7 @@ Module Module1
 
     End Sub
 
-    Public Sub PortPortATest(ByVal DataValue)
+    Public Sub PortBTest(ByVal DataValue)
         'Form1.btnHigh.BackColor = Color.Black
 
         Dim ULStat As MccDaq.ErrorInfo

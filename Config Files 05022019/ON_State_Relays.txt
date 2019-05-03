@@ -1,0 +1,5 @@
+ON_State_Relays:
+100ohm,10,40
+350ohm,11,41
+800ohm,12,42
+1400ohm,13,43

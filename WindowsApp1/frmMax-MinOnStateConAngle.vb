@@ -34,7 +34,11 @@ Public Class frmMax_MinOnStateConAngle
             'lblLimitDsply.Text = "1.619msec to 2.081msec"
             tbxLimitDsply.Text = "1.619 msec" & vbCrLf & "to" & vbCrLf & "2.081 msec"
 
-            DisplayLoad_Min_MIN()
+            DisplayLoad_Min_Min()
+
+            'close Relays
+            Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -65,6 +69,10 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Rated_Min()
 
+            'close Relays
+            Close_Relays(LPF_ResRelays)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
         Else
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -94,6 +102,10 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Min_Max()
 
+            'close Relays
+            Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
         Else
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -122,6 +134,10 @@ Public Class frmMax_MinOnStateConAngle
             tbxLimitDsply.Text = ">130 Deg" & vbCrLf & "(6.02 msec)"
 
             DisplayLoad_Rated_Max()
+
+            'close Relays
+            Close_Relays(HPF_ResRelays)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -222,4 +238,10 @@ Public Class frmMax_MinOnStateConAngle
         tbxCapRly.Text = ""     'textline
     End Sub
 
+    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWrite(tbxComment.Text)
+    End Sub
 End Class

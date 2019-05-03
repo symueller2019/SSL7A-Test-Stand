@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmOffStateOperation
+    Dim intTestNum As Integer
+    Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
 
     Private Sub frmOffStateOperation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GC.Collect()
@@ -28,7 +30,15 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "15mA Max"
 
-            DisplayLoad(10)
+            intTestNum = 1      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
 
         Else
@@ -70,7 +80,16 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "15mA Max"
 
-            DisplayLoad(40)
+            intTestNum = 2      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
         Else
             'Restore other controls
             cbx10ohm.Enabled = True
@@ -102,7 +121,16 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "10.1mA Max"
 
-            DisplayLoad(400)
+            intTestNum = 3      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
 
         Else
             'Restore other controls
@@ -135,7 +163,15 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "6mA Max"
 
-            DisplayLoad(3000)
+            intTestNum = 4      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -168,7 +204,15 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "4.8mA Max"
 
-            DisplayLoad(8000)
+            intTestNum = 5      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -201,7 +245,16 @@ Public Class frmOffStateOperation
             'display limits in Group box
             tbxLimitDsply.Text = "4.5mA Max"
 
-            DisplayLoad(15000)
+            intTestNum = 6      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_OFF_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
 
         Else
             'Restore other controls
@@ -225,25 +278,25 @@ Public Class frmOffStateOperation
         End If
     End Sub
 
-    Private Sub DisplayLoad(ByVal Num As Integer)
+    Private Sub DisplayLoad(ByRef RelayList() As String, ByVal strLine As String)  ', ByVal Num As Integer)
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
+        lblWatt.Text = ""       '"Watts"
         lblRes.Text = "HPF Res"
         lblCap.Text = ""        '"Overload LPF Cap"
         'update textbox values
         tbxWatt.Text = ""       'WattageSelection(Index)
-        tbxRes.Text = Num       'OVLDLPF_Res(Index)
+        tbxRes.Text = RelayList(0)       'OVLDLPF_Res(Index)
         tbxCap.Text = ""        'OVLDLPF_Cap(Index)
         'display titles to relays
         lblResRly.Text = "Res Rly"
         lblCapRly.Text = ""     '"Cap Rly"
         'display relays
-        Dim textline As String = ""
-        Display_Relays(HPF_ResRelays, textline)
-        tbxResRly.Text = textline
+        'Dim textline As String = ""
+        'Display_Relays(HPF_ResRelays, textline)
+        tbxResRly.Text = strLine
 
-        Display_Relays(OVLDLPF_CapRelays, textline)
+        'Display_Relays(OVLDLPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline
     End Sub
 End Class

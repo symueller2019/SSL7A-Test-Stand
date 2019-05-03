@@ -37,7 +37,6 @@ Partial Class MainForm1
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.btnReadFile = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.tbxOVLDLPF_CapRelays = New System.Windows.Forms.TextBox()
         Me.tbxOVLDLPF_ResRelays = New System.Windows.Forms.TextBox()
@@ -86,11 +85,12 @@ Partial Class MainForm1
         '
         'btnPress
         '
-        Me.btnPress.Location = New System.Drawing.Point(915, 29)
+        Me.btnPress.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPress.Location = New System.Drawing.Point(198, 29)
         Me.btnPress.Name = "btnPress"
-        Me.btnPress.Size = New System.Drawing.Size(113, 21)
+        Me.btnPress.Size = New System.Drawing.Size(113, 38)
         Me.btnPress.TabIndex = 2
-        Me.btnPress.Text = "Press"
+        Me.btnPress.Text = "Load Setup"
         Me.btnPress.UseVisualStyleBackColor = True
         '
         'btnFullTestSuite
@@ -234,15 +234,6 @@ Partial Class MainForm1
         Me.GroupBox2.TabIndex = 7
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Test ID #"
-        '
-        'btnReadFile
-        '
-        Me.btnReadFile.Location = New System.Drawing.Point(42, 436)
-        Me.btnReadFile.Name = "btnReadFile"
-        Me.btnReadFile.Size = New System.Drawing.Size(130, 36)
-        Me.btnReadFile.TabIndex = 10
-        Me.btnReadFile.Text = "ReadFile"
-        Me.btnReadFile.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
@@ -661,7 +652,6 @@ Partial Class MainForm1
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1074, 712)
         Me.Controls.Add(Me.GroupBox3)
-        Me.Controls.Add(Me.btnReadFile)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnOnStateDmrSupplyCurrent)
@@ -702,7 +692,6 @@ Partial Class MainForm1
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents lblTime As Label
     Friend WithEvents GroupBox2 As GroupBox
-    Friend WithEvents btnReadFile As Button
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents lblWattage As Label
     Friend WithEvents tbxWattage As TextBox

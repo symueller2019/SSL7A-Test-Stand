@@ -1,4 +1,6 @@
 ﻿Module Module_FileRead
+    'control flag
+    Public blnFormHold As Boolean
     'arrays to hold Rated Load Configuration info from Configuration text file
     Public LPF_Res(50) As String
     Public LPF_Cap(50) As String
@@ -45,6 +47,10 @@
     Public FileLoc_OVLDWattSelect As String
     Public FileLoc_OVLDWattsToRelayLPFRes As String
     Public FileLoc_OVLDWattsToRelayLPFCap As String
+    'Config file locations for ON & OFF State Relays - read from Configuration text file
+    Public FileLoc_ON_State_Relays As String
+    Public FileLoc_OFF_State_Relays As String
+
 
     Public Sub Read_Text_Files()
         'Read in all Wattage selections available in test - get total # of wattage test values available
@@ -112,6 +118,10 @@
         FileLoc_OVLDWattSelect = myreader.ReadLine()
         FileLoc_OVLDWattsToRelayLPFRes = myreader.ReadLine()      'Read line
         FileLoc_OVLDWattsToRelayLPFCap = myreader.ReadLine()      'Read line
+        '****** ON_State_Relays ******
+        FileLoc_ON_State_Relays = myreader.ReadLine()      'Read line
+        FileLoc_OFF_State_Relays = myreader.ReadLine()      'Read line
+
     End Sub
 
     Public Sub Display_Relays(ByRef RelayArray() As String, ByRef line As String)
@@ -125,9 +135,62 @@
         Next
     End Sub
 
-    Public Sub GetRelaysFromFile(ByVal Filename As String, ByVal RelayList() As String, LineIndex As Integer)
+    Public Sub Close_Relays(ByRef RelayArray() As String)
+        Dim DataValue As UInt16
+        Dim RelayAdd As UInt16
+
+        'determine which USB-DIO24 Board by evaluating Relay #
+        'if Relay # < 25 then DIO24 board #1
+        '   if Relay # < 9 then PortA, elseif Relay # < 17 then PortB else PortC
+        'if Relay # > 24 & < 49 then DIO24 board #2
+        '   if Relay # < 9 then PortA1, elseif Relay # < 17 then PortB1 else PortC1
+
+        For x = 1 To RelayArray.Length - 1
+
+            DataValue = RelayArray(x)       'read relay number
+            If (DataValue < 25) Then
+                'board #1
+                If (DataValue < 9) Then
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - 1))
+                    PortATest(RelayAdd)
+                ElseIf (DataValue < 17) Then
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 9)))
+                    PortBTest(RelayAdd)
+                Else
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 17)))
+                    PortCTest(RelayAdd)
+                End If
+
+            ElseIf (DataValue < 49) Then
+                'board #2
+                'account for 1st bank with 24 offset
+                DataValue -= 24
+                If (DataValue < 9) Then
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - 1))
+                    PortATest1(RelayAdd)
+                ElseIf (DataValue < 17) Then
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 9)))
+                    PortBTest1(RelayAdd)
+                Else
+                    'convert Relay # to I/O address
+                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 17)))
+                    PortCTest1(RelayAdd)
+                End If
+            End If
+
+
+        Next
+    End Sub
+
+
+    Public Sub GetRelaysFromFile(ByVal Filename As String, ByRef RelayList() As String, ByRef strLine As String, ByRef LineIndex As Integer)
         Dim myreader As New IO.StreamReader(Filename)
-        Dim line As String : Dim Relaystr() As String
+        Dim line As String : Dim Relaystr(2) As String
 
         myreader = My.Computer.FileSystem.OpenTextFileReader(Filename)
 
@@ -143,7 +206,7 @@
         '    End If
         'Next
         RelayList = Relaystr            'holds Relays to actuate 
-
+        strLine = line
         myreader.Close()
 
     End Sub

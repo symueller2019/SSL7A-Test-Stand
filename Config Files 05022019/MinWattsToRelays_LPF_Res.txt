@@ -1,0 +1,6 @@
+WattsToRelays_MinLPF_Res:
+5W,25,48
+6W,26,47
+10W,27,46
+20W,28,45
+25W,29,44

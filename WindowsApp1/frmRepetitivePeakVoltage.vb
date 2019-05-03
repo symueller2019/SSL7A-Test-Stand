@@ -46,6 +46,10 @@ Public Class frmRepetitivePeakVoltage
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
+            'close Relays
+            Close_Relays(HPF_ResRelays)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
         Else
             'disconnect loads & power
             DataValue = 0
@@ -76,5 +80,12 @@ Public Class frmRepetitivePeakVoltage
 
         Display_Relays(LPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline
+    End Sub
+
+    Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWrite(tbxComment.Text)
     End Sub
 End Class

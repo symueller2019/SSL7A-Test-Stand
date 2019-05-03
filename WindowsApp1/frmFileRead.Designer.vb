@@ -224,7 +224,7 @@ Partial Class frmFileRead
         Me.tbxWattage.Location = New System.Drawing.Point(74, 98)
         Me.tbxWattage.Name = "tbxWattage"
         Me.tbxWattage.Size = New System.Drawing.Size(115, 20)
-        Me.tbxWattage.TabIndex = 56
+        Me.tbxWattage.TabIndex = 1
         '
         'Timer1
         '
@@ -282,7 +282,7 @@ Partial Class frmFileRead
         Me.tbxMinWattage.Location = New System.Drawing.Point(294, 96)
         Me.tbxMinWattage.Name = "tbxMinWattage"
         Me.tbxMinWattage.Size = New System.Drawing.Size(115, 20)
-        Me.tbxMinWattage.TabIndex = 81
+        Me.tbxMinWattage.TabIndex = 2
         '
         'lblMinWattage
         '
@@ -455,6 +455,7 @@ Partial Class frmFileRead
         '
         'frmFileRead
         '
+        Me.AcceptButton = Me.btnStart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(865, 498)

@@ -2,6 +2,9 @@
 
 Public Class frmOnStateSupplyCurrent
     Dim TitleStr As String
+    Dim intTestNum As Integer
+    Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
+
 
     Private Sub btnInfo_Click(sender As Object, e As EventArgs) Handles btnInfo.Click
         If PictureBox2.Visible Then
@@ -25,7 +28,7 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub cbx100ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx100ohm.CheckedChanged
-        Dim DataValue As UInt16 : Dim Relaylist() As String
+        'Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
         If (cbx100ohm.Checked = True) Then
             'Disable other controls
             cbx350ohm.Enabled = False
@@ -38,10 +41,17 @@ Public Class frmOnStateSupplyCurrent
             TitleStr = "HPF 100 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
+            intTestNum = 1      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
 
-            'GetRelaysFromFile(ByVal Filename As String, ByVal RelayList() As String)
-            GetRelaysFromFile("C:\temp\ON_State_Relays.txt", Relaylist, 1)
-            'DisplayLoad(100)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+
 
         Else
             'Restore other controls
@@ -67,7 +77,15 @@ Public Class frmOnStateSupplyCurrent
             TitleStr = "HPF 350 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
-            DisplayLoad(350)
+            intTestNum = 2      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -93,7 +111,15 @@ Public Class frmOnStateSupplyCurrent
             TitleStr = "HPF 800 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
-            DisplayLoad(800)
+            intTestNum = 3      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -119,7 +145,15 @@ Public Class frmOnStateSupplyCurrent
             TitleStr = "HPF 1.4k Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
-            DisplayLoad(1400)
+            intTestNum = 4      'Index value for this test
+            'Retrieve Relay connections for Ron = 100 ohms
+            GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+            'Display load/Relay info
+            DisplayLoad(RelayList, strLine)
+
+            'close Relays
+            Close_Relays(RelayList)      'Resistor relays
+            'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'Restore other controls
@@ -164,25 +198,25 @@ Public Class frmOnStateSupplyCurrent
         tbxLimitDsply2.Text = "6.02mSec Min"
     End Sub
 
-    Private Sub DisplayLoad(ByVal Num As Integer)
+    Private Sub DisplayLoad(ByRef RelayList() As String, ByVal strLine As String)  ', ByVal Num As Integer)
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
+        lblWatt.Text = ""       '"Watts"
         lblRes.Text = "HPF Res"
         lblCap.Text = ""        '"Overload LPF Cap"
         'update textbox values
         tbxWatt.Text = ""       'WattageSelection(Index)
-        tbxRes.Text = Num       'OVLDLPF_Res(Index)
+        tbxRes.Text = RelayList(0)       'OVLDLPF_Res(Index)
         tbxCap.Text = ""        'OVLDLPF_Cap(Index)
         'display titles to relays
         lblResRly.Text = "Res Rly"
         lblCapRly.Text = ""     '"Cap Rly"
         'display relays
-        Dim textline As String = ""
-        Display_Relays(HPF_ResRelays, textline)
-        tbxResRly.Text = textline
+        'Dim textline As String = ""
+        'Display_Relays(HPF_ResRelays, textline)
+        tbxResRly.Text = strLine
 
-        Display_Relays(OVLDLPF_CapRelays, textline)
+        'Display_Relays(OVLDLPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline
     End Sub
 End Class

@@ -26,7 +26,6 @@ Partial Class frmStability
         Me.btnLPFMinLoadMaxConAnglePosCycle = New System.Windows.Forms.Button()
         Me.btnHPFMinLoadMinConAnglePosCycle = New System.Windows.Forms.Button()
         Me.btnHPFMinLoadMaxConAnglePosCycle = New System.Windows.Forms.Button()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.btnLPFRatedLoadMinConAnglePosCycle = New System.Windows.Forms.Button()
         Me.btnLPFRatedLoadMinConAngleNegCycle = New System.Windows.Forms.Button()
         Me.btnLPFRatedLoad90degConAnglePosCycle = New System.Windows.Forms.Button()
@@ -48,6 +47,8 @@ Partial Class frmStability
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.tbxCapRly = New System.Windows.Forms.TextBox()
+        Me.tbxResRly = New System.Windows.Forms.TextBox()
         Me.lblCapRly = New System.Windows.Forms.Label()
         Me.lblResRly = New System.Windows.Forms.Label()
         Me.lblCap = New System.Windows.Forms.Label()
@@ -56,8 +57,6 @@ Partial Class frmStability
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
-        Me.tbxResRly = New System.Windows.Forms.TextBox()
-        Me.tbxCapRly = New System.Windows.Forms.TextBox()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -97,18 +96,6 @@ Partial Class frmStability
         Me.btnHPFMinLoadMaxConAnglePosCycle.TabIndex = 3
         Me.btnHPFMinLoadMaxConAnglePosCycle.Text = "HPF Min Load-Max Conduction Angle-PosCycle"
         Me.btnHPFMinLoadMaxConAnglePosCycle.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.ForeColor = System.Drawing.Color.Black
-        Me.RadioButton1.Location = New System.Drawing.Point(117, 203)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 4
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'btnLPFRatedLoadMinConAnglePosCycle
         '
@@ -332,6 +319,20 @@ Partial Class frmStability
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Load Description"
         '
+        'tbxCapRly
+        '
+        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Name = "tbxCapRly"
+        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxCapRly.TabIndex = 18
+        '
+        'tbxResRly
+        '
+        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Name = "tbxResRly"
+        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
+        Me.tbxResRly.TabIndex = 4
+        '
         'lblCapRly
         '
         Me.lblCapRly.AutoSize = True
@@ -398,20 +399,6 @@ Partial Class frmStability
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
-        'tbxResRly
-        '
-        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
-        Me.tbxResRly.Name = "tbxResRly"
-        Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
-        Me.tbxResRly.TabIndex = 4
-        '
-        'tbxCapRly
-        '
-        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
-        Me.tbxCapRly.Name = "tbxCapRly"
-        Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
-        Me.tbxCapRly.TabIndex = 18
-        '
         'frmStability
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -427,7 +414,6 @@ Partial Class frmStability
         Me.Controls.Add(Me.btnLPFRatedLoad90degConAnglePosCycle)
         Me.Controls.Add(Me.btnLPFRatedLoadMinConAngleNegCycle)
         Me.Controls.Add(Me.btnLPFRatedLoadMinConAnglePosCycle)
-        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.btnHPFMinLoadMaxConAnglePosCycle)
         Me.Controls.Add(Me.btnHPFMinLoadMinConAnglePosCycle)
         Me.Controls.Add(Me.btnLPFMinLoadMaxConAnglePosCycle)
@@ -439,7 +425,6 @@ Partial Class frmStability
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
 
@@ -447,7 +432,6 @@ Partial Class frmStability
     Friend WithEvents btnLPFMinLoadMaxConAnglePosCycle As Button
     Friend WithEvents btnHPFMinLoadMinConAnglePosCycle As Button
     Friend WithEvents btnHPFMinLoadMaxConAnglePosCycle As Button
-    Friend WithEvents RadioButton1 As RadioButton
     Friend WithEvents btnLPFRatedLoadMinConAnglePosCycle As Button
     Friend WithEvents btnLPFRatedLoadMinConAngleNegCycle As Button
     Friend WithEvents btnLPFRatedLoad90degConAnglePosCycle As Button

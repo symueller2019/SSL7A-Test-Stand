@@ -12,11 +12,16 @@ Public Class MainForm1
         '    MessageBox.Show("Cancel pressed", "MessageBox Title", MessageBoxButtons.OK, MessageBoxIcon.Information)
         'End If
 
+        blnFormHold = True
         frmFileRead.Show()
-        While Index = 0
+        While blnFormHold = True
             'My.Application.DoEvents()
             System.Windows.Forms.Application.DoEvents()
         End While
+        'While Index = 0
+        '    'My.Application.DoEvents()
+        '    System.Windows.Forms.Application.DoEvents()
+        'End While
 
         lblDate.Text = DateTime.Now.Date      'DateTime.Today.ToLongTimeString
         lblTime.Text = TimeOfDay
@@ -179,8 +184,8 @@ Public Class MainForm1
         'FileWrite(WriteData)
     End Sub
 
-    Private Sub btnReadFile_Click(sender As Object, e As EventArgs) Handles btnReadFile.Click
-        frmFileRead.Show()
-    End Sub
+    'Private Sub btnReadFile_Click(sender As Object, e As EventArgs) Handles btnReadFile.Click
+    '    frmFileRead.Show()
+    'End Sub
 
 End Class

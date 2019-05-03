@@ -34,6 +34,10 @@ Public Class frmRepetitivePeakCurrent
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
+            'close Relays
+            Close_Relays(LPF_ResRelays)      'Resistor relays
+            Close_Relays(LPF_CapRelays)      'Capacitor relays
+
         Else
             'disconnect loads & power
             DataValue = 0
@@ -45,24 +49,12 @@ Public Class frmRepetitivePeakCurrent
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-        Dim LPF_Value As String
-
-        ''Determine Pass/Fail status
-        'If Val(lblLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
-        '    lblResultDsply.Text = "PASS"
-        'Else
-        '    lblResultDsply.Text = "FAIL"
-        'End If
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
         FileWrite(tbxComment.Text)
 
-        'LPF_Value = tbxMeasurementEntry.Text & tbxComment.Text
-        'FileWrite(LPF_Value)
-
-        'LPF_Value = tbxComment.Text
     End Sub
 
     Private Sub DisplayLoad()

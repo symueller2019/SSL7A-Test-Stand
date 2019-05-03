@@ -1,0 +1,6 @@
+WattsToRelays_HPF_Res:
+5W,1,17
+6W,2,16
+10W,3,15
+20W,4,14
+25W,5,13

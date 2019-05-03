@@ -1,4 +1,6 @@
-﻿Public Class frmFileRead
+﻿Imports System.ComponentModel       'needed for Form Closing event
+
+Public Class frmFileRead
 
     Private Sub timersetup()
         Timer1.Enabled = True
@@ -13,10 +15,11 @@
     Public Sub btnStart_Click(sender As Object, e As EventArgs) Handles btnStart.Click
         Dim x As Integer ': Dim Index As Integer
         Dim Value As Integer
-        Dim myreader As New IO.StreamReader("C:\Temp\ConfigFile.txt")
 
-        'myreader = My.Computer.FileSystem.OpenTextFileReader("C:\Temp\WattsToRelays_LPF_Res.txt")
         ReadConfig()
+
+        'Get location of Test Configuration text file 
+        Dim myreader As New IO.StreamReader(FileLoc_Config)
 
         'Get list of all available Wattage test values - WattageSelectionFile
         Read_Text_Files()
@@ -229,10 +232,14 @@
 
     Private Sub frmFileRead_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'set default Configuration file location
-        tbxConfigFile.Text = "C:\Temp\ConfigFile.txt"
-
+        tbxConfigFile.Text = "C:\temp\ConfigFile.txt"
+        AcceptButton = btnStart
     End Sub
 
+    Private Sub frmFileRead_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+        blnFormHold = False     'allow parameters on MainForm to be updated with parameters from frm FileRead
+        GC.Collect()            'collect garbage - release system memory
+    End Sub
 End Class
 
 
