@@ -17,14 +17,17 @@ Public Class frmRepetitivePeakCurrent
 
     Private Sub frmRepetitivePeakCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2()
     End Sub
 
     Private Sub cbxRepPeakCurrent_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakCurrent.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If cbxRepPeakCurrent.Checked = True Then
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             'display title of test
             cbxRepPeakCurrent.Text = "LPF Rated Load - 90 Deg Conduction Angle - Dimmer ON"
             'cbxRepPeakCurrent.Enabled = False
@@ -34,14 +37,11 @@ Public Class frmRepetitivePeakCurrent
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
             'display title of test
             cbxRepPeakCurrent.Text = "90 Deg Conduction Angle - Dimmer OFF"
             'cbxRepPeakCurrent.Enabled = True

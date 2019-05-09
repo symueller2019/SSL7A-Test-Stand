@@ -22,7 +22,7 @@ Partial Class frmOffStateOperation
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOffStateOperation))
         Me.cbx10ohm = New System.Windows.Forms.CheckBox()
         Me.cbx40ohm = New System.Windows.Forms.CheckBox()
         Me.cbx400ohm = New System.Windows.Forms.CheckBox()
@@ -52,20 +52,16 @@ Partial Class frmOffStateOperation
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.pbxImage1 = New System.Windows.Forms.PictureBox()
+        Me.pbxImage2 = New System.Windows.Forms.PictureBox()
+        Me.pbxImage3 = New System.Windows.Forms.PictureBox()
+        Me.btnInfo = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.pbxImage1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxImage2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pbxImage3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.DmrOffStateCurrent_03142019
-        Me.PictureBox1.Location = New System.Drawing.Point(231, 324)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(613, 534)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 7
-        Me.PictureBox1.TabStop = False
         '
         'cbx10ohm
         '
@@ -366,11 +362,52 @@ Partial Class frmOffStateOperation
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'pbxImage1
+        '
+        Me.pbxImage1.Image = CType(resources.GetObject("pbxImage1.Image"), System.Drawing.Image)
+        Me.pbxImage1.Location = New System.Drawing.Point(30, 324)
+        Me.pbxImage1.Name = "pbxImage1"
+        Me.pbxImage1.Size = New System.Drawing.Size(931, 557)
+        Me.pbxImage1.TabIndex = 25
+        Me.pbxImage1.TabStop = False
+        '
+        'pbxImage2
+        '
+        Me.pbxImage2.Image = CType(resources.GetObject("pbxImage2.Image"), System.Drawing.Image)
+        Me.pbxImage2.Location = New System.Drawing.Point(44, 324)
+        Me.pbxImage2.Name = "pbxImage2"
+        Me.pbxImage2.Size = New System.Drawing.Size(931, 634)
+        Me.pbxImage2.TabIndex = 26
+        Me.pbxImage2.TabStop = False
+        '
+        'pbxImage3
+        '
+        Me.pbxImage3.Image = CType(resources.GetObject("pbxImage3.Image"), System.Drawing.Image)
+        Me.pbxImage3.Location = New System.Drawing.Point(94, 324)
+        Me.pbxImage3.Name = "pbxImage3"
+        Me.pbxImage3.Size = New System.Drawing.Size(800, 700)
+        Me.pbxImage3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize
+        Me.pbxImage3.TabIndex = 27
+        Me.pbxImage3.TabStop = False
+        '
+        'btnInfo
+        '
+        Me.btnInfo.Location = New System.Drawing.Point(830, 94)
+        Me.btnInfo.Name = "btnInfo"
+        Me.btnInfo.Size = New System.Drawing.Size(80, 34)
+        Me.btnInfo.TabIndex = 28
+        Me.btnInfo.Text = "Info"
+        Me.btnInfo.UseVisualStyleBackColor = True
+        '
         'frmOffStateOperation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(990, 893)
+        Me.ClientSize = New System.Drawing.Size(990, 970)
+        Me.Controls.Add(Me.btnInfo)
+        Me.Controls.Add(Me.pbxImage3)
+        Me.Controls.Add(Me.pbxImage2)
+        Me.Controls.Add(Me.pbxImage1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbx15kohm)
@@ -379,19 +416,19 @@ Partial Class frmOffStateOperation
         Me.Controls.Add(Me.cbx400ohm)
         Me.Controls.Add(Me.cbx40ohm)
         Me.Controls.Add(Me.cbx10ohm)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Name = "frmOffStateOperation"
         Me.Text = "frmOffStateOperation"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.pbxImage1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxImage2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pbxImage3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents cbx10ohm As CheckBox
     Friend WithEvents cbx40ohm As CheckBox
     Friend WithEvents cbx400ohm As CheckBox
@@ -421,4 +458,8 @@ Partial Class frmOffStateOperation
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents pbxImage1 As PictureBox
+    Friend WithEvents pbxImage2 As PictureBox
+    Friend WithEvents pbxImage3 As PictureBox
+    Friend WithEvents btnInfo As Button
 End Class

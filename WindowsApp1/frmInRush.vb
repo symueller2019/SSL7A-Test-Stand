@@ -1,6 +1,9 @@
 ﻿Imports System.ComponentModel
 
+
 Public Class frmInRush
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
+
     Private Sub frmInRush_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Adjust user controls
         lblLimit.Hide()                       'Hide Limit label
@@ -12,14 +15,17 @@ Public Class frmInRush
 
     Private Sub frmInRush_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+
+        Disconnect_Relays_Bd1_2()
     End Sub
 
     Private Sub cbxMaxCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMaxCondAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If cbxMaxCondAngle.Checked = True Then
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
             cbxMaxCondAngle.Text = "Max Conduction Angle - Dimmer ON"
             cbx90DegCondAngle.Enabled = False
             'display title of test
@@ -28,14 +34,12 @@ Public Class frmInRush
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
             cbxMaxCondAngle.Text = "Max Conduction Angle - Dimmer OFF"
             cbx90DegCondAngle.Enabled = True
         End If
@@ -43,10 +47,11 @@ Public Class frmInRush
 
     Private Sub cbx90DegCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbx90DegCondAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If cbx90DegCondAngle.Checked = True Then
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
             cbx90DegCondAngle.Text = "90 Deg. Conduction Angle - Dimmer ON"
             cbxMaxCondAngle.Enabled = False
             'display title of test
@@ -55,21 +60,22 @@ Public Class frmInRush
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
             'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
             cbx90DegCondAngle.Text = "90 Deg. Conduction Angle - Dimmer OFF"
             cbxMaxCondAngle.Enabled = True
         End If
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-
+        If blnTestTitleDone = False Then
+            FileWrite("InRush Current Test")
+            blnTestTitleDone = True         'only write test name once
+        End If
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))

@@ -1,6 +1,7 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmMax_MinOnStateConAngle
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
 
     Private Sub frmMax_MinOnStateConAngle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         pbxMaxMinOnStateConductionAngle.Image = Image.FromFile("C:\Temp\Max_MinOnStateConductionAngle 03142019.PNG")
@@ -10,20 +11,26 @@ Public Class frmMax_MinOnStateConAngle
         'pbxMaxMinOnStateConductionAngle.Image.Dispose()
         GC.Collect()
         'turn off dimmer power
-        Dim DataValue As UInt16
-        DataValue = 0
-        PortATest(DataValue)
+
+        'Open all Res & Cap Relays
+        Disconnect_Relays_Bd1_2()
+        'Dim DataValue As UInt16
+        'DataValue = 0
+        'PortATest(DataValue)
     End Sub
+
     Private Sub cbxMinLoad_MinAngle_CheckedChanged_1(sender As Object, e As EventArgs) Handles cbxMinLoad_MinAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbxMinLoad_MinAngle.Checked = True) Then
             'Disable other controls
             cbxRatedLoad_MinAngle.Enabled = False
             cbxMinLoad_MaxAngle.Enabled = False
             cbxRatedLoad_MaxAngle.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             ''display title of test
             'cbxMaxCondAngle.Text = "LPF 120% Rated Load-Max Conduction Angle - Dimmer ON"
             'cbx90DegCondAngle.Enabled = False
@@ -36,7 +43,7 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Min_Min()
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(MinHPF_ResRelays)      'Resistor relays
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
@@ -45,22 +52,21 @@ Public Class frmMax_MinOnStateConAngle
             cbxRatedLoad_MinAngle.Enabled = True
             cbxMinLoad_MaxAngle.Enabled = True
             cbxRatedLoad_MaxAngle.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbxRatedLoad_MinAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRatedLoad_MinAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbxRatedLoad_MinAngle.Checked = True) Then
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxMinLoad_MaxAngle.Enabled = False
             cbxRatedLoad_MaxAngle.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             'display title of test in Group box
             lblTestDescription.Text = "HPF Rated Load - Min Conduction Angle"
             lblResultDsply.Text = ""
@@ -69,7 +75,7 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Rated_Min()
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
@@ -78,22 +84,21 @@ Public Class frmMax_MinOnStateConAngle
             cbxMinLoad_MinAngle.Enabled = True
             cbxMinLoad_MaxAngle.Enabled = True
             cbxRatedLoad_MaxAngle.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbxMinLoad_MaxAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMinLoad_MaxAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbxMinLoad_MaxAngle.Checked = True) Then
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxRatedLoad_MinAngle.Enabled = False
             cbxRatedLoad_MaxAngle.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             'display title of test in Group box
             lblTestDescription.Text = "HPF Min Load - Max Conduction Angle"
             lblResultDsply.Text = ""
@@ -102,7 +107,7 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Min_Max()
 
-            'close Relays
+            'close Relays - connect loads & power
             Close_Relays(MinHPF_ResRelays)      'Resistor relays
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
@@ -111,22 +116,21 @@ Public Class frmMax_MinOnStateConAngle
             cbxMinLoad_MinAngle.Enabled = True
             cbxRatedLoad_MinAngle.Enabled = True
             cbxRatedLoad_MaxAngle.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbxRatedLoad_MaxAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRatedLoad_MaxAngle.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbxRatedLoad_MaxAngle.Checked = True) Then
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxRatedLoad_MinAngle.Enabled = False
             cbxMinLoad_MaxAngle.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             'display title of test in Group box
             lblTestDescription.Text = "HPF Rated Load - Max Conduction Angle"
             lblResultDsply.Text = ""
@@ -135,7 +139,7 @@ Public Class frmMax_MinOnStateConAngle
 
             DisplayLoad_Rated_Max()
 
-            'close Relays
+            'close Relays - disconnect loads & power
             Close_Relays(HPF_ResRelays)      'Resistor relays
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
@@ -144,9 +148,6 @@ Public Class frmMax_MinOnStateConAngle
             cbxMinLoad_MinAngle.Enabled = True
             cbxRatedLoad_MinAngle.Enabled = True
             cbxMinLoad_MaxAngle.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
@@ -239,6 +240,11 @@ Public Class frmMax_MinOnStateConAngle
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+        If blnTestTitleDone = False Then
+            FileWrite("Max & Min On-State Conduction Angle")
+            blnTestTitleDone = True
+        End If
+
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))

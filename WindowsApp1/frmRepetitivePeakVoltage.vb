@@ -1,6 +1,8 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmRepetitivePeakVoltage
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
+
     Private Sub pbxRepetitivePeakVoltageText_Click(sender As Object, e As EventArgs) Handles pbxRepetitivePeakVoltageText.Click
 
     End Sub
@@ -29,14 +31,18 @@ Public Class frmRepetitivePeakVoltage
     Private Sub frmRepetitivePeakVoltage_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         'Here when the "X" is press in the top right of the form
         GC.Collect()        'empty the garbage
+
+        'Open all Res & Cap Relays
+        Disconnect_Relays_Bd1_2()
     End Sub
 
     Private Sub cbxRepPeakVoltage_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakVoltage.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If cbxRepPeakVoltage.Checked = True Then
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
             'display title of test
             cbxRepPeakVoltage.Text = "HPF Min Load - 90 Deg Conduction Angle - Dimmer ON"
             'cbxRepPeakCurrent.Enabled = False
@@ -46,14 +52,11 @@ Public Class frmRepetitivePeakVoltage
 
             DisplayLoad()           'display Res & Cap load with Relay info
 
-            'close Relays
+            'close Relays - disconnect loads & power
             Close_Relays(HPF_ResRelays)      'Resistor relays
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
             'display title of test
             cbxRepPeakVoltage.Text = "Dimmer OFF"
             'cbxRepPeakCurrent.Enabled = True
@@ -83,6 +86,12 @@ Public Class frmRepetitivePeakVoltage
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+
+        If blnTestTitleDone = False Then
+            FileWrite("Repetitive Peak Voltage Test")
+            blnTestTitleDone = True
+        End If
+
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))

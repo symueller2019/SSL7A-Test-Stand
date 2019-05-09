@@ -1,5 +1,11 @@
 ﻿Imports System.ComponentModel       'needed for Form Closing event
 
+'Notes on keys "Return" & "ESC"
+'If you are In a windows application form, you can use the properties AcceptButton
+'And CancelButton On the form properties, setting the name Of your buttons.
+'AcceptButton fires When you press Enter key
+'CencelButton fires When you press Esc key
+
 Public Class frmFileRead
 
     Private Sub timersetup()
@@ -25,10 +31,18 @@ Public Class frmFileRead
         Read_Text_Files()
 
         'verify values entered
-        If tbxWattage.Text = "" Then
-            MsgBox("Enter Value to Find")
+        'If tbxWattage.Text = "" Then
+        If ListBox1.SelectedItem = "" Then
+            MsgBox("Enter Rated Wattage Value - Click Inside Selection Box - turns BLUE")
             Return
         End If
+
+        'If tbxMinWattage.Text = "" Then
+        If ListBox2.SelectedItem = "" Then
+            MsgBox("Enter Minimum Wattage Value - Click Inside Selection Box - turns BLUE")
+            Return
+        End If
+
 
         'Overload Wattage is 120% of Rated
         tbxOVLDWattage.Text = Val(1.2 * Val(tbxWattage.Text))
@@ -227,6 +241,8 @@ Public Class frmFileRead
 
         btnStart.Enabled = True
 
+        'write setup to test file
+        Write_SetupToFile()
 
     End Sub
 
@@ -234,12 +250,69 @@ Public Class frmFileRead
         'set default Configuration file location
         tbxConfigFile.Text = "C:\temp\ConfigFile.txt"
         AcceptButton = btnStart
+
+        '****************** test ****************
+        Dim x As Integer
+        ReadConfig()            'get config files
+        Read_Text_Files()       'read in files
+
+        'selected Rated Load in Watts
+        For x = 1 To WattageSelection.Length - 1
+            ListBox1.Items.Add(WattageSelection(x))
+        Next x
+
+        'selected Minimum Load in Watts
+        For x = 1 To MinWattageSelection.Length - 1
+            ListBox2.Items.Add(MinWattageSelection(x))
+        Next x
+
+        tbxWattage.Enabled = False
+        tbxMinWattage.Enabled = False
+
+        '****************************************
     End Sub
 
     Private Sub frmFileRead_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         blnFormHold = False     'allow parameters on MainForm to be updated with parameters from frm FileRead
         GC.Collect()            'collect garbage - release system memory
     End Sub
+
+    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+        'load Rated Wattage selection
+        tbxWattage.Enabled = True
+        tbxWattage.Text = ListBox1.SelectedItem
+
+
+        ''fill chart
+        'btnStart_Click(sender, e)
+
+    End Sub
+
+    Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+        'load Minimum Wattage selection
+        tbxMinWattage.Enabled = True
+        tbxMinWattage.Text = ListBox2.SelectedItem
+
+
+    End Sub
+
+    Private Sub Write_SetupToFile()
+        'FileWriteNoCrLf("LPF_Res: " & LPF_Res(Index) & "  LPF_Cap: " & LPF_Cap(Index) & "  HPF_Res: " & HPF_Res(Index))
+
+        TestResultFilename = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay.ToString("hhmmss") 'Test filename
+        TestResultFilename = strTest_File_DirectoryLocation & TestResultFilename & ".txt"
+        tbxTestResultFilename.Text = TestResultFilename
+        FileWrite("Test Name:" & "  " & TestResultFilename)       'write filename into file
+
+        'FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        FileWrite("Test Setup Parameters")
+        FileWrite("   LPF_Res: " & LPF_Res(Index) & "     LPF_Cap: " & LPF_Cap(Index) & "     HPF_Res: " & HPF_Res(Index))
+        FileWrite("MinLPF_Res: " & MinLPF_Res(MinIndex) & "  MinLPF_Cap: " & MinLPF_Cap(MinIndex) & "  MinHPF_Res: " & MinHPF_Res(MinIndex))
+        FileWrite("O/DLPF_Res: " & OVLDLPF_Res(Index) & "  O/DLPF_Cap: " & OVLDLPF_Cap(Index))
+        FileWriteCRLF()     'linespace to separate the test results from Setup parameters
+
+    End Sub
+
 End Class
 
 

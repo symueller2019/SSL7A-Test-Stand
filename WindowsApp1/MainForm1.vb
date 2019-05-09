@@ -2,7 +2,7 @@
 
 Public Class MainForm1
     Private Sub btnPress_Click(sender As Object, e As EventArgs) Handles btnPress.Click
-
+        
         'DialogResult = MessageBox.Show("New Test?", "Run Test", MessageBoxButtons.YesNoCancel)
         'If DialogResult = DialogResult.Yes Then
         '    MessageBox.Show("Yes pressed")
@@ -23,10 +23,13 @@ Public Class MainForm1
         '    System.Windows.Forms.Application.DoEvents()
         'End While
 
+        'display test time, date & reference name
         lblDate.Text = DateTime.Now.Date      'DateTime.Today.ToLongTimeString
         lblTime.Text = TimeOfDay
-        lblSerialNum.Text = DateTime.Now.ToFileTime
-
+        'lblSerialNum.Text = DateTime.Now.ToFileTime
+        'lblSerialNum.Text = DateTime.Now.Date & "_" & TimeOfDay
+        lblSerialNum.Text = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay 'Test filename
+        lblSerialNum.Text = TestResultFilename
         tbxConfigFile.Text = FileLoc_Config
 
         'display test info - Rated Load

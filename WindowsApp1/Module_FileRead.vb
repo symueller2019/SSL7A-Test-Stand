@@ -34,6 +34,7 @@
 
     'Config file locations - read from Configuration text file
     Public FileLoc_Config As String
+    Public strTest_File_DirectoryLocation As String
     Public FileLoc_WattSelect As String
     Public FileLoc_WattsToRelayLPFRes As String
     Public FileLoc_WattsToRelayLPFCap As String
@@ -50,6 +51,19 @@
     'Config file locations for ON & OFF State Relays - read from Configuration text file
     Public FileLoc_ON_State_Relays As String
     Public FileLoc_OFF_State_Relays As String
+    'Test Results Filename
+    Public TestResultFilename As String
+    'Relay Mask registers
+    'make public so each test can control
+    'Save Port A & B Image - Boards 1,2 
+    Public Bd0_PortASave As UInt16 = 255 : Public Bd0_PortBSave As UInt16 = 255
+    Public Bd1_PortASave As UInt16 = 255 : Public Bd1_PortBSave As UInt16 = 255
+    'Save PortC Image - Boards 1,2
+    Public Bd0_PortCLSave As UInt16 = 15 : Public Bd0_PortCHSave As UInt16 = 15
+    Public Bd1_PortCLSave As UInt16 = 15 : Public Bd1_PortCHSave As UInt16 = 15
+
+
+
 
 
     Public Sub Read_Text_Files()
@@ -103,7 +117,13 @@
         'Open the Configuration file
         Dim myreader As New IO.StreamReader(frmFileRead.tbxConfigFile.Text)
         '****** Rated Wattage ******
+        myreader.ReadLine()                  'comment line - ignore
         FileLoc_Config = myreader.ReadLine()                  'Read line
+
+        myreader.ReadLine()                  'comment line - ignore
+        strTest_File_DirectoryLocation = myreader.ReadLine()
+
+        myreader.ReadLine()                  'comment line - ignore
         FileLoc_WattSelect = myreader.ReadLine()              'Read line
         FileLoc_WattsToRelayLPFRes = myreader.ReadLine()      'Read line
         FileLoc_WattsToRelayLPFCap = myreader.ReadLine()      'Read line
@@ -139,6 +159,14 @@
         Dim DataValue As UInt16
         Dim RelayAdd As UInt16
 
+        ''make public so each test can control
+        ''Save Port A & B Image - Boards 1,2 
+        'Dim Bd0_PortASave As UInt16 = 255 : Dim Bd0_PortBSave As UInt16 = 255
+        'Dim Bd1_PortASave As UInt16 = 255 : Dim Bd1_PortBSave As UInt16 = 255
+        ''Save PortC Image - Boards 1,2
+        'Dim Bd0_PortCLSave As UInt16 = 15 : Dim Bd0_PortCHSave As UInt16 = 15
+        'Dim Bd1_PortCLSave As UInt16 = 15 : Dim Bd1_PortCHSave As UInt16 = 15
+
         'determine which USB-DIO24 Board by evaluating Relay #
         'if Relay # < 25 then DIO24 board #1
         '   if Relay # < 9 then PortA, elseif Relay # < 17 then PortB else PortC
@@ -151,35 +179,44 @@
             If (DataValue < 25) Then
                 'board #1
                 If (DataValue < 9) Then
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - 1))
-                    PortATest(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 1))      'convert Relay # to I/O address
+                    Bd0_PortASave = Bd0_PortASave And RelayAdd  'update Port Image register
+                    PortATest(Bd0_PortASave)                    'output updated port status
                 ElseIf (DataValue < 17) Then
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 9)))
-                    PortBTest(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 9))      'convert Relay # to I/O address
+                    Bd0_PortBSave = Bd0_PortBSave And RelayAdd  'update Port Image register
+                    PortBTest(Bd0_PortBSave)                    'output updated port status
+                ElseIf (DataValue < 21) Then
+                    RelayAdd = 255 - (2 ^ (DataValue - 17))     'convert Relay # to I/O address
+                    Bd0_PortCLSave = Bd0_PortCLSave And RelayAdd 'update Port Image register
+                    PortCLTest(Bd0_PortCLSave)                 'output updated port status
                 Else
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 17)))
-                    PortCTest(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 21))     'convert Relay # to I/O address
+                    Bd0_PortCHSave = Bd0_PortCHSave And RelayAdd 'update Port Image register
+                    PortCHTest(Bd0_PortCHSave)                 'output updated port status
                 End If
+
 
             ElseIf (DataValue < 49) Then
                 'board #2
                 'account for 1st bank with 24 offset
                 DataValue -= 24
                 If (DataValue < 9) Then
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - 1))
-                    PortATest1(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 1))      'convert Relay # to I/O address
+                    Bd1_PortASave = Bd1_PortASave And RelayAdd  'update Port Image register
+                    PortATest1(Bd1_PortASave)                   'output updated port status
                 ElseIf (DataValue < 17) Then
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 9)))
-                    PortBTest1(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 9))      'convert Relay # to I/O address
+                    Bd1_PortASave = Bd1_PortBSave And RelayAdd  'update Port Image register
+                    PortBTest1(Bd1_PortBSave)                   'output updated port status
+                ElseIf (DataValue < 21) Then
+                    RelayAdd = 255 - (2 ^ (DataValue - 17))     'convert Relay # to I/O address
+                    Bd1_PortCLSave = Bd1_PortCLSave And RelayAdd 'update Port Image register
+                    PortCLTest1(Bd1_PortCLSave)                 'output updated port status
                 Else
-                    'convert Relay # to I/O address
-                    RelayAdd = 255 - (2 ^ (DataValue - (1 + 17)))
-                    PortCTest1(RelayAdd)
+                    RelayAdd = 255 - (2 ^ (DataValue - 21))     'convert Relay # to I/O address
+                    Bd1_PortCHSave = Bd1_PortCHSave And RelayAdd 'update Port Image register
+                    PortCHTest1(Bd1_PortCHSave)                 'output updated port status
                 End If
             End If
 
@@ -208,6 +245,30 @@
         RelayList = Relaystr            'holds Relays to actuate 
         strLine = line
         myreader.Close()
+
+    End Sub
+
+
+    'Disconnect all Relays
+    Public Sub Disconnect_Relays_Bd1_2()
+        Dim DataValue As UInt16
+
+        DataValue = 255
+        PortATest(DataValue)
+        PortBTest(DataValue)
+        PortCLTest(DataValue)
+        PortCLTest(DataValue)
+
+        PortATest1(DataValue)
+        PortBTest1(DataValue)
+        PortCLTest1(DataValue)
+        PortCLTest1(DataValue)
+
+        Bd0_PortASave = 255 : Bd0_PortBSave = 255
+        Bd1_PortASave = 255 : Bd1_PortBSave = 255
+        'Save PortC Image - Boards 1,2
+        Bd0_PortCLSave = 15 : Bd0_PortCHSave = 15
+        Bd1_PortCLSave = 15 : Bd1_PortCHSave = 15
 
     End Sub
 

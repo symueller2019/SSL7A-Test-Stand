@@ -4,6 +4,7 @@ Public Class frmOnStateSupplyCurrent
     Dim TitleStr As String
     Dim intTestNum As Integer
     Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
 
 
     Private Sub btnInfo_Click(sender As Object, e As EventArgs) Handles btnInfo.Click
@@ -29,140 +30,160 @@ Public Class frmOnStateSupplyCurrent
 
     Private Sub cbx100ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx100ohm.CheckedChanged
         'Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbx100ohm.Checked = True) Then
             'Disable other controls
             cbx350ohm.Enabled = False
             cbx800ohm.Enabled = False
             cbx1400ohm.Enabled = False
-            'connect loads & power
-            DataValue = 5
-            PortATest(DataValue)
+
             'display title of test in Group box
             TitleStr = "HPF 100 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
             intTestNum = 1      'Index value for this test
+
             'Retrieve Relay connections for Ron = 100 ohms
             GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+
+            'close Relays - connect loads & power
+            Close_Relays(RelayList)      'Resistor relays
 
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
 
-            'close Relays
-            Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
-
+            ''**** Or This
+            ''Test is done with HPF Minimum load - close Relays
+            'Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            ''Display
+            'DisplayHPFLoad(intTestNum)
 
         Else
             'Restore other controls
             cbx350ohm.Enabled = True
             cbx800ohm.Enabled = True
             cbx1400ohm.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbx350ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx350ohm.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbx350ohm.Checked = True) Then
             'Disable other controls
             cbx100ohm.Enabled = False
             cbx800ohm.Enabled = False
             cbx1400ohm.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             TitleStr = "HPF 350 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
             intTestNum = 2      'Index value for this test
+
             'Retrieve Relay connections for Ron = 100 ohms
             GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+
+            'close Relays - connect loads & power
+            Close_Relays(RelayList)      'Resistor relays
+
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
 
-            'close Relays
-            Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            ''**** Or This
+            ''Test is done with HPF Minimum load - close Relays
+            'Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            ''Display
+            'DisplayHPFLoad(intTestNum)
 
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
             cbx800ohm.Enabled = True
             cbx1400ohm.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbx800ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx800ohm.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbx800ohm.Checked = True) Then
             'Disable other controls
             cbx100ohm.Enabled = False
             cbx350ohm.Enabled = False
             cbx1400ohm.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             TitleStr = "HPF 800 Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
             intTestNum = 3      'Index value for this test
+
             'Retrieve Relay connections for Ron = 100 ohms
             GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+
+            'close Relays - connect loads & power
+            Close_Relays(RelayList)      'Resistor relays
+
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
 
-            'close Relays
-            Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            ''Test is done with HPF Minimum load - close Relays
+            'Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            ''Display
+            'DisplayHPFLoad(intTestNum)
 
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
             cbx350ohm.Enabled = True
             cbx1400ohm.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
     Private Sub cbx1400ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx1400ohm.CheckedChanged
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         If (cbx1400ohm.Checked = True) Then
             'Disable other controls
             cbx100ohm.Enabled = False
             cbx350ohm.Enabled = False
             cbx800ohm.Enabled = False
-            'connect loads & power
-            DataValue = 1
-            PortATest(DataValue)
+
             TitleStr = "HPF 1.4k Ohm - On-State Operation"
             DisplayTitle_Limits(TitleStr)
 
             intTestNum = 4      'Index value for this test
+
             'Retrieve Relay connections for Ron = 100 ohms
             GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
+
+            'close Relays - connect loads & power
+            Close_Relays(RelayList)      'Resistor relays
+
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
 
-            'close Relays
-            Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            ''Test is done with HPF Minimum load - close Relays
+            'Close_Relays(MinHPF_ResRelays)      'Resistor relays
+            ''Display
+            'DisplayHPFLoad(intTestNum)
 
         Else
             'Restore other controls
             cbx100ohm.Enabled = True
             cbx350ohm.Enabled = True
             cbx800ohm.Enabled = True
-            'disconnect loads & power
-            DataValue = 0
-            PortATest(DataValue)
         End If
     End Sub
 
@@ -186,6 +207,16 @@ Public Class frmOnStateSupplyCurrent
                 lblResultDsply.Text = "FAIL"
             End If
         End If
+
+        If blnTestTitleDone = False Then
+            FileWrite("On-State Operation Test")
+            blnTestTitleDone = True
+        End If
+
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
+        'FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWrite(tbxComment.Text)
 
     End Sub
 
@@ -218,5 +249,58 @@ Public Class frmOnStateSupplyCurrent
 
         'Display_Relays(OVLDLPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline
+    End Sub
+
+    '******* test out ******
+    Private Sub DisplayHPFLoad(ByRef intTestNum As Integer)
+        Dim strLine As String
+
+        'Update Test Status
+        Select Case intTestNum
+            Case 1
+                strLine = "HPF 100 Ohm - On-State Operation"
+            Case 2
+                strLine = "HPF 350 Ohm - On-State Operation"
+            Case 3
+                strLine = "HPF 800 Ohm - On-State Operation"
+            Case Else
+                strLine = "HPF 1400 Ohm - On-State Operation"
+        End Select
+
+        lblTestDescription.Text = strLine
+        'lblLimitDsply.Text = "50"
+        'Clear Measurement, Result & Comment sections
+        'tbxMeasurementEntry.Text = ""
+        lblResultDsply.Text = ""
+        tbxComment.Text = ""
+
+        'update labels & textboxes with load & relay info
+        'assign titles to labels
+        lblWatt.Text = "Min Watts"
+        lblRes.Text = "Min HPF Res"
+        lblCap.Text = ""
+        'update textbox values
+        tbxWatt.Text = MinWattageSelection(MinIndex)
+        tbxRes.Text = MinHPF_Res(MinIndex)
+        tbxCap.Text = ""
+        'display titles to relays
+        lblResRly.Text = "Min Res Rly"
+        lblCapRly.Text = ""
+        'display relays
+        Dim textline As String = ""
+        Display_Relays(MinHPF_ResRelays, textline)
+        tbxResRly.Text = textline
+
+        'close Relays
+        Close_Relays(MinHPF_ResRelays)      'Resistor relays
+        'Close_Relays(MinLPF_CapRelays)      'Capacitor relays
+
+        'Display_Relays(MinLPF_CapRelays, textline)
+        tbxCapRly.Text = ""
+
+    End Sub
+
+    Private Sub frmOnStateSupplyCurrent_DragDrop(sender As Object, e As DragEventArgs) Handles Me.DragDrop
+        Disconnect_Relays_Bd1_2()
     End Sub
 End Class

@@ -2,9 +2,13 @@
 
 
 Public Class frmStability
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
 
     Private Sub btnLPFMinLoadMinCondAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFMinLoadMinCondAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Min Load - Min Conduction Angle Pos Cycle"
@@ -43,6 +47,9 @@ Public Class frmStability
     Private Sub btnLPFMinLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFMinLoadMaxConAnglePosCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "LPF Min Load - Max Conduction Angle Pos Cycle"
         lblLimitDsply.Text = "50"
@@ -79,6 +86,9 @@ Public Class frmStability
 
     Private Sub btnHPFMinLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnHPFMinLoadMinConAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Min Load - Min Conduction Angle Pos Cycle"
@@ -117,6 +127,9 @@ Public Class frmStability
     Private Sub btnHPFMinLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnHPFMinLoadMaxConAnglePosCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "HPF Min Load - Max Conduction Angle Pos Cycle"
         lblLimitDsply.Text = "50"
@@ -152,6 +165,9 @@ Public Class frmStability
 
     Private Sub btnLPFRatedLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoadMinConAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Min Conduction Angle Pos Cycle"
@@ -190,6 +206,9 @@ Public Class frmStability
     Private Sub btnLPFRatedLoadMinConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoadMinConAngleNegCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Min Conduction Angle Neg Cycle"
         lblLimitDsply.Text = "50"
@@ -226,6 +245,9 @@ Public Class frmStability
 
     Private Sub btnLPFRatedLoad90degConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoad90degConAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - 90 Deg Conduction Angle Pos Cycle"
@@ -264,6 +286,9 @@ Public Class frmStability
     Private Sub btnLPFRatedLoad90degConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoad90degConAngleNegCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - 90 Deg Conduction Angle Neg Cycle"
         lblLimitDsply.Text = "50"
@@ -300,6 +325,9 @@ Public Class frmStability
 
     Private Sub btnLPF_RatedLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPF_RatedLoadMaxConAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Max Conduction Angle Pos Cycle"
@@ -338,6 +366,9 @@ Public Class frmStability
     Private Sub btnLPF_RatedLoadMaxConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPF_RatedLoadMaxConAngleNegCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Max Conduction Angle Neg Cycle"
         lblLimitDsply.Text = "50"
@@ -374,6 +405,9 @@ Public Class frmStability
 
     Private Sub btn_HPFRatedLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btn_HPFRatedLoadMinConAnglePosCycle.Click
         Dim DataValue As UInt16
+
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Rated Load - Min Conduction Angle Pos Cycle"
@@ -412,6 +446,9 @@ Public Class frmStability
     Private Sub btn_HPFRatedLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btn_HPFRatedLoadMaxConAnglePosCycle.Click
         Dim DataValue As UInt16
 
+        'Open Relays & Reset Saved Port Masks
+        Disconnect_Relays_Bd1_2()
+
         'Update Test Status
         lblTestDescription.Text = "HPF Rated Load - Max Conduction Angle Pos Cycle"
         lblLimitDsply.Text = "50"
@@ -448,6 +485,7 @@ Public Class frmStability
 
     Private Sub frmStability_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()            'collect garbage - release system memory
+        Disconnect_Relays_Bd1_2()
     End Sub
 
     Private Sub tbxMeasurementEntry_TextChanged(sender As Object, e As EventArgs) Handles tbxMeasurementEntry.TextChanged
@@ -456,6 +494,11 @@ Public Class frmStability
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
         Dim LPF_Value As String
+
+        If blnTestTitleDone = False Then
+            FileWrite("Forward Stability Test")
+            blnTestTitleDone = True
+        End If
 
         If Val(lblLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
             lblResultDsply.Text = "PASS"
