@@ -22,6 +22,7 @@ Partial Class frmRepetitivePeakVoltage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRepetitivePeakVoltage))
         Me.pbxRepetitivePeakVoltageChart = New System.Windows.Forms.PictureBox()
         Me.pbxRepetitivePeakVoltageText = New System.Windows.Forms.PictureBox()
         Me.tbxRepetitivePeakVoltage = New System.Windows.Forms.TextBox()
@@ -59,20 +60,20 @@ Partial Class frmRepetitivePeakVoltage
         '
         'pbxRepetitivePeakVoltageChart
         '
-        Me.pbxRepetitivePeakVoltageChart.Image = Global.WindowsApp1.My.Resources.Resources.RepetitivePeakVoltageChart_031420191
-        Me.pbxRepetitivePeakVoltageChart.Location = New System.Drawing.Point(114, 611)
+        Me.pbxRepetitivePeakVoltageChart.Image = Global.WindowsApp1.My.Resources.Resources.RepetitivePeakVoltageChart_03142019
+        Me.pbxRepetitivePeakVoltageChart.Location = New System.Drawing.Point(99, 635)
         Me.pbxRepetitivePeakVoltageChart.Name = "pbxRepetitivePeakVoltageChart"
-        Me.pbxRepetitivePeakVoltageChart.Size = New System.Drawing.Size(712, 176)
+        Me.pbxRepetitivePeakVoltageChart.Size = New System.Drawing.Size(727, 171)
         Me.pbxRepetitivePeakVoltageChart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.pbxRepetitivePeakVoltageChart.TabIndex = 3
         Me.pbxRepetitivePeakVoltageChart.TabStop = False
         '
         'pbxRepetitivePeakVoltageText
         '
-        Me.pbxRepetitivePeakVoltageText.Image = Global.WindowsApp1.My.Resources.Resources.RepetitivePeakVoltage_03142019
-        Me.pbxRepetitivePeakVoltageText.Location = New System.Drawing.Point(114, 347)
+        Me.pbxRepetitivePeakVoltageText.Image = CType(resources.GetObject("pbxRepetitivePeakVoltageText.Image"), System.Drawing.Image)
+        Me.pbxRepetitivePeakVoltageText.Location = New System.Drawing.Point(99, 353)
         Me.pbxRepetitivePeakVoltageText.Name = "pbxRepetitivePeakVoltageText"
-        Me.pbxRepetitivePeakVoltageText.Size = New System.Drawing.Size(712, 288)
+        Me.pbxRepetitivePeakVoltageText.Size = New System.Drawing.Size(727, 288)
         Me.pbxRepetitivePeakVoltageText.TabIndex = 2
         Me.pbxRepetitivePeakVoltageText.TabStop = False
         '
@@ -352,7 +353,7 @@ Partial Class frmRepetitivePeakVoltage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(987, 788)
+        Me.ClientSize = New System.Drawing.Size(987, 830)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cbxRepPeakVoltage)
         Me.Controls.Add(Me.GroupBox1)

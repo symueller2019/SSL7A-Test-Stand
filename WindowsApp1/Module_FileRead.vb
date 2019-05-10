@@ -272,4 +272,21 @@
 
     End Sub
 
+    Public Function gblGetTime(Time As Integer) As String
+        Dim Hrs As Integer  'number of hours   '
+        Dim Min As Integer  'number of Minutes '
+        Dim Sec As Integer  'number of Sec     '
+
+        'Seconds'
+        Sec = Time Mod 60
+
+        'Minutes'
+        Min = ((Time - Sec) / 60) Mod 60
+
+        'Hours'
+        Hrs = ((Time - (Sec + (Min * 60))) / 3600) Mod 60
+
+        Return Format(Hrs, "00") & ":" & Format(Min, "00") & ":" & Format(Sec, "00")
+    End Function
+
 End Module

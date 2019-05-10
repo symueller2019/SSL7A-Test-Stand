@@ -43,6 +43,10 @@ Public Class frmRepetitivePeakVoltage
         Disconnect_Relays_Bd1_2()
 
         If cbxRepPeakVoltage.Checked = True Then
+
+            'clear out previous value
+            tbxRepetitivePeakVoltage.Text = ""
+
             'display title of test
             cbxRepPeakVoltage.Text = "HPF Min Load - 90 Deg Conduction Angle - Dimmer ON"
             'cbxRepPeakCurrent.Enabled = False
@@ -57,6 +61,9 @@ Public Class frmRepetitivePeakVoltage
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
+            'update result
+            tbxRepetitivePeakVoltage.Text = tbxMeasurementEntry.Text
+
             'display title of test
             cbxRepPeakVoltage.Text = "Dimmer OFF"
             'cbxRepPeakCurrent.Enabled = True

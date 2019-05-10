@@ -24,9 +24,7 @@ Partial Class frmInRush
     Private Sub InitializeComponent()
         Me.pbxInRushCurrentText2 = New System.Windows.Forms.PictureBox()
         Me.pbxInRushCurrentText1 = New System.Windows.Forms.PictureBox()
-        Me.tbxMaxConductionAngle = New System.Windows.Forms.TextBox()
         Me.lblMaxConductionAngle = New System.Windows.Forms.Label()
-        Me.tbx90DegreeAngle = New System.Windows.Forms.TextBox()
         Me.lbl90DegConductionAngle = New System.Windows.Forms.Label()
         Me.cbxMaxCondAngle = New System.Windows.Forms.CheckBox()
         Me.cbx90DegCondAngle = New System.Windows.Forms.CheckBox()
@@ -53,6 +51,8 @@ Partial Class frmInRush
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.lblStatus0 = New System.Windows.Forms.Label()
+        Me.lblStatus1 = New System.Windows.Forms.Label()
         CType(Me.pbxInRushCurrentText2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxInRushCurrentText1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -78,14 +78,6 @@ Partial Class frmInRush
         Me.pbxInRushCurrentText1.TabStop = False
         Me.pbxInRushCurrentText1.WaitOnLoad = True
         '
-        'tbxMaxConductionAngle
-        '
-        Me.tbxMaxConductionAngle.Location = New System.Drawing.Point(262, 32)
-        Me.tbxMaxConductionAngle.Name = "tbxMaxConductionAngle"
-        Me.tbxMaxConductionAngle.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbxMaxConductionAngle.Size = New System.Drawing.Size(73, 20)
-        Me.tbxMaxConductionAngle.TabIndex = 2
-        '
         'lblMaxConductionAngle
         '
         Me.lblMaxConductionAngle.AutoSize = True
@@ -95,14 +87,6 @@ Partial Class frmInRush
         Me.lblMaxConductionAngle.Size = New System.Drawing.Size(206, 16)
         Me.lblMaxConductionAngle.TabIndex = 3
         Me.lblMaxConductionAngle.Text = "Max Conduction Angle Current (A)"
-        '
-        'tbx90DegreeAngle
-        '
-        Me.tbx90DegreeAngle.Location = New System.Drawing.Point(262, 77)
-        Me.tbx90DegreeAngle.Name = "tbx90DegreeAngle"
-        Me.tbx90DegreeAngle.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.tbx90DegreeAngle.Size = New System.Drawing.Size(73, 20)
-        Me.tbx90DegreeAngle.TabIndex = 4
         '
         'lbl90DegConductionAngle
         '
@@ -369,19 +353,38 @@ Partial Class frmInRush
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'lblStatus0
+        '
+        Me.lblStatus0.AutoSize = True
+        Me.lblStatus0.Location = New System.Drawing.Point(268, 35)
+        Me.lblStatus0.Name = "lblStatus0"
+        Me.lblStatus0.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus0.TabIndex = 19
+        Me.lblStatus0.Text = "lblStatus0"
+        '
+        'lblStatus1
+        '
+        Me.lblStatus1.AutoSize = True
+        Me.lblStatus1.Location = New System.Drawing.Point(268, 80)
+        Me.lblStatus1.Name = "lblStatus1"
+        Me.lblStatus1.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus1.TabIndex = 19
+        Me.lblStatus1.Text = "lblStatus1"
+        '
         'frmInRush
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 762)
+        Me.Controls.Add(Me.lblStatus1)
+        Me.Controls.Add(Me.lblStatus0)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbx90DegCondAngle)
         Me.Controls.Add(Me.cbxMaxCondAngle)
         Me.Controls.Add(Me.lbl90DegConductionAngle)
-        Me.Controls.Add(Me.tbx90DegreeAngle)
         Me.Controls.Add(Me.lblMaxConductionAngle)
-        Me.Controls.Add(Me.tbxMaxConductionAngle)
         Me.Controls.Add(Me.pbxInRushCurrentText2)
         Me.Controls.Add(Me.pbxInRushCurrentText1)
         Me.Name = "frmInRush"
@@ -399,9 +402,7 @@ Partial Class frmInRush
 
     Friend WithEvents pbxInRushCurrentText1 As PictureBox
     Friend WithEvents pbxInRushCurrentText2 As PictureBox
-    Friend WithEvents tbxMaxConductionAngle As TextBox
     Friend WithEvents lblMaxConductionAngle As Label
-    Friend WithEvents tbx90DegreeAngle As TextBox
     Friend WithEvents lbl90DegConductionAngle As Label
     Friend WithEvents cbxMaxCondAngle As CheckBox
     Friend WithEvents cbx90DegCondAngle As CheckBox
@@ -428,4 +429,6 @@ Partial Class frmInRush
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents lblStatus0 As Label
+    Friend WithEvents lblStatus1 As Label
 End Class

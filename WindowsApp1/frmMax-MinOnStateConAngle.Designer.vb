@@ -56,17 +56,19 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbxMaxMinOnStateConductionAngle
         '
         Me.pbxMaxMinOnStateConductionAngle.InitialImage = Global.WindowsApp1.My.Resources.Resources.Max_MinOnStateConductionAngle_03142019
-        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(126, 364)
+        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(3, 3)
         Me.pbxMaxMinOnStateConductionAngle.Name = "pbxMaxMinOnStateConductionAngle"
-        Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(700, 421)
+        Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(740, 488)
         Me.pbxMaxMinOnStateConductionAngle.TabIndex = 0
         Me.pbxMaxMinOnStateConductionAngle.TabStop = False
         '
@@ -399,11 +401,22 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'Panel1
+        '
+        Me.Panel1.AutoScroll = True
+        Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel1.Controls.Add(Me.pbxMaxMinOnStateConductionAngle)
+        Me.Panel1.Location = New System.Drawing.Point(93, 391)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(761, 293)
+        Me.Panel1.TabIndex = 23
+        '
         'frmMax_MinOnStateConAngle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 810)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbxRatedLoad_MaxAngle)
@@ -416,7 +429,6 @@ Partial Class frmMax_MinOnStateConAngle
         Me.Controls.Add(Me.lblMinAngle)
         Me.Controls.Add(Me.tbxRatedLoad)
         Me.Controls.Add(Me.tbxMinLoad)
-        Me.Controls.Add(Me.pbxMaxMinOnStateConductionAngle)
         Me.Name = "frmMax_MinOnStateConAngle"
         Me.Text = "frmMax_MinOnStateConAngle"
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -424,6 +436,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -463,4 +476,5 @@ Partial Class frmMax_MinOnStateConAngle
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents Panel1 As Panel
 End Class

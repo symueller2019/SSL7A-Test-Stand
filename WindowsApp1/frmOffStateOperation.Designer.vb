@@ -392,7 +392,7 @@ Partial Class frmOffStateOperation
         '
         'btnInfo
         '
-        Me.btnInfo.Location = New System.Drawing.Point(830, 94)
+        Me.btnInfo.Location = New System.Drawing.Point(898, 324)
         Me.btnInfo.Name = "btnInfo"
         Me.btnInfo.Size = New System.Drawing.Size(80, 34)
         Me.btnInfo.TabIndex = 28
@@ -405,7 +405,6 @@ Partial Class frmOffStateOperation
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(990, 970)
         Me.Controls.Add(Me.btnInfo)
-        Me.Controls.Add(Me.pbxImage3)
         Me.Controls.Add(Me.pbxImage2)
         Me.Controls.Add(Me.pbxImage1)
         Me.Controls.Add(Me.GroupBox2)
@@ -416,6 +415,7 @@ Partial Class frmOffStateOperation
         Me.Controls.Add(Me.cbx400ohm)
         Me.Controls.Add(Me.cbx40ohm)
         Me.Controls.Add(Me.cbx10ohm)
+        Me.Controls.Add(Me.pbxImage3)
         Me.Name = "frmOffStateOperation"
         Me.Text = "frmOffStateOperation"
         Me.GroupBox1.ResumeLayout(False)

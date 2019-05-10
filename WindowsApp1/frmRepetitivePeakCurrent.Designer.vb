@@ -22,6 +22,7 @@ Partial Class frmRepetitivePeakCurrent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.pbxRepetitivePeakCurrentText = New System.Windows.Forms.PictureBox()
         Me.tbxRepetitivePeakCurrent = New System.Windows.Forms.TextBox()
         Me.lblPeakCurrent = New System.Windows.Forms.Label()
@@ -51,6 +52,7 @@ Partial Class frmRepetitivePeakCurrent
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.pbxRepetitivePeakCurrentText, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -344,8 +346,13 @@ Partial Class frmRepetitivePeakCurrent
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
         'frmRepetitivePeakCurrent
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1013, 626)
@@ -398,4 +405,5 @@ Partial Class frmRepetitivePeakCurrent
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents Timer1 As Timer
 End Class

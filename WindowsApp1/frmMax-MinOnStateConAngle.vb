@@ -26,6 +26,10 @@ Public Class frmMax_MinOnStateConAngle
         Disconnect_Relays_Bd1_2()
 
         If (cbxMinLoad_MinAngle.Checked = True) Then
+
+            'clear out previous value
+            tbxMeasurementEntry.Text = ""
+
             'Disable other controls
             cbxRatedLoad_MinAngle.Enabled = False
             cbxMinLoad_MaxAngle.Enabled = False
@@ -48,6 +52,9 @@ Public Class frmMax_MinOnStateConAngle
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
+            'keep entered value
+            tbxMinLoad.Text = tbxMeasurementEntry.Text
+
             'Restore other controls
             cbxRatedLoad_MinAngle.Enabled = True
             cbxMinLoad_MaxAngle.Enabled = True
@@ -62,6 +69,10 @@ Public Class frmMax_MinOnStateConAngle
         Disconnect_Relays_Bd1_2()
 
         If (cbxRatedLoad_MinAngle.Checked = True) Then
+
+            'clear out previous value
+            tbxMeasurementEntry.Text = ""
+
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxMinLoad_MaxAngle.Enabled = False
@@ -80,6 +91,9 @@ Public Class frmMax_MinOnStateConAngle
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
+            'keep entered value
+            tbxRatedLoad.Text = tbxMeasurementEntry.Text
+
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
             cbxMinLoad_MaxAngle.Enabled = True
@@ -94,6 +108,10 @@ Public Class frmMax_MinOnStateConAngle
         Disconnect_Relays_Bd1_2()
 
         If (cbxMinLoad_MaxAngle.Checked = True) Then
+
+            'clear out previous value
+            tbxMeasurementEntry.Text = ""
+
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxRatedLoad_MinAngle.Enabled = False
@@ -112,6 +130,9 @@ Public Class frmMax_MinOnStateConAngle
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
+            'keep entered value
+            tbxMinLoad2.Text = tbxMeasurementEntry.Text
+
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
             cbxRatedLoad_MinAngle.Enabled = True
@@ -126,6 +147,10 @@ Public Class frmMax_MinOnStateConAngle
         Disconnect_Relays_Bd1_2()
 
         If (cbxRatedLoad_MaxAngle.Checked = True) Then
+
+            'clear out previous value
+            tbxMeasurementEntry.Text = ""
+
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
             cbxRatedLoad_MinAngle.Enabled = False
@@ -144,6 +169,9 @@ Public Class frmMax_MinOnStateConAngle
             'Close_Relays(LPF_CapRelays)      'Capacitor relays
 
         Else
+            'keep entered value
+            tbxRatedLoad2.Text = tbxMeasurementEntry.Text
+
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
             cbxRatedLoad_MinAngle.Enabled = True

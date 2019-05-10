@@ -22,6 +22,7 @@ Partial Class frmStability
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmStability))
         Me.btnLPFMinLoadMinCondAnglePosCycle = New System.Windows.Forms.Button()
         Me.btnLPFMinLoadMaxConAnglePosCycle = New System.Windows.Forms.Button()
         Me.btnHPFMinLoadMinConAnglePosCycle = New System.Windows.Forms.Button()
@@ -57,8 +58,24 @@ Partial Class frmStability
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.lblStatus0 = New System.Windows.Forms.Label()
+        Me.lblStatus1 = New System.Windows.Forms.Label()
+        Me.lblStatus2 = New System.Windows.Forms.Label()
+        Me.lblStatus3 = New System.Windows.Forms.Label()
+        Me.lblStatus4 = New System.Windows.Forms.Label()
+        Me.lblStatus5 = New System.Windows.Forms.Label()
+        Me.lblStatus6 = New System.Windows.Forms.Label()
+        Me.lblStatus7 = New System.Windows.Forms.Label()
+        Me.lblStatus8 = New System.Windows.Forms.Label()
+        Me.lblStatus9 = New System.Windows.Forms.Label()
+        Me.lblStatus10 = New System.Windows.Forms.Label()
+        Me.lblStatus11 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.Panel2.SuspendLayout()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btnLPFMinLoadMinCondAnglePosCycle
@@ -135,7 +152,7 @@ Partial Class frmStability
         '
         'btnLPF_RatedLoadMaxConAnglePosCycle
         '
-        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(386, 13)
+        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(395, 13)
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.Name = "btnLPF_RatedLoadMaxConAnglePosCycle"
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.TabIndex = 9
@@ -144,7 +161,7 @@ Partial Class frmStability
         '
         'btnLPF_RatedLoadMaxConAngleNegCycle
         '
-        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Location = New System.Drawing.Point(386, 62)
+        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Location = New System.Drawing.Point(395, 62)
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.Name = "btnLPF_RatedLoadMaxConAngleNegCycle"
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.Size = New System.Drawing.Size(270, 25)
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.TabIndex = 10
@@ -153,7 +170,7 @@ Partial Class frmStability
         '
         'btn_HPFRatedLoadMinConAnglePosCycle
         '
-        Me.btn_HPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(386, 108)
+        Me.btn_HPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(395, 108)
         Me.btn_HPFRatedLoadMinConAnglePosCycle.Name = "btn_HPFRatedLoadMinConAnglePosCycle"
         Me.btn_HPFRatedLoadMinConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
         Me.btn_HPFRatedLoadMinConAnglePosCycle.TabIndex = 11
@@ -162,7 +179,7 @@ Partial Class frmStability
         '
         'btn_HPFRatedLoadMaxConAnglePosCycle
         '
-        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(386, 153)
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(395, 153)
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.Name = "btn_HPFRatedLoadMaxConAnglePosCycle"
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.TabIndex = 12
@@ -182,7 +199,7 @@ Partial Class frmStability
         Me.Panel1.Controls.Add(Me.tbxMeasurementEntry)
         Me.Panel1.Controls.Add(Me.lblLimit)
         Me.Panel1.Controls.Add(Me.lblTest)
-        Me.Panel1.Location = New System.Drawing.Point(12, 497)
+        Me.Panel1.Location = New System.Drawing.Point(12, 420)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(894, 104)
         Me.Panel1.TabIndex = 16
@@ -399,11 +416,152 @@ Partial Class frmStability
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'Panel2
+        '
+        Me.Panel2.AutoScroll = True
+        Me.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel2.Controls.Add(Me.PictureBox1)
+        Me.Panel2.Location = New System.Drawing.Point(52, 545)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(798, 259)
+        Me.Panel2.TabIndex = 18
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 3)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(769, 428)
+        Me.PictureBox1.TabIndex = 0
+        Me.PictureBox1.TabStop = False
+        '
+        'lblStatus0
+        '
+        Me.lblStatus0.AutoSize = True
+        Me.lblStatus0.Location = New System.Drawing.Point(308, 19)
+        Me.lblStatus0.Name = "lblStatus0"
+        Me.lblStatus0.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus0.TabIndex = 19
+        Me.lblStatus0.Text = "lblStatus0"
+        '
+        'lblStatus1
+        '
+        Me.lblStatus1.AutoSize = True
+        Me.lblStatus1.Location = New System.Drawing.Point(308, 68)
+        Me.lblStatus1.Name = "lblStatus1"
+        Me.lblStatus1.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus1.TabIndex = 19
+        Me.lblStatus1.Text = "lblStatus1"
+        '
+        'lblStatus2
+        '
+        Me.lblStatus2.AutoSize = True
+        Me.lblStatus2.Location = New System.Drawing.Point(308, 114)
+        Me.lblStatus2.Name = "lblStatus2"
+        Me.lblStatus2.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus2.TabIndex = 19
+        Me.lblStatus2.Text = "lblStatus2"
+        '
+        'lblStatus3
+        '
+        Me.lblStatus3.AutoSize = True
+        Me.lblStatus3.Location = New System.Drawing.Point(308, 159)
+        Me.lblStatus3.Name = "lblStatus3"
+        Me.lblStatus3.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus3.TabIndex = 19
+        Me.lblStatus3.Text = "lblStatus3"
+        '
+        'lblStatus4
+        '
+        Me.lblStatus4.AutoSize = True
+        Me.lblStatus4.Location = New System.Drawing.Point(308, 248)
+        Me.lblStatus4.Name = "lblStatus4"
+        Me.lblStatus4.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus4.TabIndex = 19
+        Me.lblStatus4.Text = "lblStatus4"
+        '
+        'lblStatus5
+        '
+        Me.lblStatus5.AutoSize = True
+        Me.lblStatus5.Location = New System.Drawing.Point(308, 290)
+        Me.lblStatus5.Name = "lblStatus5"
+        Me.lblStatus5.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus5.TabIndex = 19
+        Me.lblStatus5.Text = "lblStatus5"
+        '
+        'lblStatus6
+        '
+        Me.lblStatus6.AutoSize = True
+        Me.lblStatus6.Location = New System.Drawing.Point(308, 334)
+        Me.lblStatus6.Name = "lblStatus6"
+        Me.lblStatus6.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus6.TabIndex = 19
+        Me.lblStatus6.Text = "lblStatus6"
+        '
+        'lblStatus7
+        '
+        Me.lblStatus7.AutoSize = True
+        Me.lblStatus7.Location = New System.Drawing.Point(308, 381)
+        Me.lblStatus7.Name = "lblStatus7"
+        Me.lblStatus7.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus7.TabIndex = 19
+        Me.lblStatus7.Text = "lblStatus7"
+        '
+        'lblStatus8
+        '
+        Me.lblStatus8.AutoSize = True
+        Me.lblStatus8.Location = New System.Drawing.Point(673, 19)
+        Me.lblStatus8.Name = "lblStatus8"
+        Me.lblStatus8.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus8.TabIndex = 19
+        Me.lblStatus8.Text = "lblStatus8"
+        '
+        'lblStatus9
+        '
+        Me.lblStatus9.AutoSize = True
+        Me.lblStatus9.Location = New System.Drawing.Point(673, 68)
+        Me.lblStatus9.Name = "lblStatus9"
+        Me.lblStatus9.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus9.TabIndex = 19
+        Me.lblStatus9.Text = "lblStatus9"
+        '
+        'lblStatus10
+        '
+        Me.lblStatus10.AutoSize = True
+        Me.lblStatus10.Location = New System.Drawing.Point(675, 114)
+        Me.lblStatus10.Name = "lblStatus10"
+        Me.lblStatus10.Size = New System.Drawing.Size(59, 13)
+        Me.lblStatus10.TabIndex = 19
+        Me.lblStatus10.Text = "lblStatus10"
+        '
+        'lblStatus11
+        '
+        Me.lblStatus11.AutoSize = True
+        Me.lblStatus11.Location = New System.Drawing.Point(677, 158)
+        Me.lblStatus11.Name = "lblStatus11"
+        Me.lblStatus11.Size = New System.Drawing.Size(59, 13)
+        Me.lblStatus11.TabIndex = 19
+        Me.lblStatus11.Text = "lblStatus11"
+        '
         'frmStability
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(918, 635)
+        Me.ClientSize = New System.Drawing.Size(938, 823)
+        Me.Controls.Add(Me.lblStatus11)
+        Me.Controls.Add(Me.lblStatus10)
+        Me.Controls.Add(Me.lblStatus9)
+        Me.Controls.Add(Me.lblStatus8)
+        Me.Controls.Add(Me.lblStatus7)
+        Me.Controls.Add(Me.lblStatus6)
+        Me.Controls.Add(Me.lblStatus5)
+        Me.Controls.Add(Me.lblStatus4)
+        Me.Controls.Add(Me.lblStatus3)
+        Me.Controls.Add(Me.lblStatus2)
+        Me.Controls.Add(Me.lblStatus1)
+        Me.Controls.Add(Me.lblStatus0)
+        Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btn_HPFRatedLoadMaxConAnglePosCycle)
@@ -424,7 +582,10 @@ Partial Class frmStability
         Me.Panel1.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -463,4 +624,18 @@ Partial Class frmStability
     Friend WithEvents lblResRly As Label
     Friend WithEvents tbxCapRly As TextBox
     Friend WithEvents tbxResRly As TextBox
+    Friend WithEvents Panel2 As Panel
+    Friend WithEvents PictureBox1 As PictureBox
+    Friend WithEvents lblStatus0 As Label
+    Friend WithEvents lblStatus1 As Label
+    Friend WithEvents lblStatus2 As Label
+    Friend WithEvents lblStatus3 As Label
+    Friend WithEvents lblStatus4 As Label
+    Friend WithEvents lblStatus5 As Label
+    Friend WithEvents lblStatus6 As Label
+    Friend WithEvents lblStatus7 As Label
+    Friend WithEvents lblStatus8 As Label
+    Friend WithEvents lblStatus9 As Label
+    Friend WithEvents lblStatus10 As Label
+    Friend WithEvents lblStatus11 As Label
 End Class

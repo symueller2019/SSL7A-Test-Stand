@@ -3,13 +3,28 @@
 
 Public Class frmInRush
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
+    Dim StatusDsplyArray(1)                 'display test status after result entered
+    Dim s_index As Integer                'index for array of lables
+
 
     Private Sub frmInRush_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim n As Integer
+
         'Adjust user controls
         lblLimit.Hide()                       'Hide Limit label
         lblLimitDsply.Hide()                  'Hide Limit display
         lblResult.Hide()                      'Hide Result label
         lblResultDsply.Hide()                 'Hide Result display
+
+        'init array of lables
+        StatusDsplyArray(0) = lblStatus0
+        StatusDsplyArray(1) = lblStatus1
+
+        'select button test status invisible until test done
+        For n = 0 To 1
+            StatusDsplyArray(n).Visible = False
+            StatusDsplyArray(n).text = ""
+        Next
 
     End Sub
 
@@ -24,6 +39,13 @@ Public Class frmInRush
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'clear the measurement entry box
+        tbxMeasurementEntry.Text = ""
+
+        'do not show until test result done
+        s_index = 0                           'associate the label to this test
+        StatusDsplyArray(s_index).Visible = True  'show when test becomes active
 
         If cbxMaxCondAngle.Checked = True Then
             cbxMaxCondAngle.Text = "Max Conduction Angle - Dimmer ON"
@@ -51,6 +73,13 @@ Public Class frmInRush
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'clear the measurement entry box
+        tbxMeasurementEntry.Text = ""
+
+        'do not show until test result done
+        s_index = 1                           'associate the label to this test
+        StatusDsplyArray(s_index).Visible = True  'show when test becomes active
+
         If cbx90DegCondAngle.Checked = True Then
             cbx90DegCondAngle.Text = "90 Deg. Conduction Angle - Dimmer ON"
             cbxMaxCondAngle.Enabled = False
@@ -76,6 +105,19 @@ Public Class frmInRush
             FileWrite("InRush Current Test")
             blnTestTitleDone = True         'only write test name once
         End If
+
+        StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+
+        'If Val(lblLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
+        '    lblResultDsply.Text = "PASS"
+        '    StatusDsplyArray(s_index).ForeColor = Color.Black
+        '    StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text & " - " & "PASS"
+        'Else
+        '    lblResultDsply.Text = "FAIL"
+        '    StatusDsplyArray(s_index).ForeColor = Color.Red
+        '    StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text & " - " & "FAIL"
+        'End If
+
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))

@@ -22,6 +22,7 @@ Partial Class frmOnStateSupplyCurrent
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOnStateSupplyCurrent))
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.btnInfo = New System.Windows.Forms.Button()
@@ -64,26 +65,26 @@ Partial Class frmOnStateSupplyCurrent
         '
         'PictureBox2
         '
-        Me.PictureBox2.Image = Global.WindowsApp1.My.Resources.Resources.DmrOnStateSupplyCurrent_Text_031420191
-        Me.PictureBox2.Location = New System.Drawing.Point(47, 352)
+        Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
+        Me.PictureBox2.Location = New System.Drawing.Point(64, 353)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(864, 616)
+        Me.PictureBox2.Size = New System.Drawing.Size(771, 421)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage
         Me.PictureBox2.TabIndex = 5
         Me.PictureBox2.TabStop = False
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.DmrOnStateSupplyCurrent_03142019
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
         Me.PictureBox1.Location = New System.Drawing.Point(172, 353)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(571, 477)
+        Me.PictureBox1.Size = New System.Drawing.Size(562, 450)
         Me.PictureBox1.TabIndex = 4
         Me.PictureBox1.TabStop = False
         '
         'btnInfo
         '
-        Me.btnInfo.Location = New System.Drawing.Point(765, 24)
+        Me.btnInfo.Location = New System.Drawing.Point(865, 353)
         Me.btnInfo.Name = "btnInfo"
         Me.btnInfo.Size = New System.Drawing.Size(80, 30)
         Me.btnInfo.TabIndex = 6
@@ -421,8 +422,8 @@ Partial Class frmOnStateSupplyCurrent
         Me.Controls.Add(Me.cbx350ohm)
         Me.Controls.Add(Me.cbx100ohm)
         Me.Controls.Add(Me.btnInfo)
-        Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.PictureBox2)
         Me.Name = "frmOnStateSupplyCurrent"
         Me.Text = "frmOnStateSupplyCurrent"
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()

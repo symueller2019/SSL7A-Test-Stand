@@ -334,4 +334,5 @@ Public Class frmOffStateOperation
 
         End Select
     End Sub
+
 End Class
