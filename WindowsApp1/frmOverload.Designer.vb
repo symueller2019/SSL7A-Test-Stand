@@ -24,9 +24,9 @@ Partial Class frmOverload
     Private Sub InitializeComponent()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblRatedLoadAt120percentAtMaxConductionAngle = New System.Windows.Forms.Label()
-        Me.tbxRatedLoadAt120pcntMaxCondAngle = New System.Windows.Forms.TextBox()
+        Me.tbxStatus0 = New System.Windows.Forms.TextBox()
         Me.lblRatedLoad120pcnt90DegCondAngle = New System.Windows.Forms.Label()
-        Me.tbxRatedLoadAt120pcnt90DegCondAngle = New System.Windows.Forms.TextBox()
+        Me.tbxStatus1 = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.lblTestDescription = New System.Windows.Forms.Label()
@@ -76,12 +76,12 @@ Partial Class frmOverload
         Me.lblRatedLoadAt120percentAtMaxConductionAngle.TabIndex = 1
         Me.lblRatedLoadAt120percentAtMaxConductionAngle.Text = "Rated Load @ 120% at Max Conduction Angle"
         '
-        'tbxRatedLoadAt120pcntMaxCondAngle
+        'tbxStatus0
         '
-        Me.tbxRatedLoadAt120pcntMaxCondAngle.Location = New System.Drawing.Point(339, 40)
-        Me.tbxRatedLoadAt120pcntMaxCondAngle.Name = "tbxRatedLoadAt120pcntMaxCondAngle"
-        Me.tbxRatedLoadAt120pcntMaxCondAngle.Size = New System.Drawing.Size(73, 20)
-        Me.tbxRatedLoadAt120pcntMaxCondAngle.TabIndex = 2
+        Me.tbxStatus0.Location = New System.Drawing.Point(339, 40)
+        Me.tbxStatus0.Name = "tbxStatus0"
+        Me.tbxStatus0.Size = New System.Drawing.Size(73, 20)
+        Me.tbxStatus0.TabIndex = 2
         '
         'lblRatedLoad120pcnt90DegCondAngle
         '
@@ -94,12 +94,12 @@ Partial Class frmOverload
         Me.lblRatedLoad120pcnt90DegCondAngle.Text = "Rated Load @ 120% at 90 Degree Conduction Angle"
         Me.lblRatedLoad120pcnt90DegCondAngle.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'tbxRatedLoadAt120pcnt90DegCondAngle
+        'tbxStatus1
         '
-        Me.tbxRatedLoadAt120pcnt90DegCondAngle.Location = New System.Drawing.Point(339, 85)
-        Me.tbxRatedLoadAt120pcnt90DegCondAngle.Name = "tbxRatedLoadAt120pcnt90DegCondAngle"
-        Me.tbxRatedLoadAt120pcnt90DegCondAngle.Size = New System.Drawing.Size(73, 20)
-        Me.tbxRatedLoadAt120pcnt90DegCondAngle.TabIndex = 4
+        Me.tbxStatus1.Location = New System.Drawing.Point(339, 85)
+        Me.tbxStatus1.Name = "tbxStatus1"
+        Me.tbxStatus1.Size = New System.Drawing.Size(73, 20)
+        Me.tbxStatus1.TabIndex = 4
         '
         'GroupBox1
         '
@@ -213,7 +213,7 @@ Partial Class frmOverload
         Me.tbxMeasurementEntry.Location = New System.Drawing.Point(457, 50)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry.TabIndex = 13
+        Me.tbxMeasurementEntry.TabIndex = 1
         '
         'lblLimit
         '
@@ -358,6 +358,7 @@ Partial Class frmOverload
         '
         'frmOverload
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(991, 634)
@@ -365,9 +366,9 @@ Partial Class frmOverload
         Me.Controls.Add(Me.cbx90DegCondAngle)
         Me.Controls.Add(Me.cbxMaxCondAngle)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.tbxRatedLoadAt120pcnt90DegCondAngle)
+        Me.Controls.Add(Me.tbxStatus1)
         Me.Controls.Add(Me.lblRatedLoad120pcnt90DegCondAngle)
-        Me.Controls.Add(Me.tbxRatedLoadAt120pcntMaxCondAngle)
+        Me.Controls.Add(Me.tbxStatus0)
         Me.Controls.Add(Me.lblRatedLoadAt120percentAtMaxConductionAngle)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "frmOverload"
@@ -384,9 +385,9 @@ Partial Class frmOverload
 
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents lblRatedLoadAt120percentAtMaxConductionAngle As Label
-    Friend WithEvents tbxRatedLoadAt120pcntMaxCondAngle As TextBox
+    Friend WithEvents tbxStatus0 As TextBox
     Friend WithEvents lblRatedLoad120pcnt90DegCondAngle As Label
-    Friend WithEvents tbxRatedLoadAt120pcnt90DegCondAngle As TextBox
+    Friend WithEvents tbxStatus1 As TextBox
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents btnEnter As Button
     Friend WithEvents lblTestDescription As Label

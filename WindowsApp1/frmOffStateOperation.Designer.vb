@@ -56,6 +56,12 @@ Partial Class frmOffStateOperation
         Me.pbxImage2 = New System.Windows.Forms.PictureBox()
         Me.pbxImage3 = New System.Windows.Forms.PictureBox()
         Me.btnInfo = New System.Windows.Forms.Button()
+        Me.lblStatus0 = New System.Windows.Forms.Label()
+        Me.lblStatus1 = New System.Windows.Forms.Label()
+        Me.lblStatus2 = New System.Windows.Forms.Label()
+        Me.lblStatus3 = New System.Windows.Forms.Label()
+        Me.lblStatus4 = New System.Windows.Forms.Label()
+        Me.lblStatus5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxImage1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -241,7 +247,7 @@ Partial Class frmOffStateOperation
         Me.tbxMeasurementEntry.Location = New System.Drawing.Point(457, 50)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry.TabIndex = 13
+        Me.tbxMeasurementEntry.TabIndex = 0
         '
         'lblLimit
         '
@@ -399,11 +405,72 @@ Partial Class frmOffStateOperation
         Me.btnInfo.Text = "Info"
         Me.btnInfo.UseVisualStyleBackColor = True
         '
+        'lblStatus0
+        '
+        Me.lblStatus0.AutoSize = True
+        Me.lblStatus0.Location = New System.Drawing.Point(61, 9)
+        Me.lblStatus0.Name = "lblStatus0"
+        Me.lblStatus0.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus0.TabIndex = 29
+        Me.lblStatus0.Text = "lblStatus0"
+        '
+        'lblStatus1
+        '
+        Me.lblStatus1.AutoSize = True
+        Me.lblStatus1.Location = New System.Drawing.Point(221, 9)
+        Me.lblStatus1.Name = "lblStatus1"
+        Me.lblStatus1.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus1.TabIndex = 29
+        Me.lblStatus1.Text = "lblStatus1"
+        '
+        'lblStatus2
+        '
+        Me.lblStatus2.AutoSize = True
+        Me.lblStatus2.Location = New System.Drawing.Point(389, 9)
+        Me.lblStatus2.Name = "lblStatus2"
+        Me.lblStatus2.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus2.TabIndex = 29
+        Me.lblStatus2.Text = "lblStatus2"
+        '
+        'lblStatus3
+        '
+        Me.lblStatus3.AutoSize = True
+        Me.lblStatus3.Location = New System.Drawing.Point(540, 9)
+        Me.lblStatus3.Name = "lblStatus3"
+        Me.lblStatus3.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus3.TabIndex = 29
+        Me.lblStatus3.Text = "lblStatus3"
+        '
+        'lblStatus4
+        '
+        Me.lblStatus4.AutoSize = True
+        Me.lblStatus4.Location = New System.Drawing.Point(699, 9)
+        Me.lblStatus4.Name = "lblStatus4"
+        Me.lblStatus4.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus4.TabIndex = 29
+        Me.lblStatus4.Text = "lblStatus4"
+        '
+        'lblStatus5
+        '
+        Me.lblStatus5.AutoSize = True
+        Me.lblStatus5.Location = New System.Drawing.Point(866, 9)
+        Me.lblStatus5.Name = "lblStatus5"
+        Me.lblStatus5.Size = New System.Drawing.Size(53, 13)
+        Me.lblStatus5.TabIndex = 29
+        Me.lblStatus5.Text = "lblStatus5"
+        '
         'frmOffStateOperation
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(990, 970)
+        Me.Controls.Add(Me.lblStatus5)
+        Me.Controls.Add(Me.lblStatus4)
+        Me.Controls.Add(Me.lblStatus3)
+        Me.Controls.Add(Me.lblStatus2)
+        Me.Controls.Add(Me.lblStatus1)
+        Me.Controls.Add(Me.lblStatus0)
         Me.Controls.Add(Me.btnInfo)
         Me.Controls.Add(Me.pbxImage2)
         Me.Controls.Add(Me.pbxImage1)
@@ -462,4 +529,10 @@ Partial Class frmOffStateOperation
     Friend WithEvents pbxImage2 As PictureBox
     Friend WithEvents pbxImage3 As PictureBox
     Friend WithEvents btnInfo As Button
+    Friend WithEvents lblStatus0 As Label
+    Friend WithEvents lblStatus1 As Label
+    Friend WithEvents lblStatus2 As Label
+    Friend WithEvents lblStatus3 As Label
+    Friend WithEvents lblStatus4 As Label
+    Friend WithEvents lblStatus5 As Label
 End Class

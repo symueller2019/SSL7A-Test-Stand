@@ -212,7 +212,7 @@ Partial Class frmFileRead
         Me.btnStart.Location = New System.Drawing.Point(12, 12)
         Me.btnStart.Name = "btnStart"
         Me.btnStart.Size = New System.Drawing.Size(54, 30)
-        Me.btnStart.TabIndex = 58
+        Me.btnStart.TabIndex = 2
         Me.btnStart.Text = "Read"
         Me.btnStart.UseVisualStyleBackColor = True
         '
@@ -468,7 +468,7 @@ Partial Class frmFileRead
         Me.ListBox1.Location = New System.Drawing.Point(100, 96)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(115, 22)
-        Me.ListBox1.TabIndex = 103
+        Me.ListBox1.TabIndex = 0
         '
         'ListBox2
         '
@@ -478,7 +478,7 @@ Partial Class frmFileRead
         Me.ListBox2.Location = New System.Drawing.Point(319, 98)
         Me.ListBox2.Name = "ListBox2"
         Me.ListBox2.Size = New System.Drawing.Size(115, 22)
-        Me.ListBox2.TabIndex = 105
+        Me.ListBox2.TabIndex = 1
         '
         'lblRatedStatus
         '

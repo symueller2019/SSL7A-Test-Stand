@@ -6,11 +6,25 @@ Public Class frmOffStateOperation
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
     Dim PbxImageSelect As Integer           'cycle thru docs
 
+    Dim StatusArray(5) As Label             'array of status textbox for display results
+    Dim s_index As Integer                  'index for array of textboxes
 
     Private Sub frmOffStateOperation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         GC.Collect()
         PbxImageSelect = 1          'init doc to show
         btnInfo_Click(sender, e)    'force update
+
+        StatusArray(0) = lblStatus0
+        StatusArray(1) = lblStatus1
+        StatusArray(2) = lblStatus2
+        StatusArray(3) = lblStatus3
+        StatusArray(4) = lblStatus4
+        StatusArray(5) = lblStatus5
+
+        'select button test status invisible until test done
+        For s_index = 0 To 5
+            StatusArray(s_index).Visible = False
+        Next
 
     End Sub
 
@@ -24,6 +38,10 @@ Public Class frmOffStateOperation
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 0                             'associate the label to this test
+        StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx10ohm.Checked = True) Then
             'Disable other controls
@@ -58,6 +76,9 @@ Public Class frmOffStateOperation
             cbx8kohm.Enabled = True
             cbx15kohm.Enabled = True
 
+            'keep entered value
+            StatusArray(s_index).Text = tbxMeasurementEntry.Text
+
             'display result in Group box
             'Determine Pass/Fail status
             If Val(tbxLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
@@ -74,6 +95,10 @@ Public Class frmOffStateOperation
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 1                          'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx40ohm.Checked = True) Then
             'Disable other controls
@@ -116,6 +141,10 @@ Public Class frmOffStateOperation
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'do not show until test result done
+        s_index = 2                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
+
         If (cbx400ohm.Checked = True) Then
             'Disable other controls
             cbx10ohm.Enabled = False
@@ -157,6 +186,10 @@ Public Class frmOffStateOperation
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'do not show until test result done
+        s_index = 3                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
+
         If (cbx3kohm.Checked = True) Then
             'Disable other controls
             cbx10ohm.Enabled = False
@@ -197,6 +230,10 @@ Public Class frmOffStateOperation
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'do not show until test result done
+        s_index = 4                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
+
         If (cbx8kohm.Checked = True) Then
             'Disable other controls
             cbx10ohm.Enabled = False
@@ -236,6 +273,10 @@ Public Class frmOffStateOperation
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 5                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx15kohm.Checked = True) Then
             'Disable other controls
@@ -278,11 +319,56 @@ Public Class frmOffStateOperation
             blnTestTitleDone = True
         End If
 
-        'Determine Pass/Fail status
-        If Val(tbxLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
-            lblResultDsply.Text = "PASS"
+        StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+
+        Select Case s_index
+            Case 0, 1
+                If Val(StatusArray(s_index).Text) <= 15 Then
+                    lblResultDsply.Text = "PASS"
+                Else
+                    lblResultDsply.Text = "FAIL"
+                End If
+            Case 2
+                If Val(StatusArray(s_index).Text) <= 10.1 Then
+                    lblResultDsply.Text = "PASS"
+                Else
+                    lblResultDsply.Text = "FAIL"
+                End If
+            Case 3
+                If Val(StatusArray(s_index).Text) <= 6 Then
+                    lblResultDsply.Text = "PASS"
+                Else
+                    lblResultDsply.Text = "FAIL"
+                End If
+            Case 4
+                If Val(StatusArray(s_index).Text) <= 4.8 Then
+                    lblResultDsply.Text = "PASS"
+                Else
+                    lblResultDsply.Text = "FAIL"
+                End If
+            Case 5
+                If Val(StatusArray(s_index).Text) <= 4.5 Then
+                    lblResultDsply.Text = "PASS"
+                Else
+                    lblResultDsply.Text = "FAIL"
+                End If
+        End Select
+
+        ''Determine Pass/Fail status
+        'If Val(tbxLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
+        '    lblResultDsply.Text = "PASS"
+        'Else
+        '    lblResultDsply.Text = "FAIL"
+        'End If
+
+        'highlight display status for FAILURES
+        If lblResultDsply.Text = "PASS" Then
+            lblResultDsply.ForeColor = Color.Black
+            StatusArray(s_index).BackColor = Color.White
+            StatusArray(s_index).ForeColor = Color.Black
         Else
-            lblResultDsply.Text = "FAIL"
+            lblResultDsply.ForeColor = Color.Red
+            StatusArray(s_index).ForeColor = Color.Red
         End If
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))

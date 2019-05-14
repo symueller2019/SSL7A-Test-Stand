@@ -2,6 +2,8 @@
 
 Public Class frmOverload
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
+    Dim StatusDsplyArray(1)                 'display test status after result entered
+    Dim s_index As Integer                'index for array of lables
 
     Private Sub frmOverload_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
@@ -14,6 +16,17 @@ Public Class frmOverload
         lblLimitDsply.Hide()                  'Hide Limit display
         lblResult.Hide()                      'Hide Result label
         lblResultDsply.Hide()                 'Hide Result display
+
+        'init array of lables
+        StatusDsplyArray(0) = tbxStatus0
+        StatusDsplyArray(1) = tbxStatus1
+
+        'select button test status invisible until test done
+        For n = 0 To 1
+            StatusDsplyArray(n).Visible = False
+            StatusDsplyArray(n).text = ""
+        Next
+
     End Sub
 
     Private Sub cbxMaxCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMaxCondAngle.CheckedChanged
@@ -21,6 +34,13 @@ Public Class frmOverload
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'clear the measurement entry box
+        tbxMeasurementEntry.Text = ""
+
+        'do not show until test result done
+        s_index = 0                           'associate the label to this test
+        StatusDsplyArray(s_index).Visible = True  'show when test becomes active
 
         If cbxMaxCondAngle.Checked = True Then
             'display title of test
@@ -48,6 +68,13 @@ Public Class frmOverload
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'clear the measurement entry box
+        tbxMeasurementEntry.Text = ""
+
+        'do not show until test result done
+        s_index = 1                           'associate the label to this test
+        StatusDsplyArray(s_index).Visible = True  'show when test becomes active
 
         If cbx90DegCondAngle.Checked = True Then
             'display title of test
@@ -98,6 +125,8 @@ Public Class frmOverload
             FileWrite("Overload Test")
             blnTestTitleDone = True
         End If
+
+        StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))

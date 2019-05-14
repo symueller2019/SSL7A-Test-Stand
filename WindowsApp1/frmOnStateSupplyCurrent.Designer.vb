@@ -32,9 +32,6 @@ Partial Class frmOnStateSupplyCurrent
         Me.cbx1400ohm = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.tbxLimitDsply2 = New System.Windows.Forms.TextBox()
-        Me.lblMax = New System.Windows.Forms.Label()
-        Me.lblMin = New System.Windows.Forms.Label()
-        Me.tbxMeasurementEntry2 = New System.Windows.Forms.TextBox()
         Me.tbxLimitDsply1 = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
         Me.lblTestDescription = New System.Windows.Forms.Label()
@@ -43,7 +40,6 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblComment = New System.Windows.Forms.Label()
         Me.tbxComment = New System.Windows.Forms.TextBox()
         Me.lblResultDsply = New System.Windows.Forms.Label()
-        Me.tbxMeasurementEntry1 = New System.Windows.Forms.TextBox()
         Me.lblLimit = New System.Windows.Forms.Label()
         Me.lblTest = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -57,10 +53,18 @@ Partial Class frmOnStateSupplyCurrent
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.lblStatus0 = New System.Windows.Forms.Label()
+        Me.lblStatus1 = New System.Windows.Forms.Label()
+        Me.lblStatus2 = New System.Windows.Forms.Label()
+        Me.lblStatus3 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cbxSelect1 = New System.Windows.Forms.CheckBox()
+        Me.cbxSelect2 = New System.Windows.Forms.CheckBox()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -95,7 +99,7 @@ Partial Class frmOnStateSupplyCurrent
         '
         Me.cbx100ohm.AutoSize = True
         Me.cbx100ohm.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx100ohm.Location = New System.Drawing.Point(47, 26)
+        Me.cbx100ohm.Location = New System.Drawing.Point(66, 26)
         Me.cbx100ohm.Name = "cbx100ohm"
         Me.cbx100ohm.Size = New System.Drawing.Size(109, 28)
         Me.cbx100ohm.TabIndex = 9
@@ -106,7 +110,7 @@ Partial Class frmOnStateSupplyCurrent
         '
         Me.cbx350ohm.AutoSize = True
         Me.cbx350ohm.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx350ohm.Location = New System.Drawing.Point(212, 26)
+        Me.cbx350ohm.Location = New System.Drawing.Point(271, 26)
         Me.cbx350ohm.Name = "cbx350ohm"
         Me.cbx350ohm.Size = New System.Drawing.Size(109, 28)
         Me.cbx350ohm.TabIndex = 10
@@ -117,7 +121,7 @@ Partial Class frmOnStateSupplyCurrent
         '
         Me.cbx800ohm.AutoSize = True
         Me.cbx800ohm.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx800ohm.Location = New System.Drawing.Point(374, 26)
+        Me.cbx800ohm.Location = New System.Drawing.Point(481, 26)
         Me.cbx800ohm.Name = "cbx800ohm"
         Me.cbx800ohm.Size = New System.Drawing.Size(109, 28)
         Me.cbx800ohm.TabIndex = 11
@@ -128,7 +132,7 @@ Partial Class frmOnStateSupplyCurrent
         '
         Me.cbx1400ohm.AutoSize = True
         Me.cbx1400ohm.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbx1400ohm.Location = New System.Drawing.Point(552, 26)
+        Me.cbx1400ohm.Location = New System.Drawing.Point(691, 26)
         Me.cbx1400ohm.Name = "cbx1400ohm"
         Me.cbx1400ohm.Size = New System.Drawing.Size(120, 28)
         Me.cbx1400ohm.TabIndex = 12
@@ -138,10 +142,8 @@ Partial Class frmOnStateSupplyCurrent
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel1)
         Me.GroupBox1.Controls.Add(Me.tbxLimitDsply2)
-        Me.GroupBox1.Controls.Add(Me.lblMax)
-        Me.GroupBox1.Controls.Add(Me.lblMin)
-        Me.GroupBox1.Controls.Add(Me.tbxMeasurementEntry2)
         Me.GroupBox1.Controls.Add(Me.tbxLimitDsply1)
         Me.GroupBox1.Controls.Add(Me.btnEnter)
         Me.GroupBox1.Controls.Add(Me.lblTestDescription)
@@ -150,7 +152,6 @@ Partial Class frmOnStateSupplyCurrent
         Me.GroupBox1.Controls.Add(Me.lblComment)
         Me.GroupBox1.Controls.Add(Me.tbxComment)
         Me.GroupBox1.Controls.Add(Me.lblResultDsply)
-        Me.GroupBox1.Controls.Add(Me.tbxMeasurementEntry1)
         Me.GroupBox1.Controls.Add(Me.lblLimit)
         Me.GroupBox1.Controls.Add(Me.lblTest)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 195)
@@ -163,7 +164,7 @@ Partial Class frmOnStateSupplyCurrent
         'tbxLimitDsply2
         '
         Me.tbxLimitDsply2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxLimitDsply2.Location = New System.Drawing.Point(353, 83)
+        Me.tbxLimitDsply2.Location = New System.Drawing.Point(331, 75)
         Me.tbxLimitDsply2.MaximumSize = New System.Drawing.Size(76, 65)
         Me.tbxLimitDsply2.Multiline = True
         Me.tbxLimitDsply2.Name = "tbxLimitDsply2"
@@ -171,37 +172,10 @@ Partial Class frmOnStateSupplyCurrent
         Me.tbxLimitDsply2.TabIndex = 26
         Me.tbxLimitDsply2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'lblMax
-        '
-        Me.lblMax.AutoSize = True
-        Me.lblMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMax.Location = New System.Drawing.Point(531, 87)
-        Me.lblMax.Name = "lblMax"
-        Me.lblMax.Size = New System.Drawing.Size(33, 16)
-        Me.lblMax.TabIndex = 25
-        Me.lblMax.Text = "Max"
-        '
-        'lblMin
-        '
-        Me.lblMin.AutoSize = True
-        Me.lblMin.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMin.Location = New System.Drawing.Point(531, 51)
-        Me.lblMin.Name = "lblMin"
-        Me.lblMin.Size = New System.Drawing.Size(29, 16)
-        Me.lblMin.TabIndex = 24
-        Me.lblMin.Text = "Min"
-        '
-        'tbxMeasurementEntry2
-        '
-        Me.tbxMeasurementEntry2.Location = New System.Drawing.Point(457, 83)
-        Me.tbxMeasurementEntry2.Name = "tbxMeasurementEntry2"
-        Me.tbxMeasurementEntry2.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry2.TabIndex = 23
-        '
         'tbxLimitDsply1
         '
         Me.tbxLimitDsply1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxLimitDsply1.Location = New System.Drawing.Point(353, 48)
+        Me.tbxLimitDsply1.Location = New System.Drawing.Point(331, 48)
         Me.tbxLimitDsply1.MaximumSize = New System.Drawing.Size(76, 65)
         Me.tbxLimitDsply1.Multiline = True
         Me.tbxLimitDsply1.Name = "tbxLimitDsply1"
@@ -246,7 +220,7 @@ Partial Class frmOnStateSupplyCurrent
         '
         Me.lblResult.AutoSize = True
         Me.lblResult.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResult.Location = New System.Drawing.Point(576, 19)
+        Me.lblResult.Location = New System.Drawing.Point(612, 19)
         Me.lblResult.Name = "lblResult"
         Me.lblResult.Size = New System.Drawing.Size(46, 16)
         Me.lblResult.TabIndex = 17
@@ -264,10 +238,10 @@ Partial Class frmOnStateSupplyCurrent
         '
         'tbxComment
         '
-        Me.tbxComment.Location = New System.Drawing.Point(644, 38)
+        Me.tbxComment.Location = New System.Drawing.Point(679, 47)
         Me.tbxComment.Multiline = True
         Me.tbxComment.Name = "tbxComment"
-        Me.tbxComment.Size = New System.Drawing.Size(266, 65)
+        Me.tbxComment.Size = New System.Drawing.Size(239, 84)
         Me.tbxComment.TabIndex = 15
         '
         'lblResultDsply
@@ -276,7 +250,7 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblResultDsply.BackColor = System.Drawing.SystemColors.Window
         Me.lblResultDsply.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblResultDsply.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblResultDsply.Location = New System.Drawing.Point(576, 50)
+        Me.lblResultDsply.Location = New System.Drawing.Point(612, 47)
         Me.lblResultDsply.MinimumSize = New System.Drawing.Size(40, 20)
         Me.lblResultDsply.Name = "lblResultDsply"
         Me.lblResultDsply.Size = New System.Drawing.Size(46, 20)
@@ -284,18 +258,11 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblResultDsply.Text = "PASS"
         Me.lblResultDsply.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'tbxMeasurementEntry1
-        '
-        Me.tbxMeasurementEntry1.Location = New System.Drawing.Point(457, 50)
-        Me.tbxMeasurementEntry1.Name = "tbxMeasurementEntry1"
-        Me.tbxMeasurementEntry1.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry1.TabIndex = 13
-        '
         'lblLimit
         '
         Me.lblLimit.AutoSize = True
         Me.lblLimit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLimit.Location = New System.Drawing.Point(359, 19)
+        Me.lblLimit.Location = New System.Drawing.Point(339, 19)
         Me.lblLimit.Name = "lblLimit"
         Me.lblLimit.Size = New System.Drawing.Size(62, 16)
         Me.lblLimit.TabIndex = 12
@@ -410,11 +377,90 @@ Partial Class frmOnStateSupplyCurrent
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'lblStatus0
+        '
+        Me.lblStatus0.AutoSize = True
+        Me.lblStatus0.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus0.Location = New System.Drawing.Point(100, 10)
+        Me.lblStatus0.Name = "lblStatus0"
+        Me.lblStatus0.Size = New System.Drawing.Size(61, 15)
+        Me.lblStatus0.TabIndex = 30
+        Me.lblStatus0.Text = "lblStatus0"
+        '
+        'lblStatus1
+        '
+        Me.lblStatus1.AutoSize = True
+        Me.lblStatus1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus1.Location = New System.Drawing.Point(298, 9)
+        Me.lblStatus1.Name = "lblStatus1"
+        Me.lblStatus1.Size = New System.Drawing.Size(61, 15)
+        Me.lblStatus1.TabIndex = 30
+        Me.lblStatus1.Text = "lblStatus1"
+        '
+        'lblStatus2
+        '
+        Me.lblStatus2.AutoSize = True
+        Me.lblStatus2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus2.Location = New System.Drawing.Point(508, 9)
+        Me.lblStatus2.Name = "lblStatus2"
+        Me.lblStatus2.Size = New System.Drawing.Size(61, 15)
+        Me.lblStatus2.TabIndex = 30
+        Me.lblStatus2.Text = "lblStatus2"
+        '
+        'lblStatus3
+        '
+        Me.lblStatus3.AutoSize = True
+        Me.lblStatus3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus3.Location = New System.Drawing.Point(727, 9)
+        Me.lblStatus3.Name = "lblStatus3"
+        Me.lblStatus3.Size = New System.Drawing.Size(61, 15)
+        Me.lblStatus3.TabIndex = 30
+        Me.lblStatus3.Text = "lblStatus3"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Window
+        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect2)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(422, 47)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(175, 50)
+        Me.FlowLayoutPanel1.TabIndex = 32
+        '
+        'cbxSelect1
+        '
+        Me.cbxSelect1.AutoSize = True
+        Me.cbxSelect1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxSelect1.Location = New System.Drawing.Point(3, 1)
+        Me.cbxSelect1.Margin = New System.Windows.Forms.Padding(3, 1, 3, 2)
+        Me.cbxSelect1.Name = "cbxSelect1"
+        Me.cbxSelect1.Size = New System.Drawing.Size(154, 20)
+        Me.cbxSelect1.TabIndex = 0
+        Me.cbxSelect1.Text = "Min Angle (1.85msec)"
+        Me.cbxSelect1.UseVisualStyleBackColor = True
+        '
+        'cbxSelect2
+        '
+        Me.cbxSelect2.AutoSize = True
+        Me.cbxSelect2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxSelect2.Location = New System.Drawing.Point(3, 28)
+        Me.cbxSelect2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
+        Me.cbxSelect2.Name = "cbxSelect2"
+        Me.cbxSelect2.Size = New System.Drawing.Size(172, 20)
+        Me.cbxSelect2.TabIndex = 1
+        Me.cbxSelect2.Text = "Max Angle (>=6.02msec)"
+        Me.cbxSelect2.UseVisualStyleBackColor = True
+        '
         'frmOnStateSupplyCurrent
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(964, 980)
+        Me.Controls.Add(Me.lblStatus3)
+        Me.Controls.Add(Me.lblStatus2)
+        Me.Controls.Add(Me.lblStatus1)
+        Me.Controls.Add(Me.lblStatus0)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.cbx1400ohm)
@@ -432,6 +478,8 @@ Partial Class frmOnStateSupplyCurrent
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -452,12 +500,8 @@ Partial Class frmOnStateSupplyCurrent
     Friend WithEvents lblComment As Label
     Friend WithEvents tbxComment As TextBox
     Friend WithEvents lblResultDsply As Label
-    Friend WithEvents tbxMeasurementEntry1 As TextBox
     Friend WithEvents lblLimit As Label
     Friend WithEvents lblTest As Label
-    Friend WithEvents tbxMeasurementEntry2 As TextBox
-    Friend WithEvents lblMax As Label
-    Friend WithEvents lblMin As Label
     Friend WithEvents tbxLimitDsply2 As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents tbxCapRly As TextBox
@@ -470,4 +514,11 @@ Partial Class frmOnStateSupplyCurrent
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents lblStatus0 As Label
+    Friend WithEvents lblStatus1 As Label
+    Friend WithEvents lblStatus2 As Label
+    Friend WithEvents lblStatus3 As Label
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents cbxSelect1 As CheckBox
+    Friend WithEvents cbxSelect2 As CheckBox
 End Class

@@ -1,7 +1,9 @@
 ﻿Imports System.ComponentModel
 
 Public Class frmRepetitivePeakCurrent
+    Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
     Dim intDuration As UInt16
+
 
     Private Sub frmRepetitivePeakCurrent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'display state of tester
@@ -59,6 +61,11 @@ Public Class frmRepetitivePeakCurrent
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
+
+        If blnTestTitleDone = False Then
+            FileWrite("Repetitive Peak Voltage Test")
+            blnTestTitleDone = True
+        End If
 
         tbxRepetitivePeakCurrent.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 

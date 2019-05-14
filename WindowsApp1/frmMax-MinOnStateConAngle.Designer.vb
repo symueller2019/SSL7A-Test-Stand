@@ -22,13 +22,14 @@ Partial Class frmMax_MinOnStateConAngle
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMax_MinOnStateConAngle))
         Me.pbxMaxMinOnStateConductionAngle = New System.Windows.Forms.PictureBox()
-        Me.tbxMinLoad = New System.Windows.Forms.TextBox()
-        Me.tbxRatedLoad = New System.Windows.Forms.TextBox()
-        Me.lblMinAngle = New System.Windows.Forms.Label()
-        Me.lblMaxAngle = New System.Windows.Forms.Label()
-        Me.tbxRatedLoad2 = New System.Windows.Forms.TextBox()
-        Me.tbxMinLoad2 = New System.Windows.Forms.TextBox()
+        Me.tbxStatus0 = New System.Windows.Forms.TextBox()
+        Me.tbxStatus1 = New System.Windows.Forms.TextBox()
+        Me.lblMinLoad = New System.Windows.Forms.Label()
+        Me.lblRatedLoad = New System.Windows.Forms.Label()
+        Me.tbxStatus3 = New System.Windows.Forms.TextBox()
+        Me.tbxStatus2 = New System.Windows.Forms.TextBox()
         Me.cbxMinLoad_MinAngle = New System.Windows.Forms.CheckBox()
         Me.cbxRatedLoad_MinAngle = New System.Windows.Forms.CheckBox()
         Me.cbxMinLoad_MaxAngle = New System.Windows.Forms.CheckBox()
@@ -65,107 +66,107 @@ Partial Class frmMax_MinOnStateConAngle
         '
         'pbxMaxMinOnStateConductionAngle
         '
-        Me.pbxMaxMinOnStateConductionAngle.InitialImage = Global.WindowsApp1.My.Resources.Resources.Max_MinOnStateConductionAngle_03142019
+        Me.pbxMaxMinOnStateConductionAngle.InitialImage = CType(resources.GetObject("pbxMaxMinOnStateConductionAngle.InitialImage"), System.Drawing.Image)
         Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(3, 3)
         Me.pbxMaxMinOnStateConductionAngle.Name = "pbxMaxMinOnStateConductionAngle"
         Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(740, 488)
         Me.pbxMaxMinOnStateConductionAngle.TabIndex = 0
         Me.pbxMaxMinOnStateConductionAngle.TabStop = False
         '
-        'tbxMinLoad
+        'tbxStatus0
         '
-        Me.tbxMinLoad.Location = New System.Drawing.Point(175, 51)
-        Me.tbxMinLoad.Name = "tbxMinLoad"
-        Me.tbxMinLoad.Size = New System.Drawing.Size(75, 20)
-        Me.tbxMinLoad.TabIndex = 1
+        Me.tbxStatus0.Location = New System.Drawing.Point(175, 51)
+        Me.tbxStatus0.Name = "tbxStatus0"
+        Me.tbxStatus0.Size = New System.Drawing.Size(75, 20)
+        Me.tbxStatus0.TabIndex = 1
         '
-        'tbxRatedLoad
+        'tbxStatus1
         '
-        Me.tbxRatedLoad.Location = New System.Drawing.Point(175, 79)
-        Me.tbxRatedLoad.Name = "tbxRatedLoad"
-        Me.tbxRatedLoad.Size = New System.Drawing.Size(75, 20)
-        Me.tbxRatedLoad.TabIndex = 4
+        Me.tbxStatus1.Location = New System.Drawing.Point(175, 79)
+        Me.tbxStatus1.Name = "tbxStatus1"
+        Me.tbxStatus1.Size = New System.Drawing.Size(75, 20)
+        Me.tbxStatus1.TabIndex = 4
         '
-        'lblMinAngle
+        'lblMinLoad
         '
-        Me.lblMinAngle.AutoSize = True
-        Me.lblMinAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMinAngle.Location = New System.Drawing.Point(171, 28)
-        Me.lblMinAngle.Name = "lblMinAngle"
-        Me.lblMinAngle.Size = New System.Drawing.Size(79, 20)
-        Me.lblMinAngle.TabIndex = 5
-        Me.lblMinAngle.Text = "Min Angle"
+        Me.lblMinLoad.AutoSize = True
+        Me.lblMinLoad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMinLoad.Location = New System.Drawing.Point(171, 28)
+        Me.lblMinLoad.Name = "lblMinLoad"
+        Me.lblMinLoad.Size = New System.Drawing.Size(74, 20)
+        Me.lblMinLoad.TabIndex = 5
+        Me.lblMinLoad.Text = "Min Load"
         '
-        'lblMaxAngle
+        'lblRatedLoad
         '
-        Me.lblMaxAngle.AutoSize = True
-        Me.lblMaxAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMaxAngle.Location = New System.Drawing.Point(540, 28)
-        Me.lblMaxAngle.Name = "lblMaxAngle"
-        Me.lblMaxAngle.Size = New System.Drawing.Size(83, 20)
-        Me.lblMaxAngle.TabIndex = 10
-        Me.lblMaxAngle.Text = "Max Angle"
+        Me.lblRatedLoad.AutoSize = True
+        Me.lblRatedLoad.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRatedLoad.Location = New System.Drawing.Point(540, 28)
+        Me.lblRatedLoad.Name = "lblRatedLoad"
+        Me.lblRatedLoad.Size = New System.Drawing.Size(93, 20)
+        Me.lblRatedLoad.TabIndex = 10
+        Me.lblRatedLoad.Text = "Rated Load"
         '
-        'tbxRatedLoad2
+        'tbxStatus3
         '
-        Me.tbxRatedLoad2.Location = New System.Drawing.Point(544, 79)
-        Me.tbxRatedLoad2.Name = "tbxRatedLoad2"
-        Me.tbxRatedLoad2.Size = New System.Drawing.Size(75, 20)
-        Me.tbxRatedLoad2.TabIndex = 9
+        Me.tbxStatus3.Location = New System.Drawing.Point(544, 79)
+        Me.tbxStatus3.Name = "tbxStatus3"
+        Me.tbxStatus3.Size = New System.Drawing.Size(75, 20)
+        Me.tbxStatus3.TabIndex = 9
         '
-        'tbxMinLoad2
+        'tbxStatus2
         '
-        Me.tbxMinLoad2.Location = New System.Drawing.Point(544, 51)
-        Me.tbxMinLoad2.Name = "tbxMinLoad2"
-        Me.tbxMinLoad2.Size = New System.Drawing.Size(75, 20)
-        Me.tbxMinLoad2.TabIndex = 6
+        Me.tbxStatus2.Location = New System.Drawing.Point(544, 51)
+        Me.tbxStatus2.Name = "tbxStatus2"
+        Me.tbxStatus2.Size = New System.Drawing.Size(75, 20)
+        Me.tbxStatus2.TabIndex = 6
         '
         'cbxMinLoad_MinAngle
         '
         Me.cbxMinLoad_MinAngle.AutoSize = True
         Me.cbxMinLoad_MinAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxMinLoad_MinAngle.Location = New System.Drawing.Point(62, 51)
+        Me.cbxMinLoad_MinAngle.Location = New System.Drawing.Point(58, 48)
         Me.cbxMinLoad_MinAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxMinLoad_MinAngle.Name = "cbxMinLoad_MinAngle"
-        Me.cbxMinLoad_MinAngle.Size = New System.Drawing.Size(93, 24)
+        Me.cbxMinLoad_MinAngle.Size = New System.Drawing.Size(98, 24)
         Me.cbxMinLoad_MinAngle.TabIndex = 12
-        Me.cbxMinLoad_MinAngle.Text = "Min Load"
+        Me.cbxMinLoad_MinAngle.Text = "Min Angle"
         Me.cbxMinLoad_MinAngle.UseVisualStyleBackColor = True
         '
         'cbxRatedLoad_MinAngle
         '
         Me.cbxRatedLoad_MinAngle.AutoSize = True
         Me.cbxRatedLoad_MinAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxRatedLoad_MinAngle.Location = New System.Drawing.Point(62, 73)
+        Me.cbxRatedLoad_MinAngle.Location = New System.Drawing.Point(425, 48)
         Me.cbxRatedLoad_MinAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxRatedLoad_MinAngle.Name = "cbxRatedLoad_MinAngle"
-        Me.cbxRatedLoad_MinAngle.Size = New System.Drawing.Size(112, 24)
+        Me.cbxRatedLoad_MinAngle.Size = New System.Drawing.Size(98, 24)
         Me.cbxRatedLoad_MinAngle.TabIndex = 13
-        Me.cbxRatedLoad_MinAngle.Text = "Rated Load"
+        Me.cbxRatedLoad_MinAngle.Text = "Min Angle"
         Me.cbxRatedLoad_MinAngle.UseVisualStyleBackColor = True
         '
         'cbxMinLoad_MaxAngle
         '
         Me.cbxMinLoad_MaxAngle.AutoSize = True
         Me.cbxMinLoad_MaxAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxMinLoad_MaxAngle.Location = New System.Drawing.Point(430, 47)
+        Me.cbxMinLoad_MaxAngle.Location = New System.Drawing.Point(58, 76)
         Me.cbxMinLoad_MaxAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxMinLoad_MaxAngle.Name = "cbxMinLoad_MaxAngle"
-        Me.cbxMinLoad_MaxAngle.Size = New System.Drawing.Size(93, 24)
+        Me.cbxMinLoad_MaxAngle.Size = New System.Drawing.Size(102, 24)
         Me.cbxMinLoad_MaxAngle.TabIndex = 14
-        Me.cbxMinLoad_MaxAngle.Text = "Min Load"
+        Me.cbxMinLoad_MaxAngle.Text = "Max Angle"
         Me.cbxMinLoad_MaxAngle.UseVisualStyleBackColor = True
         '
         'cbxRatedLoad_MaxAngle
         '
         Me.cbxRatedLoad_MaxAngle.AutoSize = True
         Me.cbxRatedLoad_MaxAngle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxRatedLoad_MaxAngle.Location = New System.Drawing.Point(430, 73)
+        Me.cbxRatedLoad_MaxAngle.Location = New System.Drawing.Point(425, 76)
         Me.cbxRatedLoad_MaxAngle.Margin = New System.Windows.Forms.Padding(2)
         Me.cbxRatedLoad_MaxAngle.Name = "cbxRatedLoad_MaxAngle"
-        Me.cbxRatedLoad_MaxAngle.Size = New System.Drawing.Size(112, 24)
+        Me.cbxRatedLoad_MaxAngle.Size = New System.Drawing.Size(102, 24)
         Me.cbxRatedLoad_MaxAngle.TabIndex = 15
-        Me.cbxRatedLoad_MaxAngle.Text = "Rated Load"
+        Me.cbxRatedLoad_MaxAngle.Text = "Max Angle"
         Me.cbxRatedLoad_MaxAngle.UseVisualStyleBackColor = True
         '
         'GroupBox1
@@ -280,7 +281,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxMeasurementEntry.Location = New System.Drawing.Point(457, 50)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry.TabIndex = 13
+        Me.tbxMeasurementEntry.TabIndex = 0
         '
         'lblLimit
         '
@@ -413,6 +414,7 @@ Partial Class frmMax_MinOnStateConAngle
         '
         'frmMax_MinOnStateConAngle
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 810)
@@ -423,12 +425,12 @@ Partial Class frmMax_MinOnStateConAngle
         Me.Controls.Add(Me.cbxMinLoad_MaxAngle)
         Me.Controls.Add(Me.cbxRatedLoad_MinAngle)
         Me.Controls.Add(Me.cbxMinLoad_MinAngle)
-        Me.Controls.Add(Me.lblMaxAngle)
-        Me.Controls.Add(Me.tbxRatedLoad2)
-        Me.Controls.Add(Me.tbxMinLoad2)
-        Me.Controls.Add(Me.lblMinAngle)
-        Me.Controls.Add(Me.tbxRatedLoad)
-        Me.Controls.Add(Me.tbxMinLoad)
+        Me.Controls.Add(Me.lblRatedLoad)
+        Me.Controls.Add(Me.tbxStatus3)
+        Me.Controls.Add(Me.tbxStatus2)
+        Me.Controls.Add(Me.lblMinLoad)
+        Me.Controls.Add(Me.tbxStatus1)
+        Me.Controls.Add(Me.tbxStatus0)
         Me.Name = "frmMax_MinOnStateConAngle"
         Me.Text = "frmMax_MinOnStateConAngle"
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).EndInit()
@@ -443,12 +445,12 @@ Partial Class frmMax_MinOnStateConAngle
     End Sub
 
     Friend WithEvents pbxMaxMinOnStateConductionAngle As PictureBox
-    Friend WithEvents tbxMinLoad As TextBox
-    Friend WithEvents tbxRatedLoad As TextBox
-    Friend WithEvents lblMinAngle As Label
-    Friend WithEvents lblMaxAngle As Label
-    Friend WithEvents tbxRatedLoad2 As TextBox
-    Friend WithEvents tbxMinLoad2 As TextBox
+    Friend WithEvents tbxStatus0 As TextBox
+    Friend WithEvents tbxStatus1 As TextBox
+    Friend WithEvents lblMinLoad As Label
+    Friend WithEvents lblRatedLoad As Label
+    Friend WithEvents tbxStatus3 As TextBox
+    Friend WithEvents tbxStatus2 As TextBox
     Friend WithEvents cbxMinLoad_MinAngle As CheckBox
     Friend WithEvents cbxRatedLoad_MinAngle As CheckBox
     Friend WithEvents cbxMinLoad_MaxAngle As CheckBox

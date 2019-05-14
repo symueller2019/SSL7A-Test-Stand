@@ -89,7 +89,7 @@ Partial Class MainForm1
         Me.btnPress.Location = New System.Drawing.Point(198, 29)
         Me.btnPress.Name = "btnPress"
         Me.btnPress.Size = New System.Drawing.Size(113, 38)
-        Me.btnPress.TabIndex = 2
+        Me.btnPress.TabIndex = 0
         Me.btnPress.Text = "Load Setup"
         Me.btnPress.UseVisualStyleBackColor = True
         '
@@ -108,7 +108,7 @@ Partial Class MainForm1
         Me.btnStabilityTests.Location = New System.Drawing.Point(42, 82)
         Me.btnStabilityTests.Name = "btnStabilityTests"
         Me.btnStabilityTests.Size = New System.Drawing.Size(130, 21)
-        Me.btnStabilityTests.TabIndex = 0
+        Me.btnStabilityTests.TabIndex = 2
         Me.btnStabilityTests.Text = "Stability Tests"
         Me.btnStabilityTests.UseVisualStyleBackColor = True
         '
@@ -117,7 +117,7 @@ Partial Class MainForm1
         Me.btnInRushCurrent.Location = New System.Drawing.Point(42, 118)
         Me.btnInRushCurrent.Name = "btnInRushCurrent"
         Me.btnInRushCurrent.Size = New System.Drawing.Size(130, 21)
-        Me.btnInRushCurrent.TabIndex = 0
+        Me.btnInRushCurrent.TabIndex = 3
         Me.btnInRushCurrent.Text = "InRush Current"
         Me.btnInRushCurrent.UseVisualStyleBackColor = True
         '
@@ -126,7 +126,7 @@ Partial Class MainForm1
         Me.btnRepetitivePeakCurrent.Location = New System.Drawing.Point(42, 155)
         Me.btnRepetitivePeakCurrent.Name = "btnRepetitivePeakCurrent"
         Me.btnRepetitivePeakCurrent.Size = New System.Drawing.Size(130, 21)
-        Me.btnRepetitivePeakCurrent.TabIndex = 0
+        Me.btnRepetitivePeakCurrent.TabIndex = 4
         Me.btnRepetitivePeakCurrent.Text = "Repetitive Peak Current"
         Me.btnRepetitivePeakCurrent.UseVisualStyleBackColor = True
         '
@@ -135,7 +135,7 @@ Partial Class MainForm1
         Me.btnOverload.Location = New System.Drawing.Point(42, 193)
         Me.btnOverload.Name = "btnOverload"
         Me.btnOverload.Size = New System.Drawing.Size(130, 21)
-        Me.btnOverload.TabIndex = 0
+        Me.btnOverload.TabIndex = 5
         Me.btnOverload.Text = "Overload"
         Me.btnOverload.UseVisualStyleBackColor = True
         '
@@ -144,7 +144,7 @@ Partial Class MainForm1
         Me.btnRepetitivePeakVoltage.Location = New System.Drawing.Point(42, 232)
         Me.btnRepetitivePeakVoltage.Name = "btnRepetitivePeakVoltage"
         Me.btnRepetitivePeakVoltage.Size = New System.Drawing.Size(130, 21)
-        Me.btnRepetitivePeakVoltage.TabIndex = 0
+        Me.btnRepetitivePeakVoltage.TabIndex = 6
         Me.btnRepetitivePeakVoltage.Text = "Repetitive Peak Voltage"
         Me.btnRepetitivePeakVoltage.UseVisualStyleBackColor = True
         '
@@ -153,7 +153,7 @@ Partial Class MainForm1
         Me.btnMinOnConAngle.Location = New System.Drawing.Point(42, 275)
         Me.btnMinOnConAngle.Name = "btnMinOnConAngle"
         Me.btnMinOnConAngle.Size = New System.Drawing.Size(130, 37)
-        Me.btnMinOnConAngle.TabIndex = 0
+        Me.btnMinOnConAngle.TabIndex = 7
         Me.btnMinOnConAngle.Text = "Min && Max On-State Conduction Angle"
         Me.btnMinOnConAngle.UseVisualStyleBackColor = True
         '
@@ -162,7 +162,7 @@ Partial Class MainForm1
         Me.btnOffStateOperation.Location = New System.Drawing.Point(42, 333)
         Me.btnOffStateOperation.Name = "btnOffStateOperation"
         Me.btnOffStateOperation.Size = New System.Drawing.Size(130, 21)
-        Me.btnOffStateOperation.TabIndex = 0
+        Me.btnOffStateOperation.TabIndex = 8
         Me.btnOffStateOperation.Text = "Off-State Operation"
         Me.btnOffStateOperation.UseVisualStyleBackColor = True
         '
@@ -171,7 +171,7 @@ Partial Class MainForm1
         Me.btnOnStateDmrSupplyCurrent.Location = New System.Drawing.Point(42, 372)
         Me.btnOnStateDmrSupplyCurrent.Name = "btnOnStateDmrSupplyCurrent"
         Me.btnOnStateDmrSupplyCurrent.Size = New System.Drawing.Size(130, 37)
-        Me.btnOnStateDmrSupplyCurrent.TabIndex = 3
+        Me.btnOnStateDmrSupplyCurrent.TabIndex = 9
         Me.btnOnStateDmrSupplyCurrent.Text = "ON-State Dimmer Supply Current"
         Me.btnOnStateDmrSupplyCurrent.UseVisualStyleBackColor = True
         '

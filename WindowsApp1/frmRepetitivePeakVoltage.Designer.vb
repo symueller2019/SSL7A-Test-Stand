@@ -216,8 +216,9 @@ Partial Class frmRepetitivePeakVoltage
         '
         Me.tbxMeasurementEntry.Location = New System.Drawing.Point(457, 50)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
+        Me.tbxMeasurementEntry.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry.TabIndex = 13
+        Me.tbxMeasurementEntry.TabIndex = 0
         '
         'lblLimit
         '
@@ -351,6 +352,7 @@ Partial Class frmRepetitivePeakVoltage
         '
         'frmRepetitivePeakVoltage
         '
+        Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 830)

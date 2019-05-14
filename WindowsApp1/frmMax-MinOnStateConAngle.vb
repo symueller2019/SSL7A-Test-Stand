@@ -2,9 +2,23 @@
 
 Public Class frmMax_MinOnStateConAngle
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
+    Dim StatusArray(3) As TextBox           'array of status textbox for display results
+    Dim s_index As Integer                  'index for array of textboxes
 
     Private Sub frmMax_MinOnStateConAngle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        pbxMaxMinOnStateConductionAngle.Image = Image.FromFile("C:\Temp\Max_MinOnStateConductionAngle 03142019.PNG")
+        'picturebox load done this way to have scrolling work - needs review
+        pbxMaxMinOnStateConductionAngle.Image = Image.FromFile("C:\Temp\SSL7A Images 05082019\Max_MinOnStateConductionAngle 03142019.PNG")
+
+        StatusArray(0) = tbxStatus0
+        StatusArray(1) = tbxStatus1
+        StatusArray(2) = tbxStatus2
+        StatusArray(3) = tbxStatus3
+
+        'select button test status invisible until test done
+        For s_index = 0 To 3
+            StatusArray(s_index).Visible = False
+        Next
+
     End Sub
 
     Private Sub frmMax_MinOnStateConAngle_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -25,6 +39,10 @@ Public Class frmMax_MinOnStateConAngle
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'do not show until test result done
+        s_index = 0                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
+
         If (cbxMinLoad_MinAngle.Checked = True) Then
 
             'clear out previous value
@@ -40,10 +58,10 @@ Public Class frmMax_MinOnStateConAngle
             'cbx90DegCondAngle.Enabled = False
             'display title of test in Group box
             lblTestDescription.Text = "HPF Min Load - Min Conduction Angle"
-            lblResultDsply.Text = ""
+
             'display limits
-            'lblLimitDsply.Text = "1.619msec to 2.081msec"
-            tbxLimitDsply.Text = "1.619 msec" & vbCrLf & "to" & vbCrLf & "2.081 msec"
+            lblResultDsply.Text = ""
+            tbxLimitDsply.Text = "1.62 msec" & vbCrLf & "to" & vbCrLf & "2.083 msec"
 
             DisplayLoad_Min_Min()
 
@@ -53,7 +71,10 @@ Public Class frmMax_MinOnStateConAngle
 
         Else
             'keep entered value
-            tbxMinLoad.Text = tbxMeasurementEntry.Text
+            StatusArray(s_index).Text = tbxMeasurementEntry.Text
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
 
             'Restore other controls
             cbxRatedLoad_MinAngle.Enabled = True
@@ -67,6 +88,10 @@ Public Class frmMax_MinOnStateConAngle
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 2                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbxRatedLoad_MinAngle.Checked = True) Then
 
@@ -82,7 +107,7 @@ Public Class frmMax_MinOnStateConAngle
             lblTestDescription.Text = "HPF Rated Load - Min Conduction Angle"
             lblResultDsply.Text = ""
             'display limits in Group box
-            tbxLimitDsply.Text = "1.619 msec" & vbCrLf & "to" & vbCrLf & "2.081 msec"
+            tbxLimitDsply.Text = "1.62 msec" & vbCrLf & "to" & vbCrLf & "2.083 msec"
 
             DisplayLoad_Rated_Min()
 
@@ -92,7 +117,11 @@ Public Class frmMax_MinOnStateConAngle
 
         Else
             'keep entered value
-            tbxRatedLoad.Text = tbxMeasurementEntry.Text
+            'tbxStatus1.Text = tbxMeasurementEntry.Text
+            StatusArray(s_index).Text = tbxMeasurementEntry.Text
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -106,6 +135,10 @@ Public Class frmMax_MinOnStateConAngle
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 1                           'associate the label to this test
+        StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbxMinLoad_MaxAngle.Checked = True) Then
 
@@ -131,7 +164,11 @@ Public Class frmMax_MinOnStateConAngle
 
         Else
             'keep entered value
-            tbxMinLoad2.Text = tbxMeasurementEntry.Text
+            'tbxStatus2.Text = tbxMeasurementEntry.Text
+            StatusArray(s_index).Text = tbxMeasurementEntry.Text
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -150,6 +187,10 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear out previous value
             tbxMeasurementEntry.Text = ""
+
+            'do not show until test result done
+            s_index = 3                           'associate the label to this test
+            StatusArray(s_index).Visible = True  'show when test becomes active
 
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
@@ -170,7 +211,10 @@ Public Class frmMax_MinOnStateConAngle
 
         Else
             'keep entered value
-            tbxRatedLoad2.Text = tbxMeasurementEntry.Text
+            tbxStatus3.Text = tbxMeasurementEntry.Text
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -272,6 +316,40 @@ Public Class frmMax_MinOnStateConAngle
             FileWrite("Max & Min On-State Conduction Angle")
             blnTestTitleDone = True
         End If
+
+        StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+
+        Select Case s_index
+            Case 0, 2
+                If Val(StatusArray(s_index).Text) >= 1.62 And Val(StatusArray(s_index).Text) <= 2.083 Then
+                    lblResultDsply.Text = "PASS"
+                    'lblResultDsply.ForeColor = Color.White
+                    'StatusArray(s_index).BackColor = Color.White
+                Else
+                    lblResultDsply.Text = "FAIL"
+                    'lblResultDsply.ForeColor = Color.Red
+                    'StatusArray(s_index).BackColor = Color.Red
+                End If
+
+            Case 1, 3
+                If Val(StatusArray(s_index).Text) >= 6.02 Then
+                    lblResultDsply.Text = "PASS"
+                    'lblResultDsply.BackColor = Color.White
+                Else
+                    lblResultDsply.Text = "FAIL"
+                    'lblResultDsply.ForeColor = Color.Red
+                End If
+        End Select
+
+        'highlight display status for FAILURES
+        If lblResultDsply.Text = "PASS" Then
+            lblResultDsply.ForeColor = Color.Black
+            StatusArray(s_index).BackColor = Color.White
+        Else
+            lblResultDsply.ForeColor = Color.Red
+            StatusArray(s_index).BackColor = Color.Red
+        End If
+
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))

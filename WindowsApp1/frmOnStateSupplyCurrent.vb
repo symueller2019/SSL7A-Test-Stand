@@ -6,6 +6,8 @@ Public Class frmOnStateSupplyCurrent
     Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
 
+    Dim StatusArray(3) As Label             'array of status textbox for display results
+    Dim s_index As Integer                  'index for array of textboxes
 
     Private Sub btnInfo_Click(sender As Object, e As EventArgs) Handles btnInfo.Click
         If PictureBox2.Visible Then
@@ -20,8 +22,17 @@ Public Class frmOnStateSupplyCurrent
     Private Sub frmOnStateSupplyCurrent_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         PictureBox1.Show()
         PictureBox2.Hide()
-        'PictureBox2.Show()
-        'PictureBox1.Hide()
+
+        StatusArray(0) = lblStatus0
+        StatusArray(1) = lblStatus1
+        StatusArray(2) = lblStatus2
+        StatusArray(3) = lblStatus3
+
+        'select button test status invisible until test done
+        For s_index = 0 To 3
+            StatusArray(s_index).Visible = False
+        Next
+
     End Sub
 
     Private Sub frmOnStateSupplyCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -33,6 +44,10 @@ Public Class frmOnStateSupplyCurrent
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 0                             'associate the label to this test
+        'StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx100ohm.Checked = True) Then
             'Disable other controls
@@ -66,6 +81,12 @@ Public Class frmOnStateSupplyCurrent
             cbx350ohm.Enabled = True
             cbx800ohm.Enabled = True
             cbx1400ohm.Enabled = True
+
+            'reset the Measurement checkboxes
+            cbxSelect1.Checked = False
+            cbxSelect2.Checked = False
+            'force user to select another test before checking measurement result
+            s_index = 4
         End If
     End Sub
 
@@ -74,6 +95,10 @@ Public Class frmOnStateSupplyCurrent
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 1                             'associate the label to this test
+        'StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx350ohm.Checked = True) Then
             'Disable other controls
@@ -106,6 +131,12 @@ Public Class frmOnStateSupplyCurrent
             cbx100ohm.Enabled = True
             cbx800ohm.Enabled = True
             cbx1400ohm.Enabled = True
+
+            'reset the Measurement checkboxes
+            cbxSelect1.Checked = False
+            cbxSelect2.Checked = False
+            'force user to select another test before checking measurement result
+            s_index = 4
         End If
     End Sub
 
@@ -114,6 +145,10 @@ Public Class frmOnStateSupplyCurrent
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 2                             'associate the label to this test
+        'StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx800ohm.Checked = True) Then
             'Disable other controls
@@ -145,6 +180,12 @@ Public Class frmOnStateSupplyCurrent
             cbx100ohm.Enabled = True
             cbx350ohm.Enabled = True
             cbx1400ohm.Enabled = True
+
+            'reset the Measurement checkboxes
+            cbxSelect1.Checked = False
+            cbxSelect2.Checked = False
+            'force user to select another test before checking measurement result
+            s_index = 4
         End If
     End Sub
 
@@ -153,6 +194,10 @@ Public Class frmOnStateSupplyCurrent
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'do not show until test result done
+        s_index = 3                             'associate the label to this test
+        'StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx1400ohm.Checked = True) Then
             'Disable other controls
@@ -184,29 +229,88 @@ Public Class frmOnStateSupplyCurrent
             cbx100ohm.Enabled = True
             cbx350ohm.Enabled = True
             cbx800ohm.Enabled = True
+
+            'reset the Measurement checkboxes
+            cbxSelect1.Checked = False
+            cbxSelect2.Checked = False
+            'force user to select another test before checking measurement result
+            s_index = 4
         End If
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-        'Determine Pass/Fail status
-        Dim LowValue, HighValue As String, UserEntryValue As String
-        LowValue = "1.619" : HighValue = "2.081" : UserEntryValue = Val(tbxMeasurementEntry1.Text)
-        'If Val(tbxMeasurementEntry1.Text) >= Val(LowValue) & Val(tbxMeasurementEntry1.Text) <= Val(HighValue) Then
-        If UserEntryValue >= Val(LowValue) And UserEntryValue <= Val(HighValue) Then
-            lblResultDsply.Text = "PASS"
-        Else
-            lblResultDsply.Text = "FAIL"
+
+        'verify a test is selected
+        If s_index > 3 Then
+            MsgBox("Must select a test setup option")
+            Return
         End If
 
-        LowValue = "6.02"
-        UserEntryValue = Val(tbxMeasurementEntry2.Text)
-        If (lblResultDsply.Text = "PASS") Then
-            If UserEntryValue >= Val(LowValue) Then
-                lblResultDsply.Text = "PASS"
-            Else
-                lblResultDsply.Text = "FAIL"
-            End If
+        StatusArray(s_index).Visible = True     'show when test becomes active
+
+        If cbxSelect1.Checked = True And cbxSelect2.Checked = True Then
+            lblResultDsply.Text = "PASS"
+            StatusArray(s_index).Text = "PASS"
+            StatusArray(s_index).ForeColor = Color.Black
+        Else
+            lblResultDsply.Text = "FAIL"
+            StatusArray(s_index).Text = "FAIL"
+            StatusArray(s_index).ForeColor = Color.Red
         End If
+
+
+
+
+
+        'StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+
+        'Select Case s_index
+        '    Case 0
+        '        If Val(StatusArray(s_index).Text) <= 15 Then
+        '            lblResultDsply.Text = "PASS"
+        '        Else
+        '            lblResultDsply.Text = "FAIL"
+        '        End If
+        '    Case 1
+        '        If Val(StatusArray(s_index).Text) <= 10.1 Then
+        '            lblResultDsply.Text = "PASS"
+        '        Else
+        '            lblResultDsply.Text = "FAIL"
+        '        End If
+        '    Case 2
+        '        If Val(StatusArray(s_index).Text) <= 6 Then
+        '            lblResultDsply.Text = "PASS"
+        '        Else
+        '            lblResultDsply.Text = "FAIL"
+        '        End If
+        '    Case 3
+        '        If Val(StatusArray(s_index).Text) <= 4.8 Then
+        '            lblResultDsply.Text = "PASS"
+        '        Else
+        '            lblResultDsply.Text = "FAIL"
+        '        End If
+        'End Select
+
+
+        ''Determine Pass/Fail status
+        'Dim LowValue, HighValue As String, UserEntryValue As String
+        'LowValue = "1.619" : HighValue = "2.081" : UserEntryValue = Val(tbxMeasurementEntry.Text)
+        ''If Val(tbxMeasurementEntry1.Text) >= Val(LowValue) & Val(tbxMeasurementEntry1.Text) <= Val(HighValue) Then
+        'If UserEntryValue >= Val(LowValue) And UserEntryValue <= Val(HighValue) Then
+        '    lblResultDsply.Text = "PASS"
+        'Else
+        '    lblResultDsply.Text = "FAIL"
+        'End If
+
+        'LowValue = "6.02"
+        'UserEntryValue = Val(tbxMeasurementEntry2.Text)
+        'If (lblResultDsply.Text = "PASS") Then
+        '    If UserEntryValue >= Val(LowValue) Then
+        '        lblResultDsply.Text = "PASS"
+        '    Else
+        '        lblResultDsply.Text = "FAIL"
+        '    End If
+        'End If
 
         If blnTestTitleDone = False Then
             FileWrite("On-State Operation Test")
@@ -303,4 +407,5 @@ Public Class frmOnStateSupplyCurrent
     Private Sub frmOnStateSupplyCurrent_DragDrop(sender As Object, e As DragEventArgs) Handles Me.DragDrop
         Disconnect_Relays_Bd1_2()
     End Sub
+
 End Class

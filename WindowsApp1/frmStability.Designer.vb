@@ -295,7 +295,7 @@ Partial Class frmStability
         Me.tbxMeasurementEntry.Location = New System.Drawing.Point(428, 41)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
-        Me.tbxMeasurementEntry.TabIndex = 2
+        Me.tbxMeasurementEntry.TabIndex = 1
         '
         'lblLimit
         '

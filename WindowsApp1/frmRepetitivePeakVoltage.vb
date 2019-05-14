@@ -42,6 +42,9 @@ Public Class frmRepetitivePeakVoltage
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
 
+        'clear measurement entry 
+        tbxMeasurementEntry.Text = ""
+
         If cbxRepPeakVoltage.Checked = True Then
 
             'clear out previous value
@@ -98,6 +101,8 @@ Public Class frmRepetitivePeakVoltage
             FileWrite("Repetitive Peak Voltage Test")
             blnTestTitleDone = True
         End If
+
+        tbxRepetitivePeakVoltage.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
         FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
