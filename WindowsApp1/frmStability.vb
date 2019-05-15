@@ -6,6 +6,8 @@ Public Class frmStability
     Dim myLabelArray(11) As Label       'array of status labels for display results
     Dim s_index As Integer                'index for array of lables
 
+    Dim btnArray(11) As Button
+
     Private Sub btnLPFMinLoadMinCondAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFMinLoadMinCondAnglePosCycle.Click
         Dim DataValue As UInt16
 
@@ -14,7 +16,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 0                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Min Load - Min Conduction Angle Pos Cycle"
@@ -58,7 +62,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 1                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Min Load - Max Conduction Angle Pos Cycle"
@@ -102,7 +108,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 2                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Min Load - Min Conduction Angle Pos Cycle"
@@ -146,7 +154,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 3                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Min Load - Max Conduction Angle Pos Cycle"
@@ -189,7 +199,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 4                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Min Conduction Angle Pos Cycle"
@@ -233,7 +245,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 5                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Min Conduction Angle Neg Cycle"
@@ -277,7 +291,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 6                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - 90 Deg Conduction Angle Pos Cycle"
@@ -321,7 +337,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 7                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - 90 Deg Conduction Angle Neg Cycle"
@@ -362,10 +380,13 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 8                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+        'myLabelArray(s_index).Visible = True  'show when test becomes active
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2()
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Max Conduction Angle Pos Cycle"
@@ -409,7 +430,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 9                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "LPF Rated Load - Max Conduction Angle Neg Cycle"
@@ -453,7 +476,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 10                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Rated Load - Min Conduction Angle Pos Cycle"
@@ -497,7 +522,9 @@ Public Class frmStability
 
         'do not show until test result done
         s_index = 11                           'associate the label to this test
-        myLabelArray(s_index).Visible = True  'show when test becomes active
+
+        'clear all buttons and make this button active
+        SetButtonActive()
 
         'Update Test Status
         lblTestDescription.Text = "HPF Rated Load - Max Conduction Angle Pos Cycle"
@@ -551,6 +578,7 @@ Public Class frmStability
         End If
 
         myLabelArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+        myLabelArray(s_index).Visible = True  'show when test becomes active
 
         If Val(lblLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
             lblResultDsply.Text = "PASS"
@@ -584,10 +612,31 @@ Public Class frmStability
         myLabelArray(10) = lblStatus10
         myLabelArray(11) = lblStatus11
 
+        btnArray(0) = btnLPFMinLoadMinCondAnglePosCycle
+        btnArray(1) = btnLPFMinLoadMaxConAnglePosCycle
+        btnArray(2) = btnHPFMinLoadMinConAnglePosCycle
+        btnArray(3) = btnHPFMinLoadMaxConAnglePosCycle
+        btnArray(4) = btnLPFRatedLoadMinConAnglePosCycle
+        btnArray(5) = btnLPFRatedLoadMinConAngleNegCycle
+        btnArray(6) = btnLPFRatedLoad90degConAnglePosCycle
+        btnArray(7) = btnLPFRatedLoad90degConAngleNegCycle
+        btnArray(8) = btnLPF_RatedLoadMaxConAnglePosCycle
+        btnArray(9) = btnLPF_RatedLoadMaxConAngleNegCycle
+        btnArray(10) = btn_HPFRatedLoadMinConAnglePosCycle
+        btnArray(11) = btn_HPFRatedLoadMaxConAnglePosCycle
+
+
         'select button test status invisible until test done
         For n = 0 To 11
             myLabelArray(n).Visible = False
+            btnArray(n).BackColor = SystemColors.ControlLight
         Next
     End Sub
 
+    Private Sub SetButtonActive()
+        For n = 0 To 11
+            btnArray(n).BackColor = SystemColors.ControlLight
+        Next
+        btnArray(s_index).BackColor = Color.LightGreen
+    End Sub
 End Class

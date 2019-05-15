@@ -66,8 +66,9 @@ Partial Class frmMax_MinOnStateConAngle
         '
         'pbxMaxMinOnStateConductionAngle
         '
+        Me.pbxMaxMinOnStateConductionAngle.Image = CType(resources.GetObject("pbxMaxMinOnStateConductionAngle.Image"), System.Drawing.Image)
         Me.pbxMaxMinOnStateConductionAngle.InitialImage = CType(resources.GetObject("pbxMaxMinOnStateConductionAngle.InitialImage"), System.Drawing.Image)
-        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(3, 3)
+        Me.pbxMaxMinOnStateConductionAngle.Location = New System.Drawing.Point(18, 3)
         Me.pbxMaxMinOnStateConductionAngle.Name = "pbxMaxMinOnStateConductionAngle"
         Me.pbxMaxMinOnStateConductionAngle.Size = New System.Drawing.Size(740, 488)
         Me.pbxMaxMinOnStateConductionAngle.TabIndex = 0
@@ -79,6 +80,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxStatus0.Name = "tbxStatus0"
         Me.tbxStatus0.Size = New System.Drawing.Size(75, 20)
         Me.tbxStatus0.TabIndex = 1
+        Me.tbxStatus0.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbxStatus1
         '
@@ -86,6 +88,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxStatus1.Name = "tbxStatus1"
         Me.tbxStatus1.Size = New System.Drawing.Size(75, 20)
         Me.tbxStatus1.TabIndex = 4
+        Me.tbxStatus1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'lblMinLoad
         '
@@ -113,6 +116,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxStatus3.Name = "tbxStatus3"
         Me.tbxStatus3.Size = New System.Drawing.Size(75, 20)
         Me.tbxStatus3.TabIndex = 9
+        Me.tbxStatus3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'tbxStatus2
         '
@@ -120,6 +124,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxStatus2.Name = "tbxStatus2"
         Me.tbxStatus2.Size = New System.Drawing.Size(75, 20)
         Me.tbxStatus2.TabIndex = 6
+        Me.tbxStatus2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cbxMinLoad_MinAngle
         '

@@ -80,111 +80,122 @@ Partial Class frmStability
         '
         'btnLPFMinLoadMinCondAnglePosCycle
         '
-        Me.btnLPFMinLoadMinCondAnglePosCycle.Location = New System.Drawing.Point(30, 13)
+        Me.btnLPFMinLoadMinCondAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPFMinLoadMinCondAnglePosCycle.Location = New System.Drawing.Point(15, 13)
         Me.btnLPFMinLoadMinCondAnglePosCycle.Name = "btnLPFMinLoadMinCondAnglePosCycle"
-        Me.btnLPFMinLoadMinCondAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFMinLoadMinCondAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFMinLoadMinCondAnglePosCycle.TabIndex = 0
         Me.btnLPFMinLoadMinCondAnglePosCycle.Text = "LPF Min Load-Min Conduction Angle-PosCycle"
         Me.btnLPFMinLoadMinCondAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnLPFMinLoadMaxConAnglePosCycle
         '
-        Me.btnLPFMinLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(30, 62)
+        Me.btnLPFMinLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(15, 62)
         Me.btnLPFMinLoadMaxConAnglePosCycle.Name = "btnLPFMinLoadMaxConAnglePosCycle"
-        Me.btnLPFMinLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFMinLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFMinLoadMaxConAnglePosCycle.TabIndex = 1
         Me.btnLPFMinLoadMaxConAnglePosCycle.Text = "LPF Min Load-Max Conduction Angle-PosCycle"
         Me.btnLPFMinLoadMaxConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnHPFMinLoadMinConAnglePosCycle
         '
-        Me.btnHPFMinLoadMinConAnglePosCycle.Location = New System.Drawing.Point(30, 108)
+        Me.btnHPFMinLoadMinConAnglePosCycle.Location = New System.Drawing.Point(15, 108)
         Me.btnHPFMinLoadMinConAnglePosCycle.Name = "btnHPFMinLoadMinConAnglePosCycle"
-        Me.btnHPFMinLoadMinConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnHPFMinLoadMinConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnHPFMinLoadMinConAnglePosCycle.TabIndex = 2
         Me.btnHPFMinLoadMinConAnglePosCycle.Text = "HPF Min Load-Min Conduction Angle-PosCycle"
         Me.btnHPFMinLoadMinConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnHPFMinLoadMaxConAnglePosCycle
         '
-        Me.btnHPFMinLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(30, 153)
+        Me.btnHPFMinLoadMaxConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnHPFMinLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(15, 153)
         Me.btnHPFMinLoadMaxConAnglePosCycle.Name = "btnHPFMinLoadMaxConAnglePosCycle"
-        Me.btnHPFMinLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 23)
+        Me.btnHPFMinLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnHPFMinLoadMaxConAnglePosCycle.TabIndex = 3
         Me.btnHPFMinLoadMaxConAnglePosCycle.Text = "HPF Min Load-Max Conduction Angle-PosCycle"
         Me.btnHPFMinLoadMaxConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnLPFRatedLoadMinConAnglePosCycle
         '
-        Me.btnLPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(30, 242)
+        Me.btnLPFRatedLoadMinConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(15, 242)
         Me.btnLPFRatedLoadMinConAnglePosCycle.Name = "btnLPFRatedLoadMinConAnglePosCycle"
-        Me.btnLPFRatedLoadMinConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFRatedLoadMinConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFRatedLoadMinConAnglePosCycle.TabIndex = 5
         Me.btnLPFRatedLoadMinConAnglePosCycle.Text = "LPF Rated Load-Min Conduction Angle-PosCycle"
         Me.btnLPFRatedLoadMinConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnLPFRatedLoadMinConAngleNegCycle
         '
-        Me.btnLPFRatedLoadMinConAngleNegCycle.Location = New System.Drawing.Point(30, 284)
+        Me.btnLPFRatedLoadMinConAngleNegCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPFRatedLoadMinConAngleNegCycle.Location = New System.Drawing.Point(15, 284)
         Me.btnLPFRatedLoadMinConAngleNegCycle.Name = "btnLPFRatedLoadMinConAngleNegCycle"
-        Me.btnLPFRatedLoadMinConAngleNegCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFRatedLoadMinConAngleNegCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFRatedLoadMinConAngleNegCycle.TabIndex = 6
         Me.btnLPFRatedLoadMinConAngleNegCycle.Text = "LPF Rated Load-Min Conduction Angle-NegCycle"
         Me.btnLPFRatedLoadMinConAngleNegCycle.UseVisualStyleBackColor = True
         '
         'btnLPFRatedLoad90degConAnglePosCycle
         '
-        Me.btnLPFRatedLoad90degConAnglePosCycle.Location = New System.Drawing.Point(30, 328)
+        Me.btnLPFRatedLoad90degConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPFRatedLoad90degConAnglePosCycle.Location = New System.Drawing.Point(15, 328)
         Me.btnLPFRatedLoad90degConAnglePosCycle.Name = "btnLPFRatedLoad90degConAnglePosCycle"
-        Me.btnLPFRatedLoad90degConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFRatedLoad90degConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFRatedLoad90degConAnglePosCycle.TabIndex = 7
         Me.btnLPFRatedLoad90degConAnglePosCycle.Text = "LPF Rated Load-90* Conduction Angle-PosCycle"
         Me.btnLPFRatedLoad90degConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnLPFRatedLoad90degConAngleNegCycle
         '
-        Me.btnLPFRatedLoad90degConAngleNegCycle.Location = New System.Drawing.Point(30, 375)
+        Me.btnLPFRatedLoad90degConAngleNegCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPFRatedLoad90degConAngleNegCycle.Location = New System.Drawing.Point(15, 375)
         Me.btnLPFRatedLoad90degConAngleNegCycle.Name = "btnLPFRatedLoad90degConAngleNegCycle"
-        Me.btnLPFRatedLoad90degConAngleNegCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPFRatedLoad90degConAngleNegCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPFRatedLoad90degConAngleNegCycle.TabIndex = 8
         Me.btnLPFRatedLoad90degConAngleNegCycle.Text = "LPF Rated Load-90* Conduction Angle-NegCycle"
         Me.btnLPFRatedLoad90degConAngleNegCycle.UseVisualStyleBackColor = True
         '
         'btnLPF_RatedLoadMaxConAnglePosCycle
         '
-        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(395, 13)
+        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(420, 13)
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.Name = "btnLPF_RatedLoadMaxConAnglePosCycle"
-        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPF_RatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.TabIndex = 9
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.Text = "LPF Rated Load-Max Conduction Angle-PosCycle"
         Me.btnLPF_RatedLoadMaxConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btnLPF_RatedLoadMaxConAngleNegCycle
         '
-        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Location = New System.Drawing.Point(395, 62)
+        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Location = New System.Drawing.Point(420, 62)
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.Name = "btnLPF_RatedLoadMaxConAngleNegCycle"
-        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btnLPF_RatedLoadMaxConAngleNegCycle.Size = New System.Drawing.Size(294, 25)
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.TabIndex = 10
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.Text = "LPF Rated Load-Max Conduction Angle-NegCycle"
         Me.btnLPF_RatedLoadMaxConAngleNegCycle.UseVisualStyleBackColor = True
         '
         'btn_HPFRatedLoadMinConAnglePosCycle
         '
-        Me.btn_HPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(395, 108)
+        Me.btn_HPFRatedLoadMinConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_HPFRatedLoadMinConAnglePosCycle.Location = New System.Drawing.Point(420, 108)
         Me.btn_HPFRatedLoadMinConAnglePosCycle.Name = "btn_HPFRatedLoadMinConAnglePosCycle"
-        Me.btn_HPFRatedLoadMinConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btn_HPFRatedLoadMinConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btn_HPFRatedLoadMinConAnglePosCycle.TabIndex = 11
         Me.btn_HPFRatedLoadMinConAnglePosCycle.Text = "HPF Rated Load-Min Conduction Angle-PosCycle"
         Me.btn_HPFRatedLoadMinConAnglePosCycle.UseVisualStyleBackColor = True
         '
         'btn_HPFRatedLoadMaxConAnglePosCycle
         '
-        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(395, 153)
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.BackColor = System.Drawing.SystemColors.HighlightText
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Location = New System.Drawing.Point(420, 153)
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.Name = "btn_HPFRatedLoadMaxConAnglePosCycle"
-        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(270, 25)
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.Size = New System.Drawing.Size(294, 25)
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.TabIndex = 12
         Me.btn_HPFRatedLoadMaxConAnglePosCycle.Text = "HPF Rated Load-Max Conduction Angle-PosCycle"
-        Me.btn_HPFRatedLoadMaxConAnglePosCycle.UseVisualStyleBackColor = True
+        Me.btn_HPFRatedLoadMaxConAnglePosCycle.UseVisualStyleBackColor = False
         '
         'Panel1
         '
@@ -206,7 +217,7 @@ Partial Class frmStability
         '
         'btnEnter
         '
-        Me.btnEnter.Location = New System.Drawing.Point(428, 72)
+        Me.btnEnter.Location = New System.Drawing.Point(431, 72)
         Me.btnEnter.Name = "btnEnter"
         Me.btnEnter.Size = New System.Drawing.Size(68, 22)
         Me.btnEnter.TabIndex = 10
@@ -231,7 +242,7 @@ Partial Class frmStability
         Me.lblLimitDsply.BackColor = System.Drawing.SystemColors.Window
         Me.lblLimitDsply.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.lblLimitDsply.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLimitDsply.Location = New System.Drawing.Point(336, 41)
+        Me.lblLimitDsply.Location = New System.Drawing.Point(345, 41)
         Me.lblLimitDsply.MinimumSize = New System.Drawing.Size(40, 20)
         Me.lblLimitDsply.Name = "lblLimitDsply"
         Me.lblLimitDsply.Size = New System.Drawing.Size(40, 20)
@@ -241,7 +252,7 @@ Partial Class frmStability
         '
         Me.lblMeasurement.AutoSize = True
         Me.lblMeasurement.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMeasurement.Location = New System.Drawing.Point(402, 10)
+        Me.lblMeasurement.Location = New System.Drawing.Point(404, 10)
         Me.lblMeasurement.Name = "lblMeasurement"
         Me.lblMeasurement.Size = New System.Drawing.Size(123, 16)
         Me.lblMeasurement.TabIndex = 7
@@ -292,7 +303,7 @@ Partial Class frmStability
         '
         'tbxMeasurementEntry
         '
-        Me.tbxMeasurementEntry.Location = New System.Drawing.Point(428, 41)
+        Me.tbxMeasurementEntry.Location = New System.Drawing.Point(431, 41)
         Me.tbxMeasurementEntry.Name = "tbxMeasurementEntry"
         Me.tbxMeasurementEntry.Size = New System.Drawing.Size(68, 20)
         Me.tbxMeasurementEntry.TabIndex = 1
@@ -301,7 +312,7 @@ Partial Class frmStability
         '
         Me.lblLimit.AutoSize = True
         Me.lblLimit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLimit.Location = New System.Drawing.Point(330, 10)
+        Me.lblLimit.Location = New System.Drawing.Point(333, 10)
         Me.lblLimit.Name = "lblLimit"
         Me.lblLimit.Size = New System.Drawing.Size(62, 16)
         Me.lblLimit.TabIndex = 1
@@ -329,9 +340,9 @@ Partial Class frmStability
         Me.GroupBox1.Controls.Add(Me.tbxCap)
         Me.GroupBox1.Controls.Add(Me.tbxRes)
         Me.GroupBox1.Controls.Add(Me.tbxWatt)
-        Me.GroupBox1.Location = New System.Drawing.Point(395, 242)
+        Me.GroupBox1.Location = New System.Drawing.Point(419, 263)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(511, 151)
+        Me.GroupBox1.Size = New System.Drawing.Size(487, 137)
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Load Description"
@@ -438,7 +449,7 @@ Partial Class frmStability
         'lblStatus0
         '
         Me.lblStatus0.AutoSize = True
-        Me.lblStatus0.Location = New System.Drawing.Point(308, 19)
+        Me.lblStatus0.Location = New System.Drawing.Point(318, 20)
         Me.lblStatus0.Name = "lblStatus0"
         Me.lblStatus0.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus0.TabIndex = 19
@@ -447,7 +458,7 @@ Partial Class frmStability
         'lblStatus1
         '
         Me.lblStatus1.AutoSize = True
-        Me.lblStatus1.Location = New System.Drawing.Point(308, 68)
+        Me.lblStatus1.Location = New System.Drawing.Point(318, 69)
         Me.lblStatus1.Name = "lblStatus1"
         Me.lblStatus1.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus1.TabIndex = 19
@@ -456,7 +467,7 @@ Partial Class frmStability
         'lblStatus2
         '
         Me.lblStatus2.AutoSize = True
-        Me.lblStatus2.Location = New System.Drawing.Point(308, 114)
+        Me.lblStatus2.Location = New System.Drawing.Point(318, 114)
         Me.lblStatus2.Name = "lblStatus2"
         Me.lblStatus2.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus2.TabIndex = 19
@@ -465,7 +476,7 @@ Partial Class frmStability
         'lblStatus3
         '
         Me.lblStatus3.AutoSize = True
-        Me.lblStatus3.Location = New System.Drawing.Point(308, 159)
+        Me.lblStatus3.Location = New System.Drawing.Point(318, 165)
         Me.lblStatus3.Name = "lblStatus3"
         Me.lblStatus3.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus3.TabIndex = 19
@@ -474,7 +485,7 @@ Partial Class frmStability
         'lblStatus4
         '
         Me.lblStatus4.AutoSize = True
-        Me.lblStatus4.Location = New System.Drawing.Point(308, 248)
+        Me.lblStatus4.Location = New System.Drawing.Point(318, 248)
         Me.lblStatus4.Name = "lblStatus4"
         Me.lblStatus4.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus4.TabIndex = 19
@@ -483,7 +494,7 @@ Partial Class frmStability
         'lblStatus5
         '
         Me.lblStatus5.AutoSize = True
-        Me.lblStatus5.Location = New System.Drawing.Point(308, 290)
+        Me.lblStatus5.Location = New System.Drawing.Point(318, 290)
         Me.lblStatus5.Name = "lblStatus5"
         Me.lblStatus5.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus5.TabIndex = 19
@@ -492,7 +503,7 @@ Partial Class frmStability
         'lblStatus6
         '
         Me.lblStatus6.AutoSize = True
-        Me.lblStatus6.Location = New System.Drawing.Point(308, 334)
+        Me.lblStatus6.Location = New System.Drawing.Point(318, 334)
         Me.lblStatus6.Name = "lblStatus6"
         Me.lblStatus6.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus6.TabIndex = 19
@@ -501,7 +512,7 @@ Partial Class frmStability
         'lblStatus7
         '
         Me.lblStatus7.AutoSize = True
-        Me.lblStatus7.Location = New System.Drawing.Point(308, 381)
+        Me.lblStatus7.Location = New System.Drawing.Point(318, 381)
         Me.lblStatus7.Name = "lblStatus7"
         Me.lblStatus7.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus7.TabIndex = 19
@@ -510,7 +521,7 @@ Partial Class frmStability
         'lblStatus8
         '
         Me.lblStatus8.AutoSize = True
-        Me.lblStatus8.Location = New System.Drawing.Point(673, 19)
+        Me.lblStatus8.Location = New System.Drawing.Point(728, 19)
         Me.lblStatus8.Name = "lblStatus8"
         Me.lblStatus8.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus8.TabIndex = 19
@@ -519,7 +530,7 @@ Partial Class frmStability
         'lblStatus9
         '
         Me.lblStatus9.AutoSize = True
-        Me.lblStatus9.Location = New System.Drawing.Point(673, 68)
+        Me.lblStatus9.Location = New System.Drawing.Point(728, 68)
         Me.lblStatus9.Name = "lblStatus9"
         Me.lblStatus9.Size = New System.Drawing.Size(53, 13)
         Me.lblStatus9.TabIndex = 19
@@ -528,7 +539,7 @@ Partial Class frmStability
         'lblStatus10
         '
         Me.lblStatus10.AutoSize = True
-        Me.lblStatus10.Location = New System.Drawing.Point(675, 114)
+        Me.lblStatus10.Location = New System.Drawing.Point(730, 114)
         Me.lblStatus10.Name = "lblStatus10"
         Me.lblStatus10.Size = New System.Drawing.Size(59, 13)
         Me.lblStatus10.TabIndex = 19
@@ -537,7 +548,7 @@ Partial Class frmStability
         'lblStatus11
         '
         Me.lblStatus11.AutoSize = True
-        Me.lblStatus11.Location = New System.Drawing.Point(677, 158)
+        Me.lblStatus11.Location = New System.Drawing.Point(732, 158)
         Me.lblStatus11.Name = "lblStatus11"
         Me.lblStatus11.Size = New System.Drawing.Size(59, 13)
         Me.lblStatus11.TabIndex = 19
@@ -548,6 +559,7 @@ Partial Class frmStability
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(938, 823)
         Me.Controls.Add(Me.lblStatus11)
         Me.Controls.Add(Me.lblStatus10)

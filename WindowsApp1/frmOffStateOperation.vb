@@ -41,7 +41,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 0                             'associate the label to this test
-        StatusArray(s_index).Visible = True     'show when test becomes active
+        'StatusArray(s_index).Visible = True     'show when test becomes active
 
         If (cbx10ohm.Checked = True) Then
             'Disable other controls
@@ -77,7 +77,10 @@ Public Class frmOffStateOperation
             cbx15kohm.Enabled = True
 
             'keep entered value
-            StatusArray(s_index).Text = tbxMeasurementEntry.Text
+            'StatusArray(s_index).Text = tbxMeasurementEntry.Text
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
 
             'display result in Group box
             'Determine Pass/Fail status
@@ -98,7 +101,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 1                          'associate the label to this test
-        StatusArray(s_index).Visible = True  'show when test becomes active
+        'StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx40ohm.Checked = True) Then
             'Disable other controls
@@ -132,6 +135,9 @@ Public Class frmOffStateOperation
             cbx8kohm.Enabled = True
             cbx15kohm.Enabled = True
 
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
+
         End If
     End Sub
 
@@ -143,7 +149,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 2                           'associate the label to this test
-        StatusArray(s_index).Visible = True  'show when test becomes active
+        'StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx400ohm.Checked = True) Then
             'Disable other controls
@@ -177,6 +183,10 @@ Public Class frmOffStateOperation
             cbx3kohm.Enabled = True
             cbx8kohm.Enabled = True
             cbx15kohm.Enabled = True
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
+
         End If
     End Sub
 
@@ -188,7 +198,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 3                           'associate the label to this test
-        StatusArray(s_index).Visible = True  'show when test becomes active
+        'StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx3kohm.Checked = True) Then
             'Disable other controls
@@ -221,6 +231,10 @@ Public Class frmOffStateOperation
             cbx400ohm.Enabled = True
             cbx8kohm.Enabled = True
             cbx15kohm.Enabled = True
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
+
         End If
     End Sub
 
@@ -232,7 +246,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 4                           'associate the label to this test
-        StatusArray(s_index).Visible = True  'show when test becomes active
+        'StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx8kohm.Checked = True) Then
             'Disable other controls
@@ -265,6 +279,10 @@ Public Class frmOffStateOperation
             cbx400ohm.Enabled = True
             cbx3kohm.Enabled = True
             cbx15kohm.Enabled = True
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
+
         End If
     End Sub
 
@@ -276,7 +294,7 @@ Public Class frmOffStateOperation
 
         'do not show until test result done
         s_index = 5                           'associate the label to this test
-        StatusArray(s_index).Visible = True  'show when test becomes active
+        'StatusArray(s_index).Visible = True  'show when test becomes active
 
         If (cbx15kohm.Checked = True) Then
             'Disable other controls
@@ -310,6 +328,10 @@ Public Class frmOffStateOperation
             cbx400ohm.Enabled = True
             cbx3kohm.Enabled = True
             cbx8kohm.Enabled = True
+
+            'clear Measurement Entry
+            tbxMeasurementEntry.Text = ""
+
         End If
     End Sub
 
@@ -320,6 +342,7 @@ Public Class frmOffStateOperation
         End If
 
         StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
+        StatusArray(s_index).Visible = True     'show when test becomes active
 
         Select Case s_index
             Case 0, 1

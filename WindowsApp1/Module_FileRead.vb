@@ -58,9 +58,11 @@
     'Save Port A & B Image - Boards 1,2 
     Public Bd0_PortASave As UInt16 = 255 : Public Bd0_PortBSave As UInt16 = 255
     Public Bd1_PortASave As UInt16 = 255 : Public Bd1_PortBSave As UInt16 = 255
+    Public Bd2_PortASave As UInt16 = 255 : Public Bd2_PortBSave As UInt16 = 255
     'Save PortC Image - Boards 1,2
     Public Bd0_PortCLSave As UInt16 = 15 : Public Bd0_PortCHSave As UInt16 = 15
     Public Bd1_PortCLSave As UInt16 = 15 : Public Bd1_PortCHSave As UInt16 = 15
+    Public Bd2_PortCLSave As UInt16 = 15 : Public Bd2_PortCHSave As UInt16 = 15
 
 
 
@@ -218,8 +220,30 @@
                     Bd1_PortCHSave = Bd1_PortCHSave And RelayAdd 'update Port Image register
                     PortCHTest1(Bd1_PortCHSave)                 'output updated port status
                 End If
-            End If
 
+
+            ElseIf (DataValue < 73) Then
+                'board #2
+                'account for 1st bank with 24 offset
+                DataValue -= 48
+                If (DataValue < 9) Then
+                    RelayAdd = 255 - (2 ^ (DataValue - 1))      'convert Relay # to I/O address
+                    Bd2_PortASave = Bd2_PortASave And RelayAdd  'update Port Image register
+                    PortATest2(Bd2_PortASave)                   'output updated port status
+                ElseIf (DataValue < 17) Then
+                    RelayAdd = 255 - (2 ^ (DataValue - 9))      'convert Relay # to I/O address
+                    Bd2_PortASave = Bd2_PortBSave And RelayAdd  'update Port Image register
+                    PortBTest2(Bd2_PortBSave)                   'output updated port status
+                ElseIf (DataValue < 21) Then
+                    RelayAdd = 255 - (2 ^ (DataValue - 17))     'convert Relay # to I/O address
+                    Bd2_PortCLSave = Bd2_PortCLSave And RelayAdd 'update Port Image register
+                    PortCLTest2(Bd2_PortCLSave)                 'output updated port status
+                Else
+                    RelayAdd = 255 - (2 ^ (DataValue - 21))     'convert Relay # to I/O address
+                    Bd2_PortCHSave = Bd2_PortCHSave And RelayAdd 'update Port Image register
+                    PortCHTest2(Bd2_PortCHSave)                 'output updated port status
+                End If
+            End If
 
         Next
     End Sub
@@ -253,22 +277,33 @@
     Public Sub Disconnect_Relays_Bd1_2()
         Dim DataValue As UInt16
 
+        'Board 1 - Port Data Write
         DataValue = 255
         PortATest(DataValue)
         PortBTest(DataValue)
         PortCLTest(DataValue)
         PortCLTest(DataValue)
 
+        'Board 2 - Port Data Write
         PortATest1(DataValue)
         PortBTest1(DataValue)
         PortCLTest1(DataValue)
         PortCLTest1(DataValue)
 
+        'Board 3 - Port Data Write
+        PortATest2(DataValue)
+        PortBTest2(DataValue)
+        PortCLTest2(DataValue)
+        PortCLTest2(DataValue)
+
+        'Reset Image Registers
         Bd0_PortASave = 255 : Bd0_PortBSave = 255
         Bd1_PortASave = 255 : Bd1_PortBSave = 255
+        Bd2_PortASave = 255 : Bd2_PortBSave = 255
         'Save PortC Image - Boards 1,2
         Bd0_PortCLSave = 15 : Bd0_PortCHSave = 15
         Bd1_PortCLSave = 15 : Bd1_PortCHSave = 15
+        Bd2_PortCLSave = 15 : Bd2_PortCHSave = 15
 
     End Sub
 

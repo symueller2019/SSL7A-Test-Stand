@@ -6,9 +6,6 @@ Public Class frmMax_MinOnStateConAngle
     Dim s_index As Integer                  'index for array of textboxes
 
     Private Sub frmMax_MinOnStateConAngle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        'picturebox load done this way to have scrolling work - needs review
-        pbxMaxMinOnStateConductionAngle.Image = Image.FromFile("C:\Temp\SSL7A Images 05082019\Max_MinOnStateConductionAngle 03142019.PNG")
-
         StatusArray(0) = tbxStatus0
         StatusArray(1) = tbxStatus1
         StatusArray(2) = tbxStatus2
