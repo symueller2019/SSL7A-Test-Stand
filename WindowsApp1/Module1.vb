@@ -9,7 +9,7 @@ Module Module1
     'Public Class Module1 - DO NOT HAVE CLASS IN MODULE
     'Inherits System.Windows.Forms.Form
 
-    '*** Create a new MccBoard object for Board 0 ***
+    '*** Create a new MccBoard object for Board 0 / relays 1 - 24 ***
     Public DaqBoard As MccDaq.MccBoard = New MccDaq.MccBoard(0)
 
     Public PortType As Integer
@@ -26,7 +26,7 @@ Module Module1
     Public Direction As MccDaq.DigitalPortDirection
 
 
-    '*** Create a new MccBoard object for Board 1 ***
+    '*** Create a new MccBoard object for Board 1 relays 25 - 48 ***
     Public DaqBoard1 As MccDaq.MccBoard = New MccDaq.MccBoard(1)
 
     Public PortType1 As Integer
@@ -43,7 +43,7 @@ Module Module1
     Public Direction1 As MccDaq.DigitalPortDirection
 
 
-    '*** Create a new MccBoard object for Board 2 ***
+    '*** Create a new MccBoard object for Board 2 relays 49 - 72 ***
     Public DaqBoard2 As MccDaq.MccBoard = New MccDaq.MccBoard(2)
 
     Public PortType2 As Integer
