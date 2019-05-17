@@ -30,6 +30,7 @@ Public Class MainForm1
         'lblSerialNum.Text = DateTime.Now.Date & "_" & TimeOfDay
         lblSerialNum.Text = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay 'Test filename
         lblSerialNum.Text = TestResultFilename
+
         tbxConfigFile.Text = FileLoc_Config
 
         'display test info - Rated Load
@@ -183,12 +184,22 @@ Public Class MainForm1
 
     Private Sub MainForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DaqSetup()          'Setup & Initialize the I/O board
-        'Dim WriteData = "test123"
-        'FileWrite(WriteData)
+
+        'force user to select Test Parameters first 
+        'disable test buttons until "Setup Load" done
+        btnFullTestSuite.Enabled = False
+        btnStabilityTests.Enabled = False
+        btnInRushCurrent.Enabled = False
+        btnRepetitivePeakCurrent.Enabled = False
+        btnOverload.Enabled = False
+        btnRepetitivePeakVoltage.Enabled = False
+        btnOffStateOperation.Enabled = False
+        btnOnStateDmrSupplyCurrent.Enabled = False
+        btnMinOnConAngle.Enabled = False
+
     End Sub
 
-    'Private Sub btnReadFile_Click(sender As Object, e As EventArgs) Handles btnReadFile.Click
-    '    frmFileRead.Show()
-    'End Sub
-
+    Private Sub MainForm1_Activated(sender As Object, e As EventArgs) Handles Me.Activated
+        'future use - detect when user returns to the Main form
+    End Sub
 End Class

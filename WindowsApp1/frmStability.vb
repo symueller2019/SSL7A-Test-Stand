@@ -12,7 +12,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 0                           'associate the label to this test
@@ -58,7 +58,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 1                           'associate the label to this test
@@ -104,7 +104,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 2                           'associate the label to this test
@@ -150,7 +150,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 3                           'associate the label to this test
@@ -195,7 +195,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 4                           'associate the label to this test
@@ -241,7 +241,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 5                           'associate the label to this test
@@ -287,7 +287,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 6                           'associate the label to this test
@@ -333,7 +333,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 7                           'associate the label to this test
@@ -383,7 +383,7 @@ Public Class frmStability
         'myLabelArray(s_index).Visible = True  'show when test becomes active
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear all buttons and make this button active
         SetButtonActive()
@@ -426,7 +426,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 9                           'associate the label to this test
@@ -472,7 +472,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 10                           'associate the label to this test
@@ -518,7 +518,7 @@ Public Class frmStability
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 11                           'associate the label to this test
@@ -562,7 +562,7 @@ Public Class frmStability
 
     Private Sub frmStability_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()            'collect garbage - release system memory
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub tbxMeasurementEntry_TextChanged(sender As Object, e As EventArgs) Handles tbxMeasurementEntry.TextChanged
@@ -575,6 +575,12 @@ Public Class frmStability
         If blnTestTitleDone = False Then
             FileWrite("Forward Stability Test")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         myLabelArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

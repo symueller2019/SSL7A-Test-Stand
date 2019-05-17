@@ -31,14 +31,14 @@ Public Class frmInRush
     Private Sub frmInRush_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
 
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub cbxMaxCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMaxCondAngle.CheckedChanged
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
@@ -71,7 +71,7 @@ Public Class frmInRush
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
@@ -104,6 +104,12 @@ Public Class frmInRush
         If blnTestTitleDone = False Then
             FileWrite("InRush Current Test")
             blnTestTitleDone = True         'only write test name once
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

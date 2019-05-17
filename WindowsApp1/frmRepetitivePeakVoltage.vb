@@ -33,14 +33,14 @@ Public Class frmRepetitivePeakVoltage
         GC.Collect()        'empty the garbage
 
         'Open all Res & Cap Relays
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub cbxRepPeakVoltage_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakVoltage.CheckedChanged
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear measurement entry 
         tbxMeasurementEntry.Text = ""
@@ -100,6 +100,12 @@ Public Class frmRepetitivePeakVoltage
         If blnTestTitleDone = False Then
             FileWrite("Repetitive Peak Voltage Test")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         tbxRepetitivePeakVoltage.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

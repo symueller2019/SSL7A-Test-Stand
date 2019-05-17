@@ -22,6 +22,7 @@ Partial Class frmOverload
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmOverload))
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.lblRatedLoadAt120percentAtMaxConductionAngle = New System.Windows.Forms.Label()
         Me.tbxStatus0 = New System.Windows.Forms.TextBox()
@@ -59,10 +60,10 @@ Partial Class frmOverload
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.WindowsApp1.My.Resources.Resources.Overload_03142019
-        Me.PictureBox1.Location = New System.Drawing.Point(108, 399)
+        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
+        Me.PictureBox1.Location = New System.Drawing.Point(95, 408)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(721, 223)
+        Me.PictureBox1.Size = New System.Drawing.Size(800, 227)
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
         '
@@ -361,7 +362,7 @@ Partial Class frmOverload
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(991, 634)
+        Me.ClientSize = New System.Drawing.Size(1083, 679)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cbx90DegCondAngle)
         Me.Controls.Add(Me.cbxMaxCondAngle)

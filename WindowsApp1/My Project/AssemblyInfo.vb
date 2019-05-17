@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("WindowsApp1")>
+<Assembly: AssemblyTitle("SSL7A Test Stand")>
 <Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("GRPLEG")>
-<Assembly: AssemblyProduct("WindowsApp1")>
+<Assembly: AssemblyCompany("Legrand Pass & Seymour")>
+<Assembly: AssemblyProduct("SSL7A Test Stand App")>
 <Assembly: AssemblyCopyright("Copyright © GRPLEG 2019")>
 <Assembly: AssemblyTrademark("")>
 
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")>
 
 <Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("0.0.0.0")>

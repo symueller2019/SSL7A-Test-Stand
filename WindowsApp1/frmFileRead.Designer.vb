@@ -77,6 +77,7 @@ Partial Class frmFileRead
         Me.Label6 = New System.Windows.Forms.Label()
         Me.lblTest_Result_Filename = New System.Windows.Forms.Label()
         Me.tbxTestResultFilename = New System.Windows.Forms.TextBox()
+        Me.lblDefaultDir = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Label8
@@ -97,15 +98,15 @@ Partial Class frmFileRead
         '
         'tbxHPF_ResRelays
         '
-        Me.tbxHPF_ResRelays.Location = New System.Drawing.Point(196, 406)
+        Me.tbxHPF_ResRelays.Location = New System.Drawing.Point(178, 421)
         Me.tbxHPF_ResRelays.Name = "tbxHPF_ResRelays"
-        Me.tbxHPF_ResRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxHPF_ResRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxHPF_ResRelays.TabIndex = 72
         '
         'lblHPF_ResRelays
         '
         Me.lblHPF_ResRelays.AutoSize = True
-        Me.lblHPF_ResRelays.Location = New System.Drawing.Point(105, 406)
+        Me.lblHPF_ResRelays.Location = New System.Drawing.Point(90, 421)
         Me.lblHPF_ResRelays.Name = "lblHPF_ResRelays"
         Me.lblHPF_ResRelays.Size = New System.Drawing.Size(85, 13)
         Me.lblHPF_ResRelays.TabIndex = 71
@@ -113,15 +114,15 @@ Partial Class frmFileRead
         '
         'tbxLPF_CapRelays
         '
-        Me.tbxLPF_CapRelays.Location = New System.Drawing.Point(196, 374)
+        Me.tbxLPF_CapRelays.Location = New System.Drawing.Point(179, 389)
         Me.tbxLPF_CapRelays.Name = "tbxLPF_CapRelays"
-        Me.tbxLPF_CapRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxLPF_CapRelays.Size = New System.Drawing.Size(101, 20)
         Me.tbxLPF_CapRelays.TabIndex = 70
         '
         'lblLPF_CapRelays
         '
         Me.lblLPF_CapRelays.AutoSize = True
-        Me.lblLPF_CapRelays.Location = New System.Drawing.Point(105, 374)
+        Me.lblLPF_CapRelays.Location = New System.Drawing.Point(90, 389)
         Me.lblLPF_CapRelays.Name = "lblLPF_CapRelays"
         Me.lblLPF_CapRelays.Size = New System.Drawing.Size(83, 13)
         Me.lblLPF_CapRelays.TabIndex = 69
@@ -129,15 +130,15 @@ Partial Class frmFileRead
         '
         'tbxLPF_ResRelays
         '
-        Me.tbxLPF_ResRelays.Location = New System.Drawing.Point(195, 338)
+        Me.tbxLPF_ResRelays.Location = New System.Drawing.Point(179, 353)
         Me.tbxLPF_ResRelays.Name = "tbxLPF_ResRelays"
-        Me.tbxLPF_ResRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxLPF_ResRelays.Size = New System.Drawing.Size(101, 20)
         Me.tbxLPF_ResRelays.TabIndex = 68
         '
         'lblLPF_ResRelays
         '
         Me.lblLPF_ResRelays.AutoSize = True
-        Me.lblLPF_ResRelays.Location = New System.Drawing.Point(104, 338)
+        Me.lblLPF_ResRelays.Location = New System.Drawing.Point(89, 353)
         Me.lblLPF_ResRelays.Name = "lblLPF_ResRelays"
         Me.lblLPF_ResRelays.Size = New System.Drawing.Size(83, 13)
         Me.lblLPF_ResRelays.TabIndex = 67
@@ -145,7 +146,7 @@ Partial Class frmFileRead
         '
         'tbxHPF_Res
         '
-        Me.tbxHPF_Res.Location = New System.Drawing.Point(195, 272)
+        Me.tbxHPF_Res.Location = New System.Drawing.Point(195, 287)
         Me.tbxHPF_Res.Name = "tbxHPF_Res"
         Me.tbxHPF_Res.Size = New System.Drawing.Size(53, 20)
         Me.tbxHPF_Res.TabIndex = 66
@@ -153,7 +154,7 @@ Partial Class frmFileRead
         'lblHPF_Res
         '
         Me.lblHPF_Res.AutoSize = True
-        Me.lblHPF_Res.Location = New System.Drawing.Point(104, 272)
+        Me.lblHPF_Res.Location = New System.Drawing.Point(89, 287)
         Me.lblHPF_Res.Name = "lblHPF_Res"
         Me.lblHPF_Res.Size = New System.Drawing.Size(84, 13)
         Me.lblHPF_Res.TabIndex = 65
@@ -161,7 +162,7 @@ Partial Class frmFileRead
         '
         'tbxLPF_Cap
         '
-        Me.tbxLPF_Cap.Location = New System.Drawing.Point(195, 240)
+        Me.tbxLPF_Cap.Location = New System.Drawing.Point(195, 255)
         Me.tbxLPF_Cap.Name = "tbxLPF_Cap"
         Me.tbxLPF_Cap.Size = New System.Drawing.Size(53, 20)
         Me.tbxLPF_Cap.TabIndex = 64
@@ -169,7 +170,7 @@ Partial Class frmFileRead
         'lblLPF_Cap
         '
         Me.lblLPF_Cap.AutoSize = True
-        Me.lblLPF_Cap.Location = New System.Drawing.Point(104, 240)
+        Me.lblLPF_Cap.Location = New System.Drawing.Point(89, 255)
         Me.lblLPF_Cap.Name = "lblLPF_Cap"
         Me.lblLPF_Cap.Size = New System.Drawing.Size(89, 13)
         Me.lblLPF_Cap.TabIndex = 63
@@ -177,7 +178,7 @@ Partial Class frmFileRead
         '
         'tbxLPF_Res
         '
-        Me.tbxLPF_Res.Location = New System.Drawing.Point(195, 207)
+        Me.tbxLPF_Res.Location = New System.Drawing.Point(195, 222)
         Me.tbxLPF_Res.Name = "tbxLPF_Res"
         Me.tbxLPF_Res.Size = New System.Drawing.Size(53, 20)
         Me.tbxLPF_Res.TabIndex = 62
@@ -185,7 +186,7 @@ Partial Class frmFileRead
         'lblLPF_Res
         '
         Me.lblLPF_Res.AutoSize = True
-        Me.lblLPF_Res.Location = New System.Drawing.Point(104, 207)
+        Me.lblLPF_Res.Location = New System.Drawing.Point(89, 222)
         Me.lblLPF_Res.Name = "lblLPF_Res"
         Me.lblLPF_Res.Size = New System.Drawing.Size(82, 13)
         Me.lblLPF_Res.TabIndex = 61
@@ -193,7 +194,7 @@ Partial Class frmFileRead
         '
         'tbxIndexToTables
         '
-        Me.tbxIndexToTables.Location = New System.Drawing.Point(195, 169)
+        Me.tbxIndexToTables.Location = New System.Drawing.Point(195, 184)
         Me.tbxIndexToTables.Name = "tbxIndexToTables"
         Me.tbxIndexToTables.Size = New System.Drawing.Size(53, 20)
         Me.tbxIndexToTables.TabIndex = 60
@@ -201,7 +202,7 @@ Partial Class frmFileRead
         'lblIndexToTables
         '
         Me.lblIndexToTables.AutoSize = True
-        Me.lblIndexToTables.Location = New System.Drawing.Point(104, 172)
+        Me.lblIndexToTables.Location = New System.Drawing.Point(89, 187)
         Me.lblIndexToTables.Name = "lblIndexToTables"
         Me.lblIndexToTables.Size = New System.Drawing.Size(78, 13)
         Me.lblIndexToTables.TabIndex = 59
@@ -219,7 +220,7 @@ Partial Class frmFileRead
         'lblWattage
         '
         Me.lblWattage.AutoSize = True
-        Me.lblWattage.Location = New System.Drawing.Point(97, 80)
+        Me.lblWattage.Location = New System.Drawing.Point(83, 95)
         Me.lblWattage.Name = "lblWattage"
         Me.lblWattage.Size = New System.Drawing.Size(118, 13)
         Me.lblWattage.TabIndex = 57
@@ -227,7 +228,7 @@ Partial Class frmFileRead
         '
         'tbxWattage
         '
-        Me.tbxWattage.Location = New System.Drawing.Point(192, 124)
+        Me.tbxWattage.Location = New System.Drawing.Point(178, 139)
         Me.tbxWattage.Name = "tbxWattage"
         Me.tbxWattage.Size = New System.Drawing.Size(37, 20)
         Me.tbxWattage.TabIndex = 1
@@ -237,15 +238,15 @@ Partial Class frmFileRead
         '
         'tbxMinLPF_ResRelays
         '
-        Me.tbxMinLPF_ResRelays.Location = New System.Drawing.Point(431, 339)
+        Me.tbxMinLPF_ResRelays.Location = New System.Drawing.Point(431, 354)
         Me.tbxMinLPF_ResRelays.Name = "tbxMinLPF_ResRelays"
-        Me.tbxMinLPF_ResRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxMinLPF_ResRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxMinLPF_ResRelays.TabIndex = 75
         '
         'lblMinLPF_ResRelays
         '
         Me.lblMinLPF_ResRelays.AutoSize = True
-        Me.lblMinLPF_ResRelays.Location = New System.Drawing.Point(322, 342)
+        Me.lblMinLPF_ResRelays.Location = New System.Drawing.Point(322, 357)
         Me.lblMinLPF_ResRelays.Name = "lblMinLPF_ResRelays"
         Me.lblMinLPF_ResRelays.Size = New System.Drawing.Size(103, 13)
         Me.lblMinLPF_ResRelays.TabIndex = 76
@@ -254,7 +255,7 @@ Partial Class frmFileRead
         'lblMinLPF_CapRelays
         '
         Me.lblMinLPF_CapRelays.AutoSize = True
-        Me.lblMinLPF_CapRelays.Location = New System.Drawing.Point(322, 374)
+        Me.lblMinLPF_CapRelays.Location = New System.Drawing.Point(322, 389)
         Me.lblMinLPF_CapRelays.Name = "lblMinLPF_CapRelays"
         Me.lblMinLPF_CapRelays.Size = New System.Drawing.Size(103, 13)
         Me.lblMinLPF_CapRelays.TabIndex = 78
@@ -262,22 +263,22 @@ Partial Class frmFileRead
         '
         'tbxMinLPF_CapRelays
         '
-        Me.tbxMinLPF_CapRelays.Location = New System.Drawing.Point(431, 371)
+        Me.tbxMinLPF_CapRelays.Location = New System.Drawing.Point(431, 386)
         Me.tbxMinLPF_CapRelays.Name = "tbxMinLPF_CapRelays"
-        Me.tbxMinLPF_CapRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxMinLPF_CapRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxMinLPF_CapRelays.TabIndex = 77
         '
         'tbxMinHPF_ResRelays
         '
-        Me.tbxMinHPF_ResRelays.Location = New System.Drawing.Point(431, 403)
+        Me.tbxMinHPF_ResRelays.Location = New System.Drawing.Point(431, 418)
         Me.tbxMinHPF_ResRelays.Name = "tbxMinHPF_ResRelays"
-        Me.tbxMinHPF_ResRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxMinHPF_ResRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxMinHPF_ResRelays.TabIndex = 80
         '
         'lblMinHPF_ResRelays
         '
         Me.lblMinHPF_ResRelays.AutoSize = True
-        Me.lblMinHPF_ResRelays.Location = New System.Drawing.Point(340, 403)
+        Me.lblMinHPF_ResRelays.Location = New System.Drawing.Point(340, 418)
         Me.lblMinHPF_ResRelays.Name = "lblMinHPF_ResRelays"
         Me.lblMinHPF_ResRelays.Size = New System.Drawing.Size(85, 13)
         Me.lblMinHPF_ResRelays.TabIndex = 79
@@ -285,7 +286,7 @@ Partial Class frmFileRead
         '
         'tbxMinWattage
         '
-        Me.tbxMinWattage.Location = New System.Drawing.Point(406, 129)
+        Me.tbxMinWattage.Location = New System.Drawing.Point(406, 144)
         Me.tbxMinWattage.Name = "tbxMinWattage"
         Me.tbxMinWattage.Size = New System.Drawing.Size(37, 20)
         Me.tbxMinWattage.TabIndex = 2
@@ -293,7 +294,7 @@ Partial Class frmFileRead
         'lblMinWattage
         '
         Me.lblMinWattage.AutoSize = True
-        Me.lblMinWattage.Location = New System.Drawing.Point(317, 80)
+        Me.lblMinWattage.Location = New System.Drawing.Point(317, 95)
         Me.lblMinWattage.Name = "lblMinWattage"
         Me.lblMinWattage.Size = New System.Drawing.Size(130, 13)
         Me.lblMinWattage.TabIndex = 82
@@ -301,7 +302,7 @@ Partial Class frmFileRead
         '
         'tbxIndexToMinTables
         '
-        Me.tbxIndexToMinTables.Location = New System.Drawing.Point(431, 169)
+        Me.tbxIndexToMinTables.Location = New System.Drawing.Point(431, 184)
         Me.tbxIndexToMinTables.Name = "tbxIndexToMinTables"
         Me.tbxIndexToMinTables.Size = New System.Drawing.Size(53, 20)
         Me.tbxIndexToMinTables.TabIndex = 83
@@ -309,7 +310,7 @@ Partial Class frmFileRead
         'IndexToMinTables
         '
         Me.IndexToMinTables.AutoSize = True
-        Me.IndexToMinTables.Location = New System.Drawing.Point(323, 172)
+        Me.IndexToMinTables.Location = New System.Drawing.Point(323, 187)
         Me.IndexToMinTables.Name = "IndexToMinTables"
         Me.IndexToMinTables.Size = New System.Drawing.Size(101, 13)
         Me.IndexToMinTables.TabIndex = 84
@@ -317,7 +318,7 @@ Partial Class frmFileRead
         '
         'tbxMinHPF_Res
         '
-        Me.tbxMinHPF_Res.Location = New System.Drawing.Point(431, 269)
+        Me.tbxMinHPF_Res.Location = New System.Drawing.Point(431, 284)
         Me.tbxMinHPF_Res.Name = "tbxMinHPF_Res"
         Me.tbxMinHPF_Res.Size = New System.Drawing.Size(53, 20)
         Me.tbxMinHPF_Res.TabIndex = 90
@@ -325,7 +326,7 @@ Partial Class frmFileRead
         'lblMinHPF_Res
         '
         Me.lblMinHPF_Res.AutoSize = True
-        Me.lblMinHPF_Res.Location = New System.Drawing.Point(322, 269)
+        Me.lblMinHPF_Res.Location = New System.Drawing.Point(322, 284)
         Me.lblMinHPF_Res.Name = "lblMinHPF_Res"
         Me.lblMinHPF_Res.Size = New System.Drawing.Size(104, 13)
         Me.lblMinHPF_Res.TabIndex = 89
@@ -333,7 +334,7 @@ Partial Class frmFileRead
         '
         'tbxMinLPF_Cap
         '
-        Me.tbxMinLPF_Cap.Location = New System.Drawing.Point(431, 237)
+        Me.tbxMinLPF_Cap.Location = New System.Drawing.Point(431, 252)
         Me.tbxMinLPF_Cap.Name = "tbxMinLPF_Cap"
         Me.tbxMinLPF_Cap.Size = New System.Drawing.Size(53, 20)
         Me.tbxMinLPF_Cap.TabIndex = 88
@@ -341,7 +342,7 @@ Partial Class frmFileRead
         'lblMinLPF_Cap
         '
         Me.lblMinLPF_Cap.AutoSize = True
-        Me.lblMinLPF_Cap.Location = New System.Drawing.Point(316, 237)
+        Me.lblMinLPF_Cap.Location = New System.Drawing.Point(316, 252)
         Me.lblMinLPF_Cap.Name = "lblMinLPF_Cap"
         Me.lblMinLPF_Cap.Size = New System.Drawing.Size(109, 13)
         Me.lblMinLPF_Cap.TabIndex = 87
@@ -349,7 +350,7 @@ Partial Class frmFileRead
         '
         'tbxMinLPF_Res
         '
-        Me.tbxMinLPF_Res.Location = New System.Drawing.Point(431, 204)
+        Me.tbxMinLPF_Res.Location = New System.Drawing.Point(431, 219)
         Me.tbxMinLPF_Res.Name = "tbxMinLPF_Res"
         Me.tbxMinLPF_Res.Size = New System.Drawing.Size(53, 20)
         Me.tbxMinLPF_Res.TabIndex = 86
@@ -357,7 +358,7 @@ Partial Class frmFileRead
         'lblMinLPF_Res
         '
         Me.lblMinLPF_Res.AutoSize = True
-        Me.lblMinLPF_Res.Location = New System.Drawing.Point(322, 207)
+        Me.lblMinLPF_Res.Location = New System.Drawing.Point(322, 222)
         Me.lblMinLPF_Res.Name = "lblMinLPF_Res"
         Me.lblMinLPF_Res.Size = New System.Drawing.Size(102, 13)
         Me.lblMinLPF_Res.TabIndex = 85
@@ -366,7 +367,7 @@ Partial Class frmFileRead
         'lblOVLDWattage
         '
         Me.lblOVLDWattage.AutoSize = True
-        Me.lblOVLDWattage.Location = New System.Drawing.Point(536, 80)
+        Me.lblOVLDWattage.Location = New System.Drawing.Point(588, 95)
         Me.lblOVLDWattage.Name = "lblOVLDWattage"
         Me.lblOVLDWattage.Size = New System.Drawing.Size(132, 13)
         Me.lblOVLDWattage.TabIndex = 91
@@ -375,7 +376,7 @@ Partial Class frmFileRead
         'tbxOVLDWattage
         '
         Me.tbxOVLDWattage.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbxOVLDWattage.Location = New System.Drawing.Point(539, 96)
+        Me.tbxOVLDWattage.Location = New System.Drawing.Point(591, 111)
         Me.tbxOVLDWattage.Name = "tbxOVLDWattage"
         Me.tbxOVLDWattage.Size = New System.Drawing.Size(115, 24)
         Me.tbxOVLDWattage.TabIndex = 92
@@ -383,7 +384,7 @@ Partial Class frmFileRead
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(536, 207)
+        Me.Label1.Location = New System.Drawing.Point(593, 222)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(114, 13)
         Me.Label1.TabIndex = 93
@@ -392,7 +393,7 @@ Partial Class frmFileRead
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(536, 237)
+        Me.Label2.Location = New System.Drawing.Point(593, 252)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(121, 13)
         Me.Label2.TabIndex = 94
@@ -400,21 +401,21 @@ Partial Class frmFileRead
         '
         'tbxOVLDLPF_Res
         '
-        Me.tbxOVLDLPF_Res.Location = New System.Drawing.Point(658, 204)
+        Me.tbxOVLDLPF_Res.Location = New System.Drawing.Point(723, 219)
         Me.tbxOVLDLPF_Res.Name = "tbxOVLDLPF_Res"
         Me.tbxOVLDLPF_Res.Size = New System.Drawing.Size(53, 20)
         Me.tbxOVLDLPF_Res.TabIndex = 95
         '
         'tbxOVLDLPF_Cap
         '
-        Me.tbxOVLDLPF_Cap.Location = New System.Drawing.Point(658, 237)
+        Me.tbxOVLDLPF_Cap.Location = New System.Drawing.Point(723, 252)
         Me.tbxOVLDLPF_Cap.Name = "tbxOVLDLPF_Cap"
         Me.tbxOVLDLPF_Cap.Size = New System.Drawing.Size(53, 20)
         Me.tbxOVLDLPF_Cap.TabIndex = 96
         '
         'tbxIndexToOVLDTables
         '
-        Me.tbxIndexToOVLDTables.Location = New System.Drawing.Point(658, 169)
+        Me.tbxIndexToOVLDTables.Location = New System.Drawing.Point(723, 184)
         Me.tbxIndexToOVLDTables.Name = "tbxIndexToOVLDTables"
         Me.tbxIndexToOVLDTables.Size = New System.Drawing.Size(53, 20)
         Me.tbxIndexToOVLDTables.TabIndex = 97
@@ -422,7 +423,7 @@ Partial Class frmFileRead
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(530, 172)
+        Me.Label3.Location = New System.Drawing.Point(587, 187)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(127, 13)
         Me.Label3.TabIndex = 98
@@ -431,7 +432,7 @@ Partial Class frmFileRead
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(547, 341)
+        Me.Label4.Location = New System.Drawing.Point(593, 356)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(115, 13)
         Me.Label4.TabIndex = 99
@@ -440,7 +441,7 @@ Partial Class frmFileRead
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(547, 374)
+        Me.Label5.Location = New System.Drawing.Point(593, 389)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(115, 13)
         Me.Label5.TabIndex = 100
@@ -448,16 +449,16 @@ Partial Class frmFileRead
         '
         'tbxOVLDLPF_ResRelays
         '
-        Me.tbxOVLDLPF_ResRelays.Location = New System.Drawing.Point(658, 338)
+        Me.tbxOVLDLPF_ResRelays.Location = New System.Drawing.Point(723, 353)
         Me.tbxOVLDLPF_ResRelays.Name = "tbxOVLDLPF_ResRelays"
-        Me.tbxOVLDLPF_ResRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxOVLDLPF_ResRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxOVLDLPF_ResRelays.TabIndex = 101
         '
         'tbxOVLDLPF_CapRelays
         '
-        Me.tbxOVLDLPF_CapRelays.Location = New System.Drawing.Point(658, 371)
+        Me.tbxOVLDLPF_CapRelays.Location = New System.Drawing.Point(723, 386)
         Me.tbxOVLDLPF_CapRelays.Name = "tbxOVLDLPF_CapRelays"
-        Me.tbxOVLDLPF_CapRelays.Size = New System.Drawing.Size(76, 20)
+        Me.tbxOVLDLPF_CapRelays.Size = New System.Drawing.Size(102, 20)
         Me.tbxOVLDLPF_CapRelays.TabIndex = 102
         '
         'ListBox1
@@ -465,7 +466,7 @@ Partial Class frmFileRead
         Me.ListBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.ItemHeight = 18
-        Me.ListBox1.Location = New System.Drawing.Point(100, 96)
+        Me.ListBox1.Location = New System.Drawing.Point(86, 111)
         Me.ListBox1.Name = "ListBox1"
         Me.ListBox1.Size = New System.Drawing.Size(115, 22)
         Me.ListBox1.TabIndex = 0
@@ -475,7 +476,7 @@ Partial Class frmFileRead
         Me.ListBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox2.FormattingEnabled = True
         Me.ListBox2.ItemHeight = 18
-        Me.ListBox2.Location = New System.Drawing.Point(319, 98)
+        Me.ListBox2.Location = New System.Drawing.Point(319, 113)
         Me.ListBox2.Name = "ListBox2"
         Me.ListBox2.Size = New System.Drawing.Size(115, 22)
         Me.ListBox2.TabIndex = 1
@@ -483,7 +484,7 @@ Partial Class frmFileRead
         'lblRatedStatus
         '
         Me.lblRatedStatus.AutoSize = True
-        Me.lblRatedStatus.Location = New System.Drawing.Point(97, 118)
+        Me.lblRatedStatus.Location = New System.Drawing.Point(83, 133)
         Me.lblRatedStatus.Name = "lblRatedStatus"
         Me.lblRatedStatus.Size = New System.Drawing.Size(89, 26)
         Me.lblRatedStatus.TabIndex = 107
@@ -492,7 +493,7 @@ Partial Class frmFileRead
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(317, 123)
+        Me.Label6.Location = New System.Drawing.Point(317, 138)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(83, 26)
         Me.Label6.TabIndex = 107
@@ -514,12 +515,22 @@ Partial Class frmFileRead
         Me.tbxTestResultFilename.Size = New System.Drawing.Size(194, 20)
         Me.tbxTestResultFilename.TabIndex = 109
         '
+        'lblDefaultDir
+        '
+        Me.lblDefaultDir.AutoSize = True
+        Me.lblDefaultDir.Location = New System.Drawing.Point(649, 18)
+        Me.lblDefaultDir.Name = "lblDefaultDir"
+        Me.lblDefaultDir.Size = New System.Drawing.Size(60, 13)
+        Me.lblDefaultDir.TabIndex = 110
+        Me.lblDefaultDir.Text = "Default Dir:"
+        '
         'frmFileRead
         '
         Me.AcceptButton = Me.btnStart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(985, 559)
+        Me.Controls.Add(Me.lblDefaultDir)
         Me.Controls.Add(Me.tbxTestResultFilename)
         Me.Controls.Add(Me.lblTest_Result_Filename)
         Me.Controls.Add(Me.Label6)
@@ -634,4 +645,5 @@ Partial Class frmFileRead
     Friend WithEvents Label6 As Label
     Friend WithEvents lblTest_Result_Filename As Label
     Friend WithEvents tbxTestResultFilename As TextBox
+    Friend WithEvents lblDefaultDir As Label
 End Class

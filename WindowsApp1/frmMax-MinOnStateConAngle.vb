@@ -24,7 +24,7 @@ Public Class frmMax_MinOnStateConAngle
         'turn off dimmer power
 
         'Open all Res & Cap Relays
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
         'Dim DataValue As UInt16
         'DataValue = 0
         'PortATest(DataValue)
@@ -34,7 +34,7 @@ Public Class frmMax_MinOnStateConAngle
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 0                           'associate the label to this test
@@ -84,7 +84,7 @@ Public Class frmMax_MinOnStateConAngle
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 2                           'associate the label to this test
@@ -131,7 +131,7 @@ Public Class frmMax_MinOnStateConAngle
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 1                           'associate the label to this test
@@ -178,7 +178,7 @@ Public Class frmMax_MinOnStateConAngle
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         If (cbxRatedLoad_MaxAngle.Checked = True) Then
 
@@ -312,6 +312,12 @@ Public Class frmMax_MinOnStateConAngle
         If blnTestTitleDone = False Then
             FileWrite("Max & Min On-State Conduction Angle")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

@@ -7,7 +7,7 @@ Public Class frmOverload
 
     Private Sub frmOverload_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub frmOverload_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -33,7 +33,7 @@ Public Class frmOverload
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
@@ -67,7 +67,7 @@ Public Class frmOverload
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
@@ -124,6 +124,12 @@ Public Class frmOverload
         If blnTestTitleDone = False Then
             FileWrite("Overload Test")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

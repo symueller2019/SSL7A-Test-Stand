@@ -209,7 +209,7 @@
                     PortATest1(Bd1_PortASave)                   'output updated port status
                 ElseIf (DataValue < 17) Then
                     RelayAdd = 255 - (2 ^ (DataValue - 9))      'convert Relay # to I/O address
-                    Bd1_PortASave = Bd1_PortBSave And RelayAdd  'update Port Image register
+                    Bd1_PortBSave = Bd1_PortBSave And RelayAdd  'update Port Image register
                     PortBTest1(Bd1_PortBSave)                   'output updated port status
                 ElseIf (DataValue < 21) Then
                     RelayAdd = 255 - (2 ^ (DataValue - 17))     'convert Relay # to I/O address
@@ -232,7 +232,7 @@
                     PortATest2(Bd2_PortASave)                   'output updated port status
                 ElseIf (DataValue < 17) Then
                     RelayAdd = 255 - (2 ^ (DataValue - 9))      'convert Relay # to I/O address
-                    Bd2_PortASave = Bd2_PortBSave And RelayAdd  'update Port Image register
+                    Bd2_PortBSave = Bd2_PortBSave And RelayAdd  'update Port Image register
                     PortBTest2(Bd2_PortBSave)                   'output updated port status
                 ElseIf (DataValue < 21) Then
                     RelayAdd = 255 - (2 ^ (DataValue - 17))     'convert Relay # to I/O address
@@ -259,13 +259,6 @@
             line = myreader.ReadLine()      'Read line
         Next
         Relaystr = line.Split(",")          'Relaystr is array of individual elements
-        'For x = 1 To Relaystr.Length - 1
-        '    If RelayList.Text = "" Then
-        '        RelayList.Text = RelayList.Text & Relaystr(x)
-        '    Else
-        '        RelayList.Text = RelayList.Text & "," & Relaystr(x)
-        '    End If
-        'Next
         RelayList = Relaystr            'holds Relays to actuate 
         strLine = line
         myreader.Close()
@@ -274,7 +267,7 @@
 
 
     'Disconnect all Relays
-    Public Sub Disconnect_Relays_Bd1_2()
+    Public Sub Disconnect_Relays_Bd1_2_3()
         Dim DataValue As UInt16
 
         'Board 1 - Port Data Write
@@ -282,19 +275,19 @@
         PortATest(DataValue)
         PortBTest(DataValue)
         PortCLTest(DataValue)
-        PortCLTest(DataValue)
+        PortCHTest(DataValue)
 
         'Board 2 - Port Data Write
         PortATest1(DataValue)
         PortBTest1(DataValue)
         PortCLTest1(DataValue)
-        PortCLTest1(DataValue)
+        PortCHTest1(DataValue)
 
         'Board 3 - Port Data Write
         PortATest2(DataValue)
         PortBTest2(DataValue)
         PortCLTest2(DataValue)
-        PortCLTest2(DataValue)
+        PortCHTest2(DataValue)
 
         'Reset Image Registers
         Bd0_PortASave = 255 : Bd0_PortBSave = 255

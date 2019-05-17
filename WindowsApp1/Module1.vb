@@ -71,7 +71,6 @@ Module Module1
         Dim w As StreamWriter
 
         w = File.AppendText(TestResultFilename)
-        'w = File.AppendText("C:\temp\test.txt")
         w.Write(WriteData)
         w.Write(vbCrLf)
         w.Close()
@@ -87,40 +86,13 @@ Module Module1
     End Sub
 
     Public Sub DaqSetup()
-        Dim PortName As String
-        Dim FirstBit As Integer
+        'Dim PortName As String
+        'Dim FirstBit As Integer
         Dim ULStat As MccDaq.ErrorInfo
         Dim DataValue As UInt16
         InitUL()    'initiate error handling, etc
 
-        ''Canned Shit
-        ''determine if digital port exists, its capabilities, etc
-        'PortType = PORTOUT
-        '    NumPorts = FindPortsOfType(DaqBoard, PortType, ProgAbility, PortNum, NumBits, FirstBit)
 
-        '' BM mod 3/19/2019
-        'PortNum = MccDaq.DigitalPortType.FirstPortA
-        ''PortBNum = MccDaq.DigitalPortType.FirstPortB
-
-        'If NumPorts < 1 Then
-
-        '    Else
-        '        ' if programmable, set direction of port to output
-        '        ' configure the first port for digital output
-        '        '  Parameters:
-        '        '    PortNum        :the output port
-        '        '    Direction      :sets the port for input or output
-
-        '        If ProgAbility = DigitalIO.PROGPORT Then
-        '            Direction = MccDaq.DigitalPortDirection.DigitalOut
-        '            ULStat = DaqBoard.DConfigPort(PortNum, Direction)
-        '            If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        '        End If
-        '    PortName = PortNum.ToString
-
-        'End If
-
-        'My Shit
         '*** DAQBoard0 ***
         ULStat = DaqBoard.DConfigPort(MccDaq.DigitalPortType.FirstPortB, direction:=MccDaq.DigitalPortDirection.DigitalOut)
         If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
@@ -160,6 +132,7 @@ Module Module1
         If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
 
 
+
         '*** DAQBoard1 ***
         ULStat = DaqBoard1.DConfigPort(MccDaq.DigitalPortType.FirstPortA, MccDaq.DigitalPortDirection.DigitalOut)
         If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
@@ -194,6 +167,7 @@ Module Module1
         If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
         ULStat = DaqBoard1.DOut(PortCHNum1, DataValue)
         If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+
 
 
         '*** DAQBoard2 ***
@@ -262,161 +236,89 @@ Module Module1
     End Sub
 
 #End Region
-
     'End Class
 
     'Board 0 Output Subroutines
     Public Sub PortATest(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
-
-        '    DataValue = 1
 
         ULStat = DaqBoard.DOut(PortANum, DataValue)
-
     End Sub
 
     Public Sub PortBTest(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard.DOut(PortBNum, DataValue)
     End Sub
 
     Public Sub PortCLTest(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard.DOut(PortCLNum, DataValue)
     End Sub
 
     Public Sub PortCHTest(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard.DOut(PortCHNum, DataValue)
     End Sub
 
 
-
-
     'Board 1 Output Subroutines
     Public Sub PortATest1(ByVal DataValue1)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
-
-        '    DataValue = 1
 
         ULStat = DaqBoard1.DOut(PortANum1, DataValue1)
-
     End Sub
 
     Public Sub PortBTest1(ByVal DataValue1)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard1.DOut(PortBNum1, DataValue1)
     End Sub
 
     Public Sub PortCLTest1(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard1.DOut(PortCLNum1, DataValue)
     End Sub
 
     Public Sub PortCHTest1(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard1.DOut(PortCHNum1, DataValue)
     End Sub
 
 
 
-
     'Board 2 Output Subroutines
     Public Sub PortATest2(ByVal DataValue1)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
-
-        '    DataValue = 1
 
         ULStat = DaqBoard2.DOut(PortANum2, DataValue1)
-
     End Sub
 
     Public Sub PortBTest2(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard2.DOut(PortBNum2, DataValue)
     End Sub
 
     Public Sub PortCLTest2(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard2.DOut(PortCLNum2, DataValue)
     End Sub
 
     Public Sub PortCHTest2(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard2.DOut(PortCHNum2, DataValue)
     End Sub
 
     Public Sub PortCTest2(ByVal DataValue)
-        'Form1.btnHigh.BackColor = Color.Black
-
         Dim ULStat As MccDaq.ErrorInfo
-        'Dim DataValue As UInt16
 
-        '    DataValue = 1
-        'ULStat = DaqBoard.DOut(PortNum, DataValue)
         ULStat = DaqBoard2.DOut(PortCNum2, DataValue)
     End Sub
 

@@ -37,13 +37,14 @@ Public Class frmOnStateSupplyCurrent
 
     Private Sub frmOnStateSupplyCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub cbx100ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx100ohm.CheckedChanged
         'Dim DataValue As UInt16 : Dim RelayList(5) As String : Dim strLine As String
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 0                             'associate the label to this test
@@ -94,7 +95,7 @@ Public Class frmOnStateSupplyCurrent
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 1                             'associate the label to this test
@@ -144,7 +145,7 @@ Public Class frmOnStateSupplyCurrent
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 2                             'associate the label to this test
@@ -193,7 +194,7 @@ Public Class frmOnStateSupplyCurrent
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 3                             'associate the label to this test
@@ -405,7 +406,7 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub frmOnStateSupplyCurrent_DragDrop(sender As Object, e As DragEventArgs) Handles Me.DragDrop
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
 End Class

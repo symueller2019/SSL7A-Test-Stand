@@ -22,6 +22,12 @@ Public Class frmFileRead
         Dim x As Integer ': Dim Index As Integer
         Dim Value As Integer
 
+        'Give warning that if no Test filename entered, one is generated
+        If tbxTestResultFilename.Text = "" Then
+            MsgBox("if no filename entered - one is generated")
+        End If
+
+
         ReadConfig()
 
         'Get location of Test Configuration text file 
@@ -244,6 +250,16 @@ Public Class frmFileRead
         'write setup to test file
         Write_SetupToFile()
 
+        MainForm1.btnFullTestSuite.Enabled = True
+        MainForm1.btnStabilityTests.Enabled = True
+        MainForm1.btnInRushCurrent.Enabled = True
+        MainForm1.btnRepetitivePeakCurrent.Enabled = True
+        MainForm1.btnOverload.Enabled = True
+        MainForm1.btnRepetitivePeakVoltage.Enabled = True
+        MainForm1.btnOffStateOperation.Enabled = True
+        MainForm1.btnOnStateDmrSupplyCurrent.Enabled = True
+        MainForm1.btnMinOnConAngle.Enabled = True
+
     End Sub
 
     Private Sub frmFileRead_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -268,23 +284,22 @@ Public Class frmFileRead
 
         tbxWattage.Enabled = False
         tbxMinWattage.Enabled = False
-
         '****************************************
+
+        lblDefaultDir.Text = "Default Dir:" & " " & strTest_File_DirectoryLocation
+
     End Sub
 
     Private Sub frmFileRead_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         blnFormHold = False     'allow parameters on MainForm to be updated with parameters from frm FileRead
         GC.Collect()            'collect garbage - release system memory
+
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
         'load Rated Wattage selection
         tbxWattage.Enabled = True
         tbxWattage.Text = ListBox1.SelectedItem
-
-
-        ''fill chart
-        'btnStart_Click(sender, e)
 
     End Sub
 
@@ -293,19 +308,22 @@ Public Class frmFileRead
         tbxMinWattage.Enabled = True
         tbxMinWattage.Text = ListBox2.SelectedItem
 
-
     End Sub
 
     Private Sub Write_SetupToFile()
-        'FileWriteNoCrLf("LPF_Res: " & LPF_Res(Index) & "  LPF_Cap: " & LPF_Cap(Index) & "  HPF_Res: " & HPF_Res(Index))
 
-        TestResultFilename = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay.ToString("hhmmss") 'Test filename
-        TestResultFilename = strTest_File_DirectoryLocation & TestResultFilename & ".txt"
-        tbxTestResultFilename.Text = TestResultFilename
-        FileWrite("Test Name:" & "  " & TestResultFilename)       'write filename into file
+        'if user has NOT entered a filename - generate
+        If tbxTestResultFilename.Text = "" Then
+            TestResultFilename = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay.ToString("hhmmss") 'Test filename
+            TestResultFilename = strTest_File_DirectoryLocation & TestResultFilename & ".txt"
+            tbxTestResultFilename.Text = TestResultFilename
+            FileWrite("Test Name:" & "  " & TestResultFilename)       'write filename into file
+        Else
+            TestResultFilename = strTest_File_DirectoryLocation & tbxTestResultFilename.Text & ".txt"
+        End If
 
-        'FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         FileWrite("Test Setup Parameters")
+        FileWrite("** Test Loads **" & "  Rated Wattage: " & tbxWattage.Text & "   Min Wattage: " & tbxMinWattage.Text)  'write Rated & Min Test Wattage
         FileWrite("   LPF_Res: " & LPF_Res(Index) & "     LPF_Cap: " & LPF_Cap(Index) & "     HPF_Res: " & HPF_Res(Index))
         FileWrite("MinLPF_Res: " & MinLPF_Res(MinIndex) & "  MinLPF_Cap: " & MinLPF_Cap(MinIndex) & "  MinHPF_Res: " & MinHPF_Res(MinIndex))
         FileWrite("O/DLPF_Res: " & OVLDLPF_Res(Index) & "  O/DLPF_Cap: " & OVLDLPF_Cap(Index))

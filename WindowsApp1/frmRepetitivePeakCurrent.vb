@@ -21,7 +21,7 @@ Public Class frmRepetitivePeakCurrent
 
     Private Sub frmRepetitivePeakCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub cbxRepPeakCurrent_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakCurrent.CheckedChanged
@@ -31,7 +31,7 @@ Public Class frmRepetitivePeakCurrent
         Timer1.Enabled = True
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'clear measurement entry 
         tbxMeasurementEntry.Text = ""
@@ -65,6 +65,12 @@ Public Class frmRepetitivePeakCurrent
         If blnTestTitleDone = False Then
             FileWrite("Repetitive Peak Voltage Test")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         tbxRepetitivePeakCurrent.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status

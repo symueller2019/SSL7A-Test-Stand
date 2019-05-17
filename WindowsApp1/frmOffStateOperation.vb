@@ -30,14 +30,14 @@ Public Class frmOffStateOperation
 
     Private Sub frmOffStateOperation_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
     End Sub
 
     Private Sub cbx10ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx10ohm.CheckedChanged
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 0                             'associate the label to this test
@@ -97,7 +97,7 @@ Public Class frmOffStateOperation
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 1                          'associate the label to this test
@@ -145,7 +145,7 @@ Public Class frmOffStateOperation
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 2                           'associate the label to this test
@@ -194,7 +194,7 @@ Public Class frmOffStateOperation
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 3                           'associate the label to this test
@@ -242,7 +242,7 @@ Public Class frmOffStateOperation
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 4                           'associate the label to this test
@@ -290,7 +290,7 @@ Public Class frmOffStateOperation
         Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
-        Disconnect_Relays_Bd1_2()
+        Disconnect_Relays_Bd1_2_3()
 
         'do not show until test result done
         s_index = 5                           'associate the label to this test
@@ -339,6 +339,12 @@ Public Class frmOffStateOperation
         If blnTestTitleDone = False Then
             FileWrite("Off-State Operation")
             blnTestTitleDone = True
+        End If
+
+        'Entry Parameter check
+        If IsNumeric(tbxMeasurementEntry.Text) = False Then
+            MsgBox("must enter a numeric value")
+            Return
         End If
 
         StatusArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
