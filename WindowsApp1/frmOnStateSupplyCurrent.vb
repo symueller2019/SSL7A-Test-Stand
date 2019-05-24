@@ -92,7 +92,6 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub cbx350ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx350ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -142,7 +141,6 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub cbx800ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx800ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -191,7 +189,6 @@ Public Class frmOnStateSupplyCurrent
     End Sub
 
     Private Sub cbx1400ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx1400ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -318,7 +315,7 @@ Public Class frmOnStateSupplyCurrent
             blnTestTitleDone = True
         End If
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
         'FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
         FileWrite(tbxComment.Text)
@@ -347,10 +344,16 @@ Public Class frmOnStateSupplyCurrent
         'display titles to relays
         lblResRly.Text = "Res Rly"
         lblCapRly.Text = ""     '"Cap Rly"
+
         'display relays
         'Dim textline As String = ""
         'Display_Relays(HPF_ResRelays, textline)
-        tbxResRly.Text = strLine
+        'tbxResRly.Text = strLine
+
+        'only display relays - NOT resistance value
+        Dim textline As String = ""
+        Display_Relays(RelayList, textline)
+        tbxResRly.Text = textline
 
         'Display_Relays(OVLDLPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline

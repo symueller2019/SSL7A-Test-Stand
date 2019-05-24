@@ -78,7 +78,6 @@ Partial Class MainForm1
         Me.lblLPF_Res = New System.Windows.Forms.Label()
         Me.lblWattage = New System.Windows.Forms.Label()
         Me.tbxWattage = New System.Windows.Forms.TextBox()
-        Me.lblcntr = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
@@ -647,21 +646,11 @@ Partial Class MainForm1
         Me.tbxWattage.Size = New System.Drawing.Size(79, 26)
         Me.tbxWattage.TabIndex = 58
         '
-        'lblcntr
-        '
-        Me.lblcntr.AutoSize = True
-        Me.lblcntr.Location = New System.Drawing.Point(968, 192)
-        Me.lblcntr.Name = "lblcntr"
-        Me.lblcntr.Size = New System.Drawing.Size(13, 13)
-        Me.lblcntr.TabIndex = 10
-        Me.lblcntr.Text = "0"
-        '
         'MainForm1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1074, 712)
-        Me.Controls.Add(Me.lblcntr)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -744,5 +733,4 @@ Partial Class MainForm1
     Friend WithEvents tbxOVLDLPF_ResRelays As TextBox
     Friend WithEvents Label11 As Label
     Friend WithEvents Label12 As Label
-    Friend WithEvents lblcntr As Label
 End Class

@@ -9,7 +9,6 @@ Public Class frmStability
     Dim btnArray(11) As Button
 
     Private Sub btnLPFMinLoadMinCondAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFMinLoadMinCondAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -55,7 +54,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPFMinLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFMinLoadMaxConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -101,7 +99,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnHPFMinLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnHPFMinLoadMinConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -147,7 +144,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnHPFMinLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnHPFMinLoadMaxConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -192,7 +188,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPFRatedLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoadMinConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -238,7 +233,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPFRatedLoadMinConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoadMinConAngleNegCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -284,7 +278,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPFRatedLoad90degConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoad90degConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -330,7 +323,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPFRatedLoad90degConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPFRatedLoad90degConAngleNegCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -376,7 +368,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPF_RatedLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btnLPF_RatedLoadMaxConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'do not show until test result done
         s_index = 8                           'associate the label to this test
@@ -423,7 +414,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnLPF_RatedLoadMaxConAngleNegCycle_Click(sender As Object, e As EventArgs) Handles btnLPF_RatedLoadMaxConAngleNegCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -469,7 +459,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btn_HPFRatedLoadMinConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btn_HPFRatedLoadMinConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -515,7 +504,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btn_HPFRatedLoadMaxConAnglePosCycle_Click(sender As Object, e As EventArgs) Handles btn_HPFRatedLoadMaxConAnglePosCycle.Click
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -570,7 +558,6 @@ Public Class frmStability
     End Sub
 
     Private Sub btnEnter_Click(sender As Object, e As EventArgs) Handles btnEnter.Click
-        Dim LPF_Value As String
 
         If blnTestTitleDone = False Then
             FileWrite("Forward Stability Test")
@@ -596,8 +583,8 @@ Public Class frmStability
             myLabelArray(s_index).Text = tbxMeasurementEntry.Text & " - " & "FAIL"
         End If
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub
@@ -644,5 +631,10 @@ Public Class frmStability
             btnArray(n).BackColor = SystemColors.ControlLight
         Next
         btnArray(s_index).BackColor = Color.LightGreen
+    End Sub
+
+    Private Sub btnTestComplete_Click(sender As Object, e As EventArgs) Handles btnTestComplete.Click
+        'flag user done with this test
+        MainForm1.btnStabilityTests.BackColor = Color.LightCyan
     End Sub
 End Class

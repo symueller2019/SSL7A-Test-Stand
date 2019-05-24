@@ -25,7 +25,6 @@ Public Class frmRepetitivePeakCurrent
     End Sub
 
     Private Sub cbxRepPeakCurrent_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakCurrent.CheckedChanged
-        Dim DataValue As UInt16
 
         'start timer
         Timer1.Enabled = True
@@ -75,9 +74,8 @@ Public Class frmRepetitivePeakCurrent
 
         tbxRepetitivePeakCurrent.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
-        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub

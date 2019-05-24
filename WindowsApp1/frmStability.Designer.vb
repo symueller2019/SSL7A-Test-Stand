@@ -72,6 +72,7 @@ Partial Class frmStability
         Me.lblStatus9 = New System.Windows.Forms.Label()
         Me.lblStatus10 = New System.Windows.Forms.Label()
         Me.lblStatus11 = New System.Windows.Forms.Label()
+        Me.btnTestComplete = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -554,6 +555,16 @@ Partial Class frmStability
         Me.lblStatus11.TabIndex = 19
         Me.lblStatus11.Text = "lblStatus11"
         '
+        'btnTestComplete
+        '
+        Me.btnTestComplete.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnTestComplete.Location = New System.Drawing.Point(425, 198)
+        Me.btnTestComplete.Name = "btnTestComplete"
+        Me.btnTestComplete.Size = New System.Drawing.Size(108, 32)
+        Me.btnTestComplete.TabIndex = 20
+        Me.btnTestComplete.Text = "Test Complete"
+        Me.btnTestComplete.UseVisualStyleBackColor = True
+        '
         'frmStability
         '
         Me.AcceptButton = Me.btnEnter
@@ -561,6 +572,7 @@ Partial Class frmStability
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(938, 823)
+        Me.Controls.Add(Me.btnTestComplete)
         Me.Controls.Add(Me.lblStatus11)
         Me.Controls.Add(Me.lblStatus10)
         Me.Controls.Add(Me.lblStatus9)
@@ -650,4 +662,5 @@ Partial Class frmStability
     Friend WithEvents lblStatus9 As Label
     Friend WithEvents lblStatus10 As Label
     Friend WithEvents lblStatus11 As Label
+    Friend WithEvents btnTestComplete As Button
 End Class

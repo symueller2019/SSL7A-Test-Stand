@@ -24,10 +24,11 @@ Public Class frmFileRead
 
         'Give warning that if no Test filename entered, one is generated
         If tbxTestResultFilename.Text = "" Then
-            MsgBox("if no filename entered - one is generated")
+            MsgBox("Enter filename")
+            Return
         End If
 
-
+        'read Config file - get filenames of Rated, Min & O/L resistances, capacitance & relay info
         ReadConfig()
 
         'Get location of Test Configuration text file 
@@ -37,7 +38,6 @@ Public Class frmFileRead
         Read_Text_Files()
 
         'verify values entered
-        'If tbxWattage.Text = "" Then
         If ListBox1.SelectedItem = "" Then
             MsgBox("Enter Rated Wattage Value - Click Inside Selection Box - turns BLUE")
             Return
@@ -67,8 +67,6 @@ Public Class frmFileRead
                 tbxIndexToTables.Text = Index
             End If
         Next x
-        'Me.tbxIndexToTables.Update()
-        'System.Windows.Forms.Application.DoEvents()     'force screen update to see change
 
         'Read & display Indexed values from the LPF Res, LPF Cap and HPF Res arrays
         tbxLPF_Res.Text = LPF_Res(Index)
@@ -86,8 +84,6 @@ Public Class frmFileRead
                 tbxIndexToMinTables.Text = MinIndex
             End If
         Next x
-        'Me.tbxIndexToTables.Update()
-        'System.Windows.Forms.Application.DoEvents()     'force screen update to see change
 
         'Read & display Indexed values from the LPF Res, LPF Cap and HPF Res arrays
         tbxMinLPF_Res.Text = MinLPF_Res(MinIndex)
@@ -97,23 +93,11 @@ Public Class frmFileRead
 
         '******************** Overload Wattage *******************
 
-        'Find Index to User Wattage entry in Wattage Selection File
-        'Value = Val(tbxOVLDWattage.Text)
-        'Value = Val(tbxWattage.Text)        'use same index as Rated - 1 to 1 correspondance
-        'For x = 0 To OVLDWattageSelection.Length - 1
-        '    If Val(OVLDWattageSelection(x)) = Value Then
-        '        OVLDIndex = x
-        '        tbxIndexToOVLDTables.Text = OVLDIndex
-        '    End If
-        'Next x
-        'Me.tbxIndexToTables.Update()
-        'System.Windows.Forms.Application.DoEvents()     'force screen update to see change
-
         'Read & display Indexed values from the LPF Res, LPF Cap and HPF Res arrays
         tbxIndexToOVLDTables.Text = Index            'use same index as Rated - 1 to 1 correspondance
         tbxOVLDLPF_Res.Text = OVLDLPF_Res(Index)
         tbxOVLDLPF_Cap.Text = OVLDLPF_Cap(Index)
-        'tbxMinHPF_Res.Text = MinHPF_Res(MinIndex)
+
 
         '******************** Rate Wattage ***********************
 
@@ -127,6 +111,11 @@ Public Class frmFileRead
         For x = 0 To Index                  'Index to line
             line = myreader.ReadLine()      'Read line
         Next
+
+        'clear out text from display textbox if doing repetitive reads
+        tbxLPF_ResRelays.Text = ""
+        tbxLPF_CapRelays.Text = ""
+        tbxHPF_ResRelays.Text = ""
 
         Relaystr = line.Split(",")          'Relaystr is array holding all elements of text line
         'display Relays to Close
@@ -167,7 +156,13 @@ Public Class frmFileRead
         Next
         HPF_ResRelays = Relaystr            'holds Relays to actuate 
 
+
         '************************ Minimum Wattage **********************
+
+        'clear out text from display textbox if doing repetitive reads
+        tbxMinLPF_ResRelays.Text = ""
+        tbxMinLPF_CapRelays.Text = ""
+        tbxMinHPF_ResRelays.Text = ""
 
         myreader = My.Computer.FileSystem.OpenTextFileReader(FileLoc_MinWattsToRelayLPFRes)
         For x = 0 To MinIndex                  'Index to line
@@ -215,6 +210,11 @@ Public Class frmFileRead
 
 
         '************************ Overload Wattage **********************
+
+        'clear out text from display textbox if doing repetitive reads
+        tbxOVLDLPF_ResRelays.Text = ""
+        tbxMinLPF_CapRelays.Text = ""
+
         myreader = My.Computer.FileSystem.OpenTextFileReader(FileLoc_OVLDWattsToRelayLPFRes)
         For x = 0 To Index                  'Index to line
             line = myreader.ReadLine()      'Read line
@@ -294,6 +294,9 @@ Public Class frmFileRead
         blnFormHold = False     'allow parameters on MainForm to be updated with parameters from frm FileRead
         GC.Collect()            'collect garbage - release system memory
 
+        'Reset "DONE" indication of test buttons on Main form
+        MainForm1.btnStabilityTests.BackColor = SystemColors.Control
+
     End Sub
 
     Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
@@ -310,23 +313,49 @@ Public Class frmFileRead
 
     End Sub
 
+    'Private Sub Write_SetupToFile()
+
+    '    'if user has NOT entered a filename - generate
+    '    If tbxTestResultFilename.Text = "" Then
+    '        TestResultFilename = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay.ToString("hhmmss") 'Test filename
+    '        TestResultFilename = strTest_File_DirectoryLocation & TestResultFilename & ".csv"
+    '        tbxTestResultFilename.Text = TestResultFilename
+    '    Else
+    '        TestResultFilename = strTest_File_DirectoryLocation & tbxTestResultFilename.Text & ".csv"
+    '    End If
+    '    FileWrite("Test Name:" & ",  " & TestResultFilename)       'write filename into file
+
+    '    FileWrite("Test Setup Parameters")
+    '    FileWrite("** Test Loads **," & "  Rated Wattage: " & tbxWattage.Text & "," & "   Min Wattage: " & tbxMinWattage.Text)  'write Rated & Min Test Wattage
+    '    FileWrite("   LPF_Res: " & LPF_Res(Index) & "," & "     LPF_Cap: " & LPF_Cap(Index) & "," & "     HPF_Res: " & HPF_Res(Index))
+    '    FileWrite("MinLPF_Res: " & MinLPF_Res(MinIndex) & "," & "  MinLPF_Cap: " & MinLPF_Cap(MinIndex) & "," & "  MinHPF_Res: " & MinHPF_Res(MinIndex))
+    '    FileWrite("O/DLPF_Res: " & OVLDLPF_Res(Index) & "," & "  O/DLPF_Cap: " & OVLDLPF_Cap(Index))
+    '    FileWriteCRLF()     'linespace to separate the test results from Setup parameters
+
+    'End Sub
+
+    'Alternate filename
     Private Sub Write_SetupToFile()
 
         'if user has NOT entered a filename - generate
         If tbxTestResultFilename.Text = "" Then
-            TestResultFilename = DateTime.Now.ToString("ddMMyyyy") & "_" & TimeOfDay.ToString("hhmmss") 'Test filename
-            TestResultFilename = strTest_File_DirectoryLocation & TestResultFilename & ".txt"
-            tbxTestResultFilename.Text = TestResultFilename
-            FileWrite("Test Name:" & "  " & TestResultFilename)       'write filename into file
-        Else
-            TestResultFilename = strTest_File_DirectoryLocation & tbxTestResultFilename.Text & ".txt"
+            MsgBox("must enter filename")
+            Return
         End If
 
+        TestResultFilename = strTest_File_DirectoryLocation & tbxTestResultFilename.Text & ".csv"
+
+        'Open file & enter test name and load parameters
+        FileWrite("Test Name:" & ",  " & TestResultFilename)       'write filename into file
+        FileWrite("Date:" & ",  " & DateTime.Now.ToString("MM/dd/yyyy"))
+        FileWrite("Time:" & ",  " & TimeOfDay.ToString("hh:mm:ss tt"))
+        FileWriteCRLF()
+
         FileWrite("Test Setup Parameters")
-        FileWrite("** Test Loads **" & "  Rated Wattage: " & tbxWattage.Text & "   Min Wattage: " & tbxMinWattage.Text)  'write Rated & Min Test Wattage
-        FileWrite("   LPF_Res: " & LPF_Res(Index) & "     LPF_Cap: " & LPF_Cap(Index) & "     HPF_Res: " & HPF_Res(Index))
-        FileWrite("MinLPF_Res: " & MinLPF_Res(MinIndex) & "  MinLPF_Cap: " & MinLPF_Cap(MinIndex) & "  MinHPF_Res: " & MinHPF_Res(MinIndex))
-        FileWrite("O/DLPF_Res: " & OVLDLPF_Res(Index) & "  O/DLPF_Cap: " & OVLDLPF_Cap(Index))
+        FileWrite("** Test Loads **," & "  Rated Wattage: " & tbxWattage.Text & "," & "   Min Wattage: " & tbxMinWattage.Text)  'write Rated & Min Test Wattage
+        FileWrite("   LPF_Res: " & LPF_Res(Index) & "," & "     LPF_Cap: " & LPF_Cap(Index) & "," & "     HPF_Res: " & HPF_Res(Index))
+        FileWrite("MinLPF_Res: " & MinLPF_Res(MinIndex) & "," & "  MinLPF_Cap: " & MinLPF_Cap(MinIndex) & "," & "  MinHPF_Res: " & MinHPF_Res(MinIndex))
+        FileWrite("O/DLPF_Res: " & OVLDLPF_Res(Index) & "," & "  O/DLPF_Cap: " & OVLDLPF_Cap(Index))
         FileWriteCRLF()     'linespace to separate the test results from Setup parameters
 
     End Sub

@@ -25,13 +25,9 @@ Public Class frmMax_MinOnStateConAngle
 
         'Open all Res & Cap Relays
         Disconnect_Relays_Bd1_2_3()
-        'Dim DataValue As UInt16
-        'DataValue = 0
-        'PortATest(DataValue)
     End Sub
 
     Private Sub cbxMinLoad_MinAngle_CheckedChanged_1(sender As Object, e As EventArgs) Handles cbxMinLoad_MinAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -81,7 +77,6 @@ Public Class frmMax_MinOnStateConAngle
     End Sub
 
     Private Sub cbxRatedLoad_MinAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRatedLoad_MinAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -128,7 +123,6 @@ Public Class frmMax_MinOnStateConAngle
     End Sub
 
     Private Sub cbxMinLoad_MaxAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMinLoad_MaxAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -175,7 +169,6 @@ Public Class frmMax_MinOnStateConAngle
     End Sub
 
     Private Sub cbxRatedLoad_MaxAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRatedLoad_MaxAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -335,7 +328,7 @@ Public Class frmMax_MinOnStateConAngle
                 End If
 
             Case 1, 3
-                If Val(StatusArray(s_index).Text) >= 6.02 Then
+                If Val(StatusArray(s_index).Text) >= 6.02 And Val(StatusArray(s_index).Text) <= 8.33 Then
                     lblResultDsply.Text = "PASS"
                     'lblResultDsply.BackColor = Color.White
                 Else
@@ -354,8 +347,8 @@ Public Class frmMax_MinOnStateConAngle
         End If
 
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
         FileWrite(tbxComment.Text)
     End Sub

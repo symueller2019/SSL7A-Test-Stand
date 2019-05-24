@@ -3,13 +3,6 @@
 Public Class frmRepetitivePeakVoltage
     Dim blnTestTitleDone As Boolean         'used to just write the test name once to test results file
 
-    Private Sub pbxRepetitivePeakVoltageText_Click(sender As Object, e As EventArgs) Handles pbxRepetitivePeakVoltageText.Click
-
-    End Sub
-
-    Private Sub pbxRepetitivePeakVoltageChart_Click(sender As Object, e As EventArgs) Handles pbxRepetitivePeakVoltageChart.Click
-
-    End Sub
 
     Private Sub frmRepetitivePeakVoltage_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'display state of tester
@@ -21,11 +14,11 @@ Public Class frmRepetitivePeakVoltage
         lblLimit.Text = "Limit"               '145% peak of mains
         lblLimitDsply.Text = "246.5V" 'clear Limit display
 
-        'Adjust user Group controls
-        'lblLimit.Hide()                       'Hide Limit label
-        'lblLimitDsply.Hide()                  'Hide Limit display
-        lblResult.Hide()                      'Hide Result label
-        lblResultDsply.Hide()                 'Hide Result display
+        'lblResult.Hide()                      'Hide Result label
+        'lblResultDsply.Hide()                 'Hide Result display
+
+        tbxRepetitivePeakVoltage.Enabled = False    'hide until user enter value
+
     End Sub
 
     Private Sub frmRepetitivePeakVoltage_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -37,7 +30,6 @@ Public Class frmRepetitivePeakVoltage
     End Sub
 
     Private Sub cbxRepPeakVoltage_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRepPeakVoltage.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -108,11 +100,18 @@ Public Class frmRepetitivePeakVoltage
             Return
         End If
 
+        tbxRepetitivePeakVoltage.Enabled = True
         tbxRepetitivePeakVoltage.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
-        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        'check user input - Pass/Fail status
+        If Val(tbxMeasurementEntry.Text) < Val(lblLimitDsply.Text) Then
+            lblResultDsply.Text = "PASS"
+        Else
+            lblResultDsply.Text = "FAIL"
+        End If
+
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
     End Sub
 End Class

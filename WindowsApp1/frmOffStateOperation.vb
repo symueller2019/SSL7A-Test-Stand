@@ -34,7 +34,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx10ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx10ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -94,7 +93,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx40ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx40ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -142,7 +140,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx400ohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx400ohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -191,7 +188,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx3kohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx3kohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -239,7 +235,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx8kohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx8kohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -287,7 +282,6 @@ Public Class frmOffStateOperation
     End Sub
 
     Private Sub cbx15kohm_CheckedChanged(sender As Object, e As EventArgs) Handles cbx15kohm.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -400,9 +394,8 @@ Public Class frmOffStateOperation
             StatusArray(s_index).ForeColor = Color.Red
         End If
 
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
-        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub
@@ -420,10 +413,16 @@ Public Class frmOffStateOperation
         'display titles to relays
         lblResRly.Text = "Res Rly"
         lblCapRly.Text = ""     '"Cap Rly"
+
         'display relays
         'Dim textline As String = ""
         'Display_Relays(HPF_ResRelays, textline)
-        tbxResRly.Text = strLine
+        'tbxResRly.Text = strLine
+
+        'only display relays - NOT resistance value
+        Dim textline As String = ""
+        Display_Relays(RelayList, textline)
+        tbxResRly.Text = textline
 
         'Display_Relays(OVLDLPF_CapRelays, textline)
         tbxCapRly.Text = ""     'textline

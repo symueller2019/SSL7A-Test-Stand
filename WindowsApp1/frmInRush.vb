@@ -35,7 +35,6 @@ Public Class frmInRush
     End Sub
 
     Private Sub cbxMaxCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbxMaxCondAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -68,7 +67,6 @@ Public Class frmInRush
     End Sub
 
     Private Sub cbx90DegCondAngle_CheckedChanged(sender As Object, e As EventArgs) Handles cbx90DegCondAngle.CheckedChanged
-        Dim DataValue As UInt16
 
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
@@ -114,19 +112,8 @@ Public Class frmInRush
 
         StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
-        'If Val(lblLimitDsply.Text) >= Val(tbxMeasurementEntry.Text) Then
-        '    lblResultDsply.Text = "PASS"
-        '    StatusDsplyArray(s_index).ForeColor = Color.Black
-        '    StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text & " - " & "PASS"
-        'Else
-        '    lblResultDsply.Text = "FAIL"
-        '    StatusDsplyArray(s_index).ForeColor = Color.Red
-        '    StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text & " - " & "FAIL"
-        'End If
-
-        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55))
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & lblResultDsply.Text.PadRight(6))
-        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub
