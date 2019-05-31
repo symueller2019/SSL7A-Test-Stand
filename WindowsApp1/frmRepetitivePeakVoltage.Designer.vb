@@ -52,6 +52,7 @@ Partial Class frmRepetitivePeakVoltage
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.pbxRepetitivePeakVoltageChart, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxRepetitivePeakVoltageText, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -350,12 +351,22 @@ Partial Class frmRepetitivePeakVoltage
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(891, 38)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 113
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmRepetitivePeakVoltage
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(987, 830)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cbxRepPeakVoltage)
         Me.Controls.Add(Me.GroupBox1)
@@ -406,4 +417,5 @@ Partial Class frmRepetitivePeakVoltage
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents btnClose As Button
 End Class

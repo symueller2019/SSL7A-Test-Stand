@@ -41,6 +41,7 @@ Public Class frmInRush
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         'do not show until test result done
         s_index = 0                           'associate the label to this test
@@ -73,6 +74,7 @@ Public Class frmInRush
 
         'clear the measurement entry box
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         'do not show until test result done
         s_index = 1                           'associate the label to this test
@@ -113,7 +115,7 @@ Public Class frmInRush
         StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & " Amps" & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub
@@ -139,5 +141,12 @@ Public Class frmInRush
         Display_Relays(LPF_CapRelays, textline)
         tbxCapRly.Text = textline
 
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+
+        Disconnect_Relays_Bd1_2_3()
+        Close()
     End Sub
 End Class

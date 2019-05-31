@@ -53,6 +53,7 @@ Partial Class frmRepetitivePeakCurrent
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.pbxRepetitivePeakCurrentText, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -350,12 +351,22 @@ Partial Class frmRepetitivePeakCurrent
         '
         Me.Timer1.Interval = 1000
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(908, 43)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 113
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmRepetitivePeakCurrent
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1013, 626)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cbxRepPeakCurrent)
         Me.Controls.Add(Me.GroupBox1)
@@ -406,4 +417,5 @@ Partial Class frmRepetitivePeakCurrent
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
     Friend WithEvents Timer1 As Timer
+    Friend WithEvents btnClose As Button
 End Class

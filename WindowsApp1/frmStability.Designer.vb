@@ -73,6 +73,7 @@ Partial Class frmStability
         Me.lblStatus10 = New System.Windows.Forms.Label()
         Me.lblStatus11 = New System.Windows.Forms.Label()
         Me.btnTestComplete = New System.Windows.Forms.Button()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -343,21 +344,21 @@ Partial Class frmStability
         Me.GroupBox1.Controls.Add(Me.tbxWatt)
         Me.GroupBox1.Location = New System.Drawing.Point(419, 263)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(487, 137)
+        Me.GroupBox1.Size = New System.Drawing.Size(497, 137)
         Me.GroupBox1.TabIndex = 17
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Load Description"
         '
         'tbxCapRly
         '
-        Me.tbxCapRly.Location = New System.Drawing.Point(337, 88)
+        Me.tbxCapRly.Location = New System.Drawing.Point(343, 88)
         Me.tbxCapRly.Name = "tbxCapRly"
         Me.tbxCapRly.Size = New System.Drawing.Size(130, 20)
         Me.tbxCapRly.TabIndex = 18
         '
         'tbxResRly
         '
-        Me.tbxResRly.Location = New System.Drawing.Point(337, 60)
+        Me.tbxResRly.Location = New System.Drawing.Point(343, 60)
         Me.tbxResRly.Name = "tbxResRly"
         Me.tbxResRly.Size = New System.Drawing.Size(130, 20)
         Me.tbxResRly.TabIndex = 4
@@ -365,7 +366,7 @@ Partial Class frmStability
         'lblCapRly
         '
         Me.lblCapRly.AutoSize = True
-        Me.lblCapRly.Location = New System.Drawing.Point(273, 92)
+        Me.lblCapRly.Location = New System.Drawing.Point(279, 92)
         Me.lblCapRly.Name = "lblCapRly"
         Me.lblCapRly.Size = New System.Drawing.Size(51, 13)
         Me.lblCapRly.TabIndex = 2
@@ -374,7 +375,7 @@ Partial Class frmStability
         'lblResRly
         '
         Me.lblResRly.AutoSize = True
-        Me.lblResRly.Location = New System.Drawing.Point(273, 63)
+        Me.lblResRly.Location = New System.Drawing.Point(279, 63)
         Me.lblResRly.Name = "lblResRly"
         Me.lblResRly.Size = New System.Drawing.Size(51, 13)
         Me.lblResRly.TabIndex = 3
@@ -383,7 +384,7 @@ Partial Class frmStability
         'lblCap
         '
         Me.lblCap.AutoSize = True
-        Me.lblCap.Location = New System.Drawing.Point(32, 91)
+        Me.lblCap.Location = New System.Drawing.Point(15, 91)
         Me.lblCap.Name = "lblCap"
         Me.lblCap.Size = New System.Drawing.Size(36, 13)
         Me.lblCap.TabIndex = 1
@@ -392,7 +393,7 @@ Partial Class frmStability
         'lblRes
         '
         Me.lblRes.AutoSize = True
-        Me.lblRes.Location = New System.Drawing.Point(32, 62)
+        Me.lblRes.Location = New System.Drawing.Point(15, 62)
         Me.lblRes.Name = "lblRes"
         Me.lblRes.Size = New System.Drawing.Size(36, 13)
         Me.lblRes.TabIndex = 1
@@ -401,7 +402,7 @@ Partial Class frmStability
         'lblWatt
         '
         Me.lblWatt.AutoSize = True
-        Me.lblWatt.Location = New System.Drawing.Point(32, 35)
+        Me.lblWatt.Location = New System.Drawing.Point(15, 35)
         Me.lblWatt.Name = "lblWatt"
         Me.lblWatt.Size = New System.Drawing.Size(40, 13)
         Me.lblWatt.TabIndex = 1
@@ -409,21 +410,21 @@ Partial Class frmStability
         '
         'tbxCap
         '
-        Me.tbxCap.Location = New System.Drawing.Point(114, 88)
+        Me.tbxCap.Location = New System.Drawing.Point(120, 88)
         Me.tbxCap.Name = "tbxCap"
         Me.tbxCap.Size = New System.Drawing.Size(130, 20)
         Me.tbxCap.TabIndex = 0
         '
         'tbxRes
         '
-        Me.tbxRes.Location = New System.Drawing.Point(114, 59)
+        Me.tbxRes.Location = New System.Drawing.Point(120, 59)
         Me.tbxRes.Name = "tbxRes"
         Me.tbxRes.Size = New System.Drawing.Size(130, 20)
         Me.tbxRes.TabIndex = 0
         '
         'tbxWatt
         '
-        Me.tbxWatt.Location = New System.Drawing.Point(114, 32)
+        Me.tbxWatt.Location = New System.Drawing.Point(120, 32)
         Me.tbxWatt.Name = "tbxWatt"
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
@@ -565,6 +566,15 @@ Partial Class frmStability
         Me.btnTestComplete.Text = "Test Complete"
         Me.btnTestComplete.UseVisualStyleBackColor = True
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(852, 20)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 112
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmStability
         '
         Me.AcceptButton = Me.btnEnter
@@ -572,6 +582,7 @@ Partial Class frmStability
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(938, 823)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.btnTestComplete)
         Me.Controls.Add(Me.lblStatus11)
         Me.Controls.Add(Me.lblStatus10)
@@ -663,4 +674,5 @@ Partial Class frmStability
     Friend WithEvents lblStatus10 As Label
     Friend WithEvents lblStatus11 As Label
     Friend WithEvents btnTestComplete As Button
+    Friend WithEvents btnClose As Button
 End Class

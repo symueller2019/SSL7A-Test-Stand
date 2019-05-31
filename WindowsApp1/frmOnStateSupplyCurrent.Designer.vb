@@ -31,6 +31,9 @@ Partial Class frmOnStateSupplyCurrent
         Me.cbx800ohm = New System.Windows.Forms.CheckBox()
         Me.cbx1400ohm = New System.Windows.Forms.CheckBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cbxSelect1 = New System.Windows.Forms.CheckBox()
+        Me.cbxSelect2 = New System.Windows.Forms.CheckBox()
         Me.tbxLimitDsply2 = New System.Windows.Forms.TextBox()
         Me.tbxLimitDsply1 = New System.Windows.Forms.TextBox()
         Me.btnEnter = New System.Windows.Forms.Button()
@@ -57,14 +60,12 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblStatus1 = New System.Windows.Forms.Label()
         Me.lblStatus2 = New System.Windows.Forms.Label()
         Me.lblStatus3 = New System.Windows.Forms.Label()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.cbxSelect1 = New System.Windows.Forms.CheckBox()
-        Me.cbxSelect2 = New System.Windows.Forms.CheckBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        Me.GroupBox2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'PictureBox2
@@ -160,6 +161,40 @@ Partial Class frmOnStateSupplyCurrent
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "GroupBox1"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Window
+        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect2)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(422, 47)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(175, 50)
+        Me.FlowLayoutPanel1.TabIndex = 32
+        '
+        'cbxSelect1
+        '
+        Me.cbxSelect1.AutoSize = True
+        Me.cbxSelect1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxSelect1.Location = New System.Drawing.Point(3, 1)
+        Me.cbxSelect1.Margin = New System.Windows.Forms.Padding(3, 1, 3, 2)
+        Me.cbxSelect1.Name = "cbxSelect1"
+        Me.cbxSelect1.Size = New System.Drawing.Size(154, 20)
+        Me.cbxSelect1.TabIndex = 0
+        Me.cbxSelect1.Text = "Min Angle (1.85msec)"
+        Me.cbxSelect1.UseVisualStyleBackColor = True
+        '
+        'cbxSelect2
+        '
+        Me.cbxSelect2.AutoSize = True
+        Me.cbxSelect2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxSelect2.Location = New System.Drawing.Point(3, 28)
+        Me.cbxSelect2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
+        Me.cbxSelect2.Name = "cbxSelect2"
+        Me.cbxSelect2.Size = New System.Drawing.Size(172, 20)
+        Me.cbxSelect2.TabIndex = 1
+        Me.cbxSelect2.Text = "Max Angle (>=6.02msec)"
+        Me.cbxSelect2.UseVisualStyleBackColor = True
         '
         'tbxLimitDsply2
         '
@@ -417,39 +452,14 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblStatus3.TabIndex = 30
         Me.lblStatus3.Text = "lblStatus3"
         '
-        'FlowLayoutPanel1
+        'btnClose
         '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.SystemColors.Window
-        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect1)
-        Me.FlowLayoutPanel1.Controls.Add(Me.cbxSelect2)
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(422, 47)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(175, 50)
-        Me.FlowLayoutPanel1.TabIndex = 32
-        '
-        'cbxSelect1
-        '
-        Me.cbxSelect1.AutoSize = True
-        Me.cbxSelect1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxSelect1.Location = New System.Drawing.Point(3, 1)
-        Me.cbxSelect1.Margin = New System.Windows.Forms.Padding(3, 1, 3, 2)
-        Me.cbxSelect1.Name = "cbxSelect1"
-        Me.cbxSelect1.Size = New System.Drawing.Size(154, 20)
-        Me.cbxSelect1.TabIndex = 0
-        Me.cbxSelect1.Text = "Min Angle (1.85msec)"
-        Me.cbxSelect1.UseVisualStyleBackColor = True
-        '
-        'cbxSelect2
-        '
-        Me.cbxSelect2.AutoSize = True
-        Me.cbxSelect2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxSelect2.Location = New System.Drawing.Point(3, 28)
-        Me.cbxSelect2.Margin = New System.Windows.Forms.Padding(3, 5, 3, 3)
-        Me.cbxSelect2.Name = "cbxSelect2"
-        Me.cbxSelect2.Size = New System.Drawing.Size(172, 20)
-        Me.cbxSelect2.TabIndex = 1
-        Me.cbxSelect2.Text = "Max Angle (>=6.02msec)"
-        Me.cbxSelect2.UseVisualStyleBackColor = True
+        Me.btnClose.Location = New System.Drawing.Point(865, 60)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 117
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
         '
         'frmOnStateSupplyCurrent
         '
@@ -457,6 +467,7 @@ Partial Class frmOnStateSupplyCurrent
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(964, 980)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblStatus3)
         Me.Controls.Add(Me.lblStatus2)
         Me.Controls.Add(Me.lblStatus1)
@@ -476,10 +487,10 @@ Partial Class frmOnStateSupplyCurrent
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -521,4 +532,5 @@ Partial Class frmOnStateSupplyCurrent
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
     Friend WithEvents cbxSelect1 As CheckBox
     Friend WithEvents cbxSelect2 As CheckBox
+    Friend WithEvents btnClose As Button
 End Class

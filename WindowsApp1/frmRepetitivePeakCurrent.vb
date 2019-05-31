@@ -34,6 +34,7 @@ Public Class frmRepetitivePeakCurrent
 
         'clear measurement entry 
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         If cbxRepPeakCurrent.Checked = True Then
 
@@ -75,7 +76,7 @@ Public Class frmRepetitivePeakCurrent
         tbxRepetitivePeakCurrent.Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "Amps" & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
 
     End Sub
@@ -107,6 +108,13 @@ Public Class frmRepetitivePeakCurrent
         tbxRepetitivePeakCurrentTime.Text = intDuration + 1
 
         tbxRepetitivePeakCurrentTime.Text = gblGetTime(intDuration)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
     End Sub
 
     'Public Function gblGetTime(Time As Integer) As String

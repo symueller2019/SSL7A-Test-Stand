@@ -53,6 +53,7 @@ Partial Class frmInRush
         Me.tbxWatt = New System.Windows.Forms.TextBox()
         Me.lblStatus0 = New System.Windows.Forms.Label()
         Me.lblStatus1 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.pbxInRushCurrentText2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbxInRushCurrentText1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -371,12 +372,22 @@ Partial Class frmInRush
         Me.lblStatus1.TabIndex = 19
         Me.lblStatus1.Text = "lblStatus1"
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(869, 105)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 113
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmInRush
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(948, 762)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblStatus1)
         Me.Controls.Add(Me.lblStatus0)
         Me.Controls.Add(Me.GroupBox2)
@@ -431,4 +442,5 @@ Partial Class frmInRush
     Friend WithEvents tbxWatt As TextBox
     Friend WithEvents lblStatus0 As Label
     Friend WithEvents lblStatus1 As Label
+    Friend WithEvents btnClose As Button
 End Class

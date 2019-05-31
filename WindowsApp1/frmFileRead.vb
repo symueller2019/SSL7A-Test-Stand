@@ -24,7 +24,7 @@ Public Class frmFileRead
 
         'Give warning that if no Test filename entered, one is generated
         If tbxTestResultFilename.Text = "" Then
-            MsgBox("Enter filename")
+            MsgBox("Enter Test Result Filename")
             Return
         End If
 
@@ -213,7 +213,7 @@ Public Class frmFileRead
 
         'clear out text from display textbox if doing repetitive reads
         tbxOVLDLPF_ResRelays.Text = ""
-        tbxMinLPF_CapRelays.Text = ""
+        tbxOVLDLPF_CapRelays.Text = ""
 
         myreader = My.Computer.FileSystem.OpenTextFileReader(FileLoc_OVLDWattsToRelayLPFRes)
         For x = 0 To Index                  'Index to line
@@ -260,6 +260,9 @@ Public Class frmFileRead
         MainForm1.btnOnStateDmrSupplyCurrent.Enabled = True
         MainForm1.btnMinOnConAngle.Enabled = True
 
+        'Enable user to see Close button now
+        btnClose.Enabled = True
+
     End Sub
 
     Private Sub frmFileRead_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -287,6 +290,9 @@ Public Class frmFileRead
         '****************************************
 
         lblDefaultDir.Text = "Default Dir:" & " " & strTest_File_DirectoryLocation
+
+        'keep "Close" button hidden until user selects test data
+        btnClose.Enabled = False
 
     End Sub
 
@@ -360,6 +366,15 @@ Public Class frmFileRead
 
     End Sub
 
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        'frmFileRead_Closing(sender, e)
+        blnFormHold = False     'allow parameters on MainForm to be updated with parameters from frm FileRead
+        GC.Collect()            'collect garbage - release system memory
+
+        'Reset "DONE" indication of test buttons on Main form
+        MainForm1.btnStabilityTests.BackColor = SystemColors.Control
+        Close()             'this closes the form
+    End Sub
 End Class
 
 

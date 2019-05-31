@@ -412,4 +412,10 @@ Public Class frmOnStateSupplyCurrent
         Disconnect_Relays_Bd1_2_3()
     End Sub
 
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
+    End Sub
 End Class

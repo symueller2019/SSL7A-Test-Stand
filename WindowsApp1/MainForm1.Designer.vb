@@ -105,9 +105,9 @@ Partial Class MainForm1
         '
         'btnStabilityTests
         '
-        Me.btnStabilityTests.Location = New System.Drawing.Point(42, 82)
+        Me.btnStabilityTests.Location = New System.Drawing.Point(42, 81)
         Me.btnStabilityTests.Name = "btnStabilityTests"
-        Me.btnStabilityTests.Size = New System.Drawing.Size(130, 21)
+        Me.btnStabilityTests.Size = New System.Drawing.Size(130, 22)
         Me.btnStabilityTests.TabIndex = 2
         Me.btnStabilityTests.Text = "Stability Tests"
         Me.btnStabilityTests.UseVisualStyleBackColor = True

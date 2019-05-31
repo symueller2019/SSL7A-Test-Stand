@@ -40,6 +40,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear out previous value
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Disable other controls
             cbxRatedLoad_MinAngle.Enabled = False
@@ -68,6 +69,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Restore other controls
             cbxRatedLoad_MinAngle.Enabled = True
@@ -89,6 +91,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear out previous value
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
@@ -114,6 +117,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -135,6 +139,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear out previous value
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Disable other controls
             cbxMinLoad_MinAngle.Enabled = False
@@ -160,6 +165,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -177,6 +183,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear out previous value
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'do not show until test result done
             s_index = 3                           'associate the label to this test
@@ -205,6 +212,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'Restore other controls
             cbxMinLoad_MinAngle.Enabled = True
@@ -348,8 +356,17 @@ Public Class frmMax_MinOnStateConAngle
 
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
-        'FileWriteNoCrLf(lblResultDsply.Text.PadRight(5))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "Msec" & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()
+        'turn off dimmer power
+
+        'Open all Res & Cap Relays
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
     End Sub
 End Class

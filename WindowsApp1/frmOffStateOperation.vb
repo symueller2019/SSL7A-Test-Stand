@@ -80,6 +80,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
             'display result in Group box
             'Determine Pass/Fail status
@@ -135,6 +136,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
         End If
     End Sub
@@ -183,6 +185,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
         End If
     End Sub
@@ -230,6 +233,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
         End If
     End Sub
@@ -277,6 +281,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
         End If
     End Sub
@@ -325,6 +330,7 @@ Public Class frmOffStateOperation
 
             'clear Measurement Entry
             tbxMeasurementEntry.Text = ""
+            tbxComment.Text = ""
 
         End If
     End Sub
@@ -395,8 +401,8 @@ Public Class frmOffStateOperation
         End If
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
-        FileWrite(tbxComment.Text)
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "mA" & "," & lblResultDsply.Text.PadRight(6))
+        FileWrite("," & tbxComment.Text)
 
     End Sub
 
@@ -449,4 +455,10 @@ Public Class frmOffStateOperation
         End Select
     End Sub
 
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
+    End Sub
 End Class

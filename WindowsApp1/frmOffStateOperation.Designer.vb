@@ -62,6 +62,7 @@ Partial Class frmOffStateOperation
         Me.lblStatus3 = New System.Windows.Forms.Label()
         Me.lblStatus4 = New System.Windows.Forms.Label()
         Me.lblStatus5 = New System.Windows.Forms.Label()
+        Me.btnClose = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.pbxImage1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -459,12 +460,22 @@ Partial Class frmOffStateOperation
         Me.lblStatus5.TabIndex = 29
         Me.lblStatus5.Text = "lblStatus5"
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(886, 80)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 116
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmOffStateOperation
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(990, 970)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblStatus5)
         Me.Controls.Add(Me.lblStatus4)
         Me.Controls.Add(Me.lblStatus3)
@@ -535,4 +546,5 @@ Partial Class frmOffStateOperation
     Friend WithEvents lblStatus3 As Label
     Friend WithEvents lblStatus4 As Label
     Friend WithEvents lblStatus5 As Label
+    Friend WithEvents btnClose As Button
 End Class

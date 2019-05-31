@@ -36,6 +36,7 @@ Public Class frmRepetitivePeakVoltage
 
         'clear measurement entry 
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         If cbxRepPeakVoltage.Checked = True Then
 
@@ -111,7 +112,16 @@ Public Class frmRepetitivePeakVoltage
         End If
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "Vpk" & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'empty the garbage
+
+        'Open all Res & Cap Relays
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
     End Sub
 End Class

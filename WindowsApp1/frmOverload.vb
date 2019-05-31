@@ -34,8 +34,9 @@ Public Class frmOverload
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
 
-        'clear the measurement entry box
+        'clear the measurement entry box & Comment box
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         'do not show until test result done
         s_index = 0                           'associate the label to this test
@@ -67,8 +68,9 @@ Public Class frmOverload
         'Open Relays & Reset Saved Port Masks
         Disconnect_Relays_Bd1_2_3()
 
-        'clear the measurement entry box
+        'clear the measurement entry box & Comment box
         tbxMeasurementEntry.Text = ""
+        tbxComment.Text = ""
 
         'do not show until test result done
         s_index = 1                           'associate the label to this test
@@ -133,7 +135,14 @@ Public Class frmOverload
         StatusDsplyArray(s_index).Text = tbxMeasurementEntry.Text     'display result status near select button - save test status
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "Amps" & "," & lblResultDsply.Text.PadRight(6))
         FileWrite(tbxComment.Text)
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
+        Disconnect_Relays_Bd1_2_3()
+        Close()
+
     End Sub
 End Class

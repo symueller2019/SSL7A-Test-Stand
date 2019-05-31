@@ -58,6 +58,7 @@ Partial Class frmMax_MinOnStateConAngle
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.pbxMaxMinOnStateConductionAngle, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -417,12 +418,22 @@ Partial Class frmMax_MinOnStateConAngle
         Me.Panel1.Size = New System.Drawing.Size(761, 293)
         Me.Panel1.TabIndex = 23
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(859, 42)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 115
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmMax_MinOnStateConAngle
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(963, 810)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -484,4 +495,5 @@ Partial Class frmMax_MinOnStateConAngle
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents btnClose As Button
 End Class

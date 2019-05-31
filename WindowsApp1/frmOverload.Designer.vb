@@ -53,6 +53,7 @@ Partial Class frmOverload
         Me.tbxCap = New System.Windows.Forms.TextBox()
         Me.tbxRes = New System.Windows.Forms.TextBox()
         Me.tbxWatt = New System.Windows.Forms.TextBox()
+        Me.btnClose = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -357,12 +358,22 @@ Partial Class frmOverload
         Me.tbxWatt.Size = New System.Drawing.Size(130, 20)
         Me.tbxWatt.TabIndex = 0
         '
+        'btnClose
+        '
+        Me.btnClose.Location = New System.Drawing.Point(994, 40)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(54, 30)
+        Me.btnClose.TabIndex = 114
+        Me.btnClose.Text = "Close"
+        Me.btnClose.UseVisualStyleBackColor = True
+        '
         'frmOverload
         '
         Me.AcceptButton = Me.btnEnter
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1083, 679)
+        Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.cbx90DegCondAngle)
         Me.Controls.Add(Me.cbxMaxCondAngle)
@@ -414,4 +425,5 @@ Partial Class frmOverload
     Friend WithEvents tbxCap As TextBox
     Friend WithEvents tbxRes As TextBox
     Friend WithEvents tbxWatt As TextBox
+    Friend WithEvents btnClose As Button
 End Class

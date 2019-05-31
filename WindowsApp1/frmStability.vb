@@ -29,9 +29,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Min Watts"
-        lblRes.Text = "Min LPF Res"
-        lblCap.Text = "Min LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = MinWattageSelection(MinIndex)
         tbxRes.Text = MinLPF_Res(MinIndex)
@@ -74,9 +74,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Min Watts"
-        lblRes.Text = "Min LPF Res"
-        lblCap.Text = "Min LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = MinWattageSelection(MinIndex)
         tbxRes.Text = MinLPF_Res(MinIndex)
@@ -119,8 +119,8 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Min Watts"
-        lblRes.Text = "Min LPF Res"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min HPF Res (Ohms)"
         lblCap.Text = ""
         'update textbox values
         tbxWatt.Text = MinWattageSelection(MinIndex)
@@ -164,9 +164,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Min Watts"
-        lblRes.Text = "Min LPF Res"
-        lblCap.Text = "Min LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = ""
         'update textbox values
         tbxWatt.Text = MinWattageSelection(MinIndex)
         tbxRes.Text = MinHPF_Res(MinIndex)
@@ -208,9 +208,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -253,9 +253,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -298,9 +298,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -343,9 +343,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -389,9 +389,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -434,9 +434,9 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "LPF Res"
-        lblCap.Text = "LPF Cap"
+        lblWatt.Text = "Min Watts (W)"
+        lblRes.Text = "Min LPF Res" & " (Ohms)"
+        lblCap.Text = "Min LPF Cap" & " (uF)"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
         tbxRes.Text = LPF_Res(Index)
@@ -479,8 +479,8 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "HPF Res"
+        lblWatt.Text = "Watts (W)"
+        lblRes.Text = "HPF Res (Ohms)"
         lblCap.Text = ""        '"LPF Cap"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
@@ -524,8 +524,8 @@ Public Class frmStability
 
         'update labels & textboxes with load & relay info
         'assign titles to labels
-        lblWatt.Text = "Watts"
-        lblRes.Text = "HPF Res"
+        lblWatt.Text = "Watts (W)"
+        lblRes.Text = "HPF Res (Ohms)"
         lblCap.Text = ""        '"HPF Cap"
         'update textbox values
         tbxWatt.Text = WattageSelection(Index)
@@ -584,8 +584,9 @@ Public Class frmStability
         End If
 
         FileWriteNoCrLf(lblTestDescription.Text.PadRight(55) & ",")
-        FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "," & lblResultDsply.Text.PadRight(6))
-        FileWrite(tbxComment.Text)
+        'FileWriteNoCrLf(tbxMeasurementEntry.Text.PadRight(6) & "Usec" & "," & lblResultDsply.Text.PadRight(6))
+        FileWriteNoCrLf(tbxMeasurementEntry.Text & " Usec" & "," & lblResultDsply.Text.PadRight(6))
+        FileWrite("," & tbxComment.Text)
 
     End Sub
 
@@ -636,5 +637,11 @@ Public Class frmStability
     Private Sub btnTestComplete_Click(sender As Object, e As EventArgs) Handles btnTestComplete.Click
         'flag user done with this test
         MainForm1.btnStabilityTests.BackColor = Color.LightCyan
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnClose.Click
+        GC.Collect()            'collect garbage - release system memory
+        Disconnect_Relays_Bd1_2_3()
+        Close()
     End Sub
 End Class
