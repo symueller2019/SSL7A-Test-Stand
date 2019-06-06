@@ -61,6 +61,8 @@ Partial Class frmOnStateSupplyCurrent
         Me.lblStatus2 = New System.Windows.Forms.Label()
         Me.lblStatus3 = New System.Windows.Forms.Label()
         Me.btnClose = New System.Windows.Forms.Button()
+        Me.btnTest = New System.Windows.Forms.Button()
+        Me.lblUserGuide = New System.Windows.Forms.Label()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -454,12 +456,33 @@ Partial Class frmOnStateSupplyCurrent
         '
         'btnClose
         '
-        Me.btnClose.Location = New System.Drawing.Point(865, 60)
+        Me.btnClose.Location = New System.Drawing.Point(876, 24)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(54, 30)
         Me.btnClose.TabIndex = 117
         Me.btnClose.Text = "Close"
         Me.btnClose.UseVisualStyleBackColor = True
+        '
+        'btnTest
+        '
+        Me.btnTest.Location = New System.Drawing.Point(678, 141)
+        Me.btnTest.Name = "btnTest"
+        Me.btnTest.Size = New System.Drawing.Size(123, 34)
+        Me.btnTest.TabIndex = 118
+        Me.btnTest.Text = "Test"
+        Me.btnTest.UseVisualStyleBackColor = True
+        '
+        'lblUserGuide
+        '
+        Me.lblUserGuide.AutoSize = True
+        Me.lblUserGuide.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserGuide.Location = New System.Drawing.Point(574, 60)
+        Me.lblUserGuide.MinimumSize = New System.Drawing.Size(300, 40)
+        Me.lblUserGuide.Name = "lblUserGuide"
+        Me.lblUserGuide.Size = New System.Drawing.Size(300, 40)
+        Me.lblUserGuide.TabIndex = 119
+        Me.lblUserGuide.Text = "Label1"
+        Me.lblUserGuide.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmOnStateSupplyCurrent
         '
@@ -467,6 +490,8 @@ Partial Class frmOnStateSupplyCurrent
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(964, 980)
+        Me.Controls.Add(Me.lblUserGuide)
+        Me.Controls.Add(Me.btnTest)
         Me.Controls.Add(Me.btnClose)
         Me.Controls.Add(Me.lblStatus3)
         Me.Controls.Add(Me.lblStatus2)
@@ -533,4 +558,6 @@ Partial Class frmOnStateSupplyCurrent
     Friend WithEvents cbxSelect1 As CheckBox
     Friend WithEvents cbxSelect2 As CheckBox
     Friend WithEvents btnClose As Button
+    Friend WithEvents btnTest As Button
+    Friend WithEvents lblUserGuide As Label
 End Class

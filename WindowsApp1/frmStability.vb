@@ -50,6 +50,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(MinLPF_ResRelays)      'Resistor relays
         Close_Relays(MinLPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -95,6 +96,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(MinLPF_ResRelays)      'Resistor relays
         Close_Relays(MinLPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -136,7 +138,7 @@ Public Class frmStability
 
         'close Relays
         Close_Relays(MinHPF_ResRelays)      'Resistor relays
-        'Close_Relays(MinLPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
         'Display_Relays(MinLPF_CapRelays, textline)
         tbxCapRly.Text = ""
@@ -181,6 +183,7 @@ Public Class frmStability
 
         'close Relays
         Close_Relays(MinHPF_ResRelays)      'Resistor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
         'Display_Relays(MinLPF_CapRelays, textline)
         tbxCapRly.Text = ""
@@ -229,6 +232,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -274,6 +278,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -319,6 +324,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -364,6 +370,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -410,6 +417,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -455,6 +463,7 @@ Public Class frmStability
         'close Relays
         Close_Relays(LPF_ResRelays)      'Resistor relays
         Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -499,7 +508,7 @@ Public Class frmStability
 
         'close Relays
         Close_Relays(HPF_ResRelays)      'Resistor relays
-        'Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 
@@ -544,7 +553,7 @@ Public Class frmStability
 
         'close Relays
         Close_Relays(HPF_ResRelays)      'Resistor relays
-        'Close_Relays(LPF_CapRelays)      'Capacitor relays
+        Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
     End Sub
 

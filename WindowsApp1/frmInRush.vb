@@ -59,6 +59,7 @@ Public Class frmInRush
             'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
         Else
             'disconnect loads & power
@@ -92,6 +93,7 @@ Public Class frmInRush
             'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
         Else
             'disconnect loads & power

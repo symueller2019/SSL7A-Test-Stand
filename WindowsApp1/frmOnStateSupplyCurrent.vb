@@ -33,6 +33,10 @@ Public Class frmOnStateSupplyCurrent
             StatusArray(s_index).Visible = False
         Next
 
+        'hide Test button & User Guide until test load selected
+        btnTest.Visible = False
+        lblUserGuide.Visible = False
+
     End Sub
 
     Private Sub frmOnStateSupplyCurrent_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
@@ -67,6 +71,12 @@ Public Class frmOnStateSupplyCurrent
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
+            Close_Relays(ShuntRelay)    'Shunt - bypass dimmer
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
+
+
+            'Inform user of Peak Current Adjustment and Press Test button when ready
+            UserMessageDisplay(intTestNum)
 
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
@@ -88,6 +98,11 @@ Public Class frmOnStateSupplyCurrent
             cbxSelect2.Checked = False
             'force user to select another test before checking measurement result
             s_index = 4
+
+            'hide Test button & User Guide until test load selected
+            btnTest.Visible = False
+            lblUserGuide.Visible = False
+
         End If
     End Sub
 
@@ -116,6 +131,12 @@ Public Class frmOnStateSupplyCurrent
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
+            Close_Relays(ShuntRelay)    'Shunt - bypass dimmer
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
+
+
+            'Inform user of Peak Current Adjustment and Press Test button when ready
+            UserMessageDisplay(intTestNum)
 
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
@@ -137,6 +158,11 @@ Public Class frmOnStateSupplyCurrent
             cbxSelect2.Checked = False
             'force user to select another test before checking measurement result
             s_index = 4
+
+            'hide Test button & User Guide until test load selected
+            btnTest.Visible = False
+            lblUserGuide.Visible = False
+
         End If
     End Sub
 
@@ -165,6 +191,11 @@ Public Class frmOnStateSupplyCurrent
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
+            Close_Relays(ShuntRelay)    'Shunt - bypass dimmer
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
+
+            'Inform user of Peak Current Adjustment and Press Test button when ready
+            UserMessageDisplay(intTestNum)
 
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
@@ -185,6 +216,11 @@ Public Class frmOnStateSupplyCurrent
             cbxSelect2.Checked = False
             'force user to select another test before checking measurement result
             s_index = 4
+
+            'hide Test button & User Guide until test load selected
+            btnTest.Visible = False
+            lblUserGuide.Visible = False
+
         End If
     End Sub
 
@@ -212,15 +248,23 @@ Public Class frmOnStateSupplyCurrent
             GetRelaysFromFile(FileLoc_ON_State_Relays, RelayList, strLine, intTestNum)
 
             'close Relays - connect loads & power
-            Close_Relays(RelayList)      'Resistor relays
+            Close_Relays(RelayList)         'Resistor relays
+            Close_Relays(ShuntRelay)        'Shunt - bypass dimmer
+            Close_Relays(PwrRelay)          'Enable AC power to dimmer
+
+            'Inform user of Peak Current Adjustment and Press Test button when ready
+            UserMessageDisplay(intTestNum)
 
             'Display load/Relay info
             DisplayLoad(RelayList, strLine)
+
+
 
             ''Test is done with HPF Minimum load - close Relays
             'Close_Relays(MinHPF_ResRelays)      'Resistor relays
             ''Display
             'DisplayHPFLoad(intTestNum)
+
 
         Else
             'Restore other controls
@@ -233,6 +277,10 @@ Public Class frmOnStateSupplyCurrent
             cbxSelect2.Checked = False
             'force user to select another test before checking measurement result
             s_index = 4
+
+            'hide Test button & User Guide until test load selected
+            btnTest.Visible = False
+            lblUserGuide.Visible = False
         End If
     End Sub
 
@@ -416,6 +464,46 @@ Public Class frmOnStateSupplyCurrent
         GC.Collect()        'executed when user presses the 'X' in the top right corner to close form
         Disconnect_Relays_Bd1_2_3()
         Close()
+
+    End Sub
+
+    Private Sub UserMessageDisplay(ByRef intTestNum As Integer)
+
+        'setup peak current to display for user
+        Dim strPkCurrent As String
+        Select Case intTestNum
+            Case 1
+                strPkCurrent = "100mA"
+            Case 2
+                strPkCurrent = "50mA"
+            Case 3
+                strPkCurrent = "40mA"
+            Case Else
+                strPkCurrent = "30mA"
+        End Select
+        'display button with text instructing user to adjust R2 peak current
+        'display peak current to adjust to
+        lblUserGuide.Text = "Dimmer is Shunted, the HPF load connected" _
+                & vbCrLf & "Adjust R2 for peak current of " & strPkCurrent _
+                & vbCrLf & "* Press Test button when done *"
+
+        'Unhide Test button & User Guide text
+        btnTest.Visible = True
+        lblUserGuide.Visible = True
+    End Sub
+
+    Private Sub btnTest_Click(sender As Object, e As EventArgs) Handles btnTest.Click
+        'User has adjusted the peak current for the selected load
+        'Remove the shunt and connect the dimmer to the load
+        'user will verify dimmer operation and check min & max dimmer levels
+
+        Open_Relays(ShuntRelay)         'remove Shunt
+
+        'display peak current to adjust to
+        lblUserGuide.Text = "Dimmer is connected" _
+                & vbCrLf & "Verify Operation, Min & Max levels "
+
+        btnTest.Visible = False
 
     End Sub
 End Class

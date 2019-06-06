@@ -1,7 +1,0 @@
-OFF_State_Relays:
-10ohm,2,30
-40ohm,3,31
-400ohm,4,32
-3Kohm,5,33
-8Kohm,6,34
-15Kohm,7,35

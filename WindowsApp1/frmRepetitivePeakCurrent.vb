@@ -50,6 +50,7 @@ Public Class frmRepetitivePeakCurrent
             'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
             Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)              'Enable AC power to dimmer
 
         Else
             Timer1.Enabled = False

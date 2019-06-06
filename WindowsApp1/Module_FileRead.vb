@@ -63,6 +63,9 @@
     Public Bd0_PortCLSave As UInt16 = 15 : Public Bd0_PortCHSave As UInt16 = 15
     Public Bd1_PortCLSave As UInt16 = 15 : Public Bd1_PortCHSave As UInt16 = 15
     Public Bd2_PortCLSave As UInt16 = 15 : Public Bd2_PortCHSave As UInt16 = 15
+    'Equates for Load - Relay Control
+    Public ShuntRelay As String() = {"Used To Shunt Dimmer", 2}
+    Public PwrRelay As String() = {"Main AC disconnect for DUT", 1}
 
 
 
@@ -245,6 +248,37 @@
                 End If
             End If
 
+        Next
+    End Sub
+
+
+    Public Sub Open_Relays(ByRef RelayArray() As String)
+        Dim DataValue As UInt16
+        Dim RelayAdd As UInt16
+
+        For x = 1 To RelayArray.Length - 1
+
+            DataValue = RelayArray(x)       'read relay number
+            If (DataValue < 25) Then
+                'board #1
+                If (DataValue < 9) Then
+                    RelayAdd = (2 ^ (DataValue - 1))            'convert Relay # to I/O address
+                    Bd0_PortASave = Bd0_PortASave Or RelayAdd  'update Port Image register
+                    PortATest(Bd0_PortASave)                    'output updated port status
+                ElseIf (DataValue < 17) Then
+                    RelayAdd = (2 ^ (DataValue - 9))            'convert Relay # to I/O address
+                    Bd0_PortBSave = Bd0_PortBSave And RelayAdd  'update Port Image register
+                    PortBTest(Bd0_PortBSave)                    'output updated port status
+                ElseIf (DataValue < 21) Then
+                    RelayAdd = (2 ^ (DataValue - 17))           'convert Relay # to I/O address
+                    Bd0_PortCLSave = Bd0_PortCLSave And RelayAdd 'update Port Image register
+                    PortCLTest(Bd0_PortCLSave)                 'output updated port status
+                Else
+                    RelayAdd = (2 ^ (DataValue - 21))           'convert Relay # to I/O address
+                    Bd0_PortCHSave = Bd0_PortCHSave And RelayAdd 'update Port Image register
+                    PortCHTest(Bd0_PortCHSave)                 'output updated port status
+                End If
+            End If
         Next
     End Sub
 

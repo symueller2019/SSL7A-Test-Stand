@@ -86,6 +86,8 @@ Module Module1
     End Sub
 
     Public Sub DaqSetup()
+        'Return
+
         'Dim PortName As String
         'Dim FirstBit As Integer
         Dim ULStat As MccDaq.ErrorInfo
@@ -170,40 +172,40 @@ Module Module1
 
 
 
-        '*** DAQBoard2 ***
-        ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortA, MccDaq.DigitalPortDirection.DigitalOut)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        PortANum2 = MccDaq.DigitalPortType.FirstPortA
+        ''*** DAQBoard2 ***
+        'ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortA, MccDaq.DigitalPortDirection.DigitalOut)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        'PortANum2 = MccDaq.DigitalPortType.FirstPortA
 
-        ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortB, direction:=MccDaq.DigitalPortDirection.DigitalOut)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        PortBNum2 = MccDaq.DigitalPortType.FirstPortB
+        'ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortB, direction:=MccDaq.DigitalPortDirection.DigitalOut)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        'PortBNum2 = MccDaq.DigitalPortType.FirstPortB
 
-        ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortCL, MccDaq.DigitalPortDirection.DigitalOut)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        PortCLNum2 = MccDaq.DigitalPortType.FirstPortCL
+        'ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortCL, MccDaq.DigitalPortDirection.DigitalOut)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        'PortCLNum2 = MccDaq.DigitalPortType.FirstPortCL
 
-        ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortCH, MccDaq.DigitalPortDirection.DigitalOut)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        PortCHNum2 = MccDaq.DigitalPortType.FirstPortCH
+        'ULStat = DaqBoard2.DConfigPort(MccDaq.DigitalPortType.FirstPortCH, MccDaq.DigitalPortDirection.DigitalOut)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        'PortCHNum2 = MccDaq.DigitalPortType.FirstPortCH
 
-        'Turn off Outputs
-        DataValue = 255
+        ''Turn off Outputs
+        'DataValue = 255
 
-        'PortATest
-        ULStat = DaqBoard2.DOut(PortANum1, DataValue)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        ''PortATest
+        'ULStat = DaqBoard2.DOut(PortANum1, DataValue)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
 
-        'PortBTest()
-        ULStat = DaqBoard2.DOut(PortBNum1, DataValue)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        ''PortBTest()
+        'ULStat = DaqBoard2.DOut(PortBNum1, DataValue)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
 
-        'Turn off PortC low & high Outputs
-        DataValue = 15
-        ULStat = DaqBoard2.DOut(PortCLNum1, DataValue)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
-        ULStat = DaqBoard2.DOut(PortCHNum1, DataValue)
-        If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        ''Turn off PortC low & high Outputs
+        'DataValue = 15
+        'ULStat = DaqBoard2.DOut(PortCLNum1, DataValue)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
+        'ULStat = DaqBoard2.DOut(PortCHNum1, DataValue)
+        'If ULStat.Value <> MccDaq.ErrorInfo.ErrorCode.NoErrors Then Stop
 
     End Sub
 
@@ -240,50 +242,67 @@ Module Module1
 
     'Board 0 Output Subroutines
     Public Sub PortATest(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard.DOut(PortANum, DataValue)
     End Sub
 
     Public Sub PortBTest(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard.DOut(PortBNum, DataValue)
     End Sub
 
     Public Sub PortCLTest(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard.DOut(PortCLNum, DataValue)
     End Sub
 
     Public Sub PortCHTest(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard.DOut(PortCHNum, DataValue)
     End Sub
 
 
+
     'Board 1 Output Subroutines
     Public Sub PortATest1(ByVal DataValue1)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard1.DOut(PortANum1, DataValue1)
     End Sub
 
     Public Sub PortBTest1(ByVal DataValue1)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard1.DOut(PortBNum1, DataValue1)
     End Sub
 
     Public Sub PortCLTest1(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard1.DOut(PortCLNum1, DataValue)
     End Sub
 
     Public Sub PortCHTest1(ByVal DataValue)
+        'Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard1.DOut(PortCHNum1, DataValue)
@@ -293,30 +312,40 @@ Module Module1
 
     'Board 2 Output Subroutines
     Public Sub PortATest2(ByVal DataValue1)
+        Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard2.DOut(PortANum2, DataValue1)
     End Sub
 
     Public Sub PortBTest2(ByVal DataValue)
+        Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard2.DOut(PortBNum2, DataValue)
     End Sub
 
     Public Sub PortCLTest2(ByVal DataValue)
+        Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard2.DOut(PortCLNum2, DataValue)
     End Sub
 
     Public Sub PortCHTest2(ByVal DataValue)
+        Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard2.DOut(PortCHNum2, DataValue)
     End Sub
 
     Public Sub PortCTest2(ByVal DataValue)
+        Return
+
         Dim ULStat As MccDaq.ErrorInfo
 
         ULStat = DaqBoard2.DOut(PortCNum2, DataValue)

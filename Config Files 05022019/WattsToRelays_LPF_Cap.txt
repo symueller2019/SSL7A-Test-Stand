@@ -1,6 +1,0 @@
-WattsToRelays_LPF_Cap:
-50W,20
-100W,21
-150W,22
-200W,23
-250W,24

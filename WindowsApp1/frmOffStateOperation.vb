@@ -64,7 +64,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
 
         Else
@@ -124,7 +124,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
         Else
             'Restore other controls
@@ -172,8 +172,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
-
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
         Else
             'Restore other controls
@@ -221,7 +220,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
         Else
             'Restore other controls
@@ -269,7 +268,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
         Else
             'Restore other controls
@@ -317,8 +316,7 @@ Public Class frmOffStateOperation
 
             'close Relays - connect loads & power
             Close_Relays(RelayList)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
-
+            Close_Relays(PwrRelay)      'Enable AC power to dimmer
 
         Else
             'Restore other controls

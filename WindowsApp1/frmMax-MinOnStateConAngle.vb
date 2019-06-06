@@ -61,7 +61,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'close Relays - connect loads & power
             Close_Relays(MinHPF_ResRelays)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)          'Enable AC power to dimmer
 
         Else
             'keep entered value
@@ -108,7 +108,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'close Relays - connect loads & power
             Close_Relays(LPF_ResRelays)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)          'Enable AC power to dimmer
 
         Else
             'keep entered value
@@ -156,7 +156,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'close Relays - connect loads & power
             Close_Relays(MinHPF_ResRelays)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)          'Enable AC power to dimmer
 
         Else
             'keep entered value
@@ -204,7 +204,7 @@ Public Class frmMax_MinOnStateConAngle
 
             'close Relays - disconnect loads & power
             Close_Relays(HPF_ResRelays)      'Resistor relays
-            'Close_Relays(LPF_CapRelays)      'Capacitor relays
+            Close_Relays(PwrRelay)          'Enable AC power to dimmer
 
         Else
             'keep entered value
